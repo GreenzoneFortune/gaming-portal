@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GreenZone Online Casino</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="#top"><img src="image/greenzone-logo.jpg" alt="GreenZone Online Casino logo"><span>Green<span>Zone</span></span></a>
+  <nav><a href="#games">Games</a><a href="#notice">Notice</a><a href="#contact">Contact</a><a href="#complaint">Complaint</a></nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div>
+    <div class="eyebrow">GREENZONE ONLINE CASINO</div>
+    <h1>Your Game.<br><span>Your Zone.</span></h1>
+    <p>Find your preferred gaming platform, see upcoming promotions, and contact GreenZone support from one simple portal.</p>
+    <div class="actions"><a class="btn primary" href="#games">Explore Games</a><a class="btn ghost" href="#contact">Text Me Here</a></div>
+    <p class="legal">18+ only. Gaming and gambling laws vary by location. This website is an informational front-end and does not itself process wagers, deposits, withdrawals, or payment credentials.</p>
+  </div>
+  <div class="logo-panel"><img src="image/greenzone-logo.jpg" alt="GreenZone logo"></div>
+</section>
+
+<section class="ticker"><div><b>NOTICE</b><span id="noticeTicker">Welcome to GreenZone — check the notice board for upcoming events and promotions.</span></div></section>
+
+<section id="notice" class="section">
+  <div class="section-head"><div><div class="eyebrow">GREENZONE NOTICE BOARD</div><h2>What's <span>coming up?</span></h2></div></div>
+  <div class="notice-grid">
+    <article class="notice-card featured">
+      <div class="tag">UPCOMING FREE PLAY</div>
+      <h3 id="freeTitle">Next Free Play</h3>
+      <p id="freeDate">Set the event date in script.js</p>
+      <div class="countdown" id="freeCountdown">00d 00h 00m 00s</div>
+      <small>Promotional schedule shown for information only.</small>
+    </article>
+    <article class="notice-card">
+      <div class="tag">LARGEST WIN</div>
+      <h3 id="winTitle">Next Largest Win Update</h3>
+      <p id="winDate">Set the event date in script.js</p>
+      <div class="countdown" id="winCountdown">00d 00h 00m 00s</div>
+      <small>Update the title/date in script.js when you announce the next event.</small>
+    </article>
+  </div>
+</section>
+
+<section id="games" class="section">
+  <div class="section-head"><div><div class="eyebrow">AVAILABLE PLATFORMS</div><h2>Choose your <span>game zone.</span></h2></div><input id="gameSearch" type="search" placeholder="Search games..." aria-label="Search games"></div>
+  <div id="gameGrid" class="grid"></div>
+</section>
+
+<section id="gateways" class="section">
+  <div class="section-head"><div><div class="eyebrow">SUPPORTED GATEWAYS</div><h2>Payment <span>options.</span></h2></div></div>
+  <div class="gateway-grid">
+    <div class="gateway"><b>Chime</b><small>Gateway option</small></div>
+    <div class="gateway"><b>PayPal</b><small>Gateway option</small></div>
+    <div class="gateway"><b>Cash App</b><small>Gateway option</small></div>
+    <div class="gateway"><b>Venmo</b><small>Gateway option</small></div>
+  </div>
+  <p class="small">Payment methods are listed for information only. Never enter passwords, PINs, card numbers, crypto keys, or payment credentials into this website.</p>
+</section>
+
+<section id="contact" class="section contact-section">
+  <div class="section-head"><div><div class="eyebrow">TEXT ME HERE</div><h2>Contact <span>GreenZone.</span></h2></div></div>
+  <div class="contact-grid">
+    <a class="contact-card" href="mailto:protechmain622@gmail.com"><b>Email</b><span>protechmain622@gmail.com</span></a>
+    <a class="contact-card" href="https://wa.me/13614198619" target="_blank" rel="noopener"><b>WhatsApp</b><span>+1 (361) 419-8619</span></a>
+    <a class="contact-card" href="https://t.me/+pG04xmeAyBtlNjQx" target="_blank" rel="noopener"><b>Telegram</b><span>Join GreenZone Telegram</span></a>
+  </div>
+</section>
+
+<section class="section form-section">
+  <div class="form-card">
+    <div class="eyebrow">PLAYER SUPPORT</div>
+    <h2>Send us a <span>message.</span></h2>
+    <p class="form-note">This form can send basic contact/support information to your Google Sheet through Google Apps Script. Do not collect payment credentials, passwords, PINs, or other sensitive financial information.</p>
+    <form id="playerForm">
+      <input type="hidden" name="type" value="player">
+      <div class="two"><label>Name<input name="name" required maxlength="80"></label><label>Phone / Contact<input name="contact" required maxlength="80"></label></div>
+      <div class="two"><label>Preferred Platform<select name="platform"><option value="">Select</option><option>FireKrin</option><option>HighStake</option><option>Mafia</option><option>Game Vault</option><option>Panda Masters</option><option>Orion Stars</option><option>Juwa</option><option>Juwa 2</option><option>Milky Way Galaxy</option><option>Ultra Panda</option><option>VB Link</option><option>Cash Machine</option><option>Gaming Room</option></select></label><label>Preferred Contact<select name="preferred"><option>Email</option><option>WhatsApp</option><option>Telegram</option></select></label></div>
+      <label>Message<textarea name="message" rows="4" maxlength="1000" required></textarea></label>
+      <label class="check"><input type="checkbox" required> I agree that GreenZone may use the information submitted here to respond to my request.</label>
+      <button class="btn primary" type="submit">Send Message</button><span id="formStatus" class="status"></span>
+    </form>
+  </div>
+</section>
+
+<section id="complaint" class="section form-section">
+  <div class="form-card">
+    <div class="eyebrow">PLAYER SUPPORT</div>
+    <h2>Complaint <span>box.</span></h2>
+    <p class="form-note">Describe the issue clearly. Please do not include passwords, payment PINs, full card numbers, or other financial credentials.</p>
+    <form id="complaintForm">
+      <input type="hidden" name="type" value="complaint">
+      <div class="two"><label>Name<input name="name" required maxlength="80"></label><label>Contact<input name="contact" required maxlength="80"></label></div>
+      <label>Complaint<textarea name="message" rows="6" maxlength="2000" required placeholder="Tell us what happened..."></textarea></label>
+      <button class="btn primary" type="submit">Submit Complaint</button><span id="complaintStatus" class="status"></span>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer><div class="brand"><img src="image/greenzone-logo.jpg" alt=""><span>Green<span>Zone</span></span></div><p>© <span id="year"></span> GreenZone Online Casino • 18+</p></footer>
+<script src="script.js"></script>
+</body>
+</html>
