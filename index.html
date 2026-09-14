@@ -1,108 +1,2037 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>GreenZone Online Casino</title>
-<link rel="stylesheet" href="style.css">
+
+<meta name="description"
+      content="GreenZone Online Casino — gaming platforms, daily wins, promotions and player support.">
+
+<style>
+/* =========================================================
+   GREENZONE CASINO
+   SINGLE FILE VERSION
+   ========================================================= */
+
+:root{
+    --green:#19e875;
+    --green-dark:#079b48;
+    --gold:#e7c66b;
+    --red:#e21c2a;
+    --black:#030605;
+    --dark:#07100b;
+    --dark2:#0b1710;
+    --panel:#0d1b13;
+    --panel2:#112219;
+    --line:rgba(255,255,255,.09);
+    --white:#f7fff9;
+    --muted:#8fa399;
+    --shadow:0 25px 80px rgba(0,0,0,.55);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(circle at 20% 0%,rgba(25,232,117,.12),transparent 30%),
+        radial-gradient(circle at 90% 20%,rgba(226,28,42,.08),transparent 25%),
+        var(--black);
+    color:var(--white);
+    font-family:Inter,Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+textarea,
+select{
+    font:inherit;
+}
+
+/* ================= NAVIGATION ================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    height:76px;
+    background:rgba(3,6,5,.88);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+    max-width:1250px;
+    height:100%;
+    margin:auto;
+    padding:0 24px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:-.7px;
+}
+
+.logo img{
+    width:43px;
+    height:43px;
+    object-fit:cover;
+    border-radius:10px;
+    background:white;
+}
+
+.logo span{
+    color:var(--green);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:27px;
+}
+
+.nav-links a{
+    color:#a1afa7;
+    font-size:13px;
+    font-weight:700;
+    transition:.2s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.nav-button{
+    padding:11px 17px;
+    border-radius:9px;
+    background:var(--green);
+    color:#031008!important;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    max-width:1250px;
+    min-height:720px;
+    margin:auto;
+    padding:90px 24px 70px;
+
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:70px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 12px;
+    border:1px solid rgba(25,232,117,.25);
+    border-radius:50px;
+
+    background:rgba(25,232,117,.07);
+    color:var(--green);
+
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.badge-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 15px var(--green);
+}
+
+.hero h1{
+    margin-top:22px;
+
+    font-size:clamp(60px,8vw,105px);
+    line-height:.86;
+    letter-spacing:-7px;
+    font-weight:950;
+}
+
+.hero h1 .green{
+    color:var(--green);
+}
+
+.hero h1 .gold{
+    color:var(--gold);
+}
+
+.hero-description{
+    max-width:620px;
+    margin-top:28px;
+
+    color:var(--muted);
+    font-size:17px;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:32px;
+}
+
+.btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:48px;
+    padding:0 20px;
+
+    border-radius:10px;
+    border:1px solid transparent;
+
+    cursor:pointer;
+    font-size:13px;
+    font-weight:900;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-green{
+    background:var(--green);
+    color:#031008;
+}
+
+.btn-dark{
+    background:#0b1510;
+    border-color:var(--line);
+}
+
+.hero-warning{
+    margin-top:24px;
+    color:#68766e;
+    font-size:10px;
+    line-height:1.6;
+}
+
+/* ================= HERO LOGO CARD ================= */
+
+.hero-visual{
+    position:relative;
+}
+
+.logo-card{
+    position:relative;
+    overflow:hidden;
+
+    border-radius:28px;
+    border:1px solid rgba(255,255,255,.1);
+
+    background:white;
+    box-shadow:var(--shadow);
+}
+
+.logo-card img{
+    display:block;
+    width:100%;
+    height:auto;
+}
+
+.logo-glow{
+    position:absolute;
+    width:250px;
+    height:250px;
+
+    right:-100px;
+    bottom:-100px;
+
+    border-radius:50%;
+    background:var(--green);
+    filter:blur(100px);
+    opacity:.3;
+}
+
+/* ================= TICKER ================= */
+
+.ticker{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:#08110c;
+}
+
+.ticker-inner{
+    max-width:1250px;
+    margin:auto;
+    padding:14px 24px;
+
+    display:flex;
+    gap:15px;
+    align-items:center;
+
+    font-size:11px;
+}
+
+.ticker-title{
+    color:var(--red);
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.ticker-message{
+    color:var(--muted);
+}
+
+/* ================= STATS ================= */
+
+.stats{
+    max-width:1250px;
+    margin:auto;
+    padding:35px 24px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:13px;
+}
+
+.stat{
+    padding:24px;
+
+    border:1px solid var(--line);
+    border-radius:16px;
+
+    background:linear-gradient(145deg,#0d1b13,#07100b);
+}
+
+.stat-number{
+    color:var(--green);
+    font-size:30px;
+    font-weight:950;
+}
+
+.stat-label{
+    margin-top:5px;
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* ================= GENERAL SECTION ================= */
+
+.section{
+    max-width:1250px;
+    margin:auto;
+    padding:90px 24px;
+}
+
+.section-header{
+    margin-bottom:35px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:20px;
+}
+
+.eyebrow{
+    color:var(--green);
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:2.5px;
+    margin-bottom:12px;
+}
+
+.section h2{
+    font-size:44px;
+    line-height:1;
+    letter-spacing:-2.5px;
+}
+
+.section h2 span{
+    color:var(--green);
+}
+
+.section-subtitle{
+    max-width:650px;
+    margin-top:13px;
+
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* ================= NOTICE BOARD ================= */
+
+.notice-board{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.notice{
+    position:relative;
+    overflow:hidden;
+
+    padding:30px;
+
+    border:1px solid var(--line);
+    border-radius:20px;
+
+    background:
+        radial-gradient(circle at 100% 0,rgba(25,232,117,.13),transparent 35%),
+        var(--panel);
+}
+
+.notice.featured{
+    border-color:rgba(25,232,117,.35);
+}
+
+.notice-label{
+    color:var(--green);
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.notice h3{
+    margin-top:12px;
+    font-size:25px;
+}
+
+.notice p{
+    margin-top:8px;
+    color:var(--muted);
+    font-size:12px;
+}
+
+.countdown{
+    display:flex;
+    gap:8px;
+    margin-top:25px;
+}
+
+.time-box{
+    min-width:65px;
+    padding:12px 8px;
+
+    text-align:center;
+
+    border:1px solid var(--line);
+    border-radius:10px;
+
+    background:#07100b;
+}
+
+.time-number{
+    color:var(--green);
+    font-size:21px;
+    font-weight:950;
+}
+
+.time-label{
+    margin-top:3px;
+    color:#65736b;
+    font-size:8px;
+    text-transform:uppercase;
+}
+
+/* ================= DAILY WINS ================= */
+
+.wins-section{
+    background:
+        linear-gradient(180deg,transparent,#08130c 50%,transparent);
+}
+
+.wins-board{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:16px;
+}
+
+.wins-card{
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+    background:#0a130d;
+}
+
+.wins-header{
+    padding:20px 23px;
+    border-bottom:1px solid var(--line);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.wins-header h3{
+    font-size:17px;
+}
+
+.live{
+    color:var(--green);
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.live:before{
+    content:"";
+    display:inline-block;
+
+    width:6px;
+    height:6px;
+    margin-right:6px;
+
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 10px var(--green);
+}
+
+.win-list{
+    padding:5px 22px 15px;
+}
+
+.win-row{
+    min-height:65px;
+
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.win-row:last-child{
+    border-bottom:0;
+}
+
+.win-player{
+    font-size:12px;
+    font-weight:800;
+}
+
+.win-game{
+    margin-top:4px;
+    color:var(--muted);
+    font-size:9px;
+}
+
+.win-amount{
+    color:var(--green);
+    font-size:17px;
+    font-weight:950;
+}
+
+.upload-box{
+    padding:27px;
+}
+
+.upload-icon{
+    width:55px;
+    height:55px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:15px;
+
+    background:rgba(25,232,117,.09);
+    color:var(--green);
+
+    font-size:25px;
+}
+
+.upload-box h3{
+    margin-top:17px;
+    font-size:20px;
+}
+
+.upload-box p{
+    margin-top:9px;
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.6;
+}
+
+.file-input{
+    margin-top:20px;
+
+    width:100%;
+    padding:12px;
+
+    border:1px dashed rgba(25,232,117,.4);
+    border-radius:10px;
+
+    background:#07100b;
+    color:var(--muted);
+
+    font-size:11px;
+}
+
+.file-preview{
+    display:none;
+
+    margin-top:12px;
+
+    max-width:100%;
+    max-height:180px;
+
+    border-radius:10px;
+    border:1px solid var(--line);
+}
+
+.upload-button{
+    width:100%;
+    margin-top:12px;
+}
+
+.upload-status{
+    display:block;
+    margin-top:10px;
+    color:var(--muted);
+    font-size:10px;
+}
+
+/* ================= GAMES ================= */
+
+.game-search{
+    width:240px;
+
+    padding:13px 15px;
+
+    border:1px solid var(--line);
+    border-radius:10px;
+
+    background:#08110c;
+    color:white;
+    outline:none;
+}
+
+.game-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:13px;
+}
+
+.game{
+    min-height:145px;
+    padding:22px;
+
+    border:1px solid var(--line);
+    border-radius:16px;
+
+    background:
+        linear-gradient(145deg,#101e15,#07100b);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    transition:.2s;
+}
+
+.game:hover{
+    transform:translateY(-4px);
+    border-color:rgba(25,232,117,.45);
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+.game-number{
+    color:#56645c;
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+.game-name{
+    font-size:16px;
+    font-weight:900;
+}
+
+.game-status{
+    color:var(--green);
+    font-size:9px;
+    font-weight:800;
+}
+
+/* ================= GATEWAYS ================= */
+
+.gateway-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.gateway{
+    padding:24px;
+
+    border:1px solid var(--line);
+    border-radius:16px;
+
+    background:#0a130d;
+}
+
+.gateway-icon{
+    width:45px;
+    height:45px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:12px;
+
+    background:#122319;
+    color:var(--green);
+
+    font-size:19px;
+    font-weight:950;
+}
+
+.gateway h3{
+    margin-top:17px;
+    font-size:15px;
+}
+
+.gateway p{
+    margin-top:5px;
+    color:var(--muted);
+    font-size:10px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.contact-card{
+    padding:25px;
+
+    border:1px solid var(--line);
+    border-radius:16px;
+
+    background:#0a130d;
+
+    transition:.2s;
+}
+
+.contact-card:hover{
+    transform:translateY(-3px);
+    border-color:rgba(25,232,117,.4);
+}
+
+.contact-icon{
+    font-size:22px;
+}
+
+.contact-card h3{
+    margin-top:15px;
+    font-size:15px;
+}
+
+.contact-card p{
+    margin-top:6px;
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* ================= FORMS ================= */
+
+.forms{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.form-card{
+    padding:30px;
+
+    border:1px solid var(--line);
+    border-radius:20px;
+
+    background:linear-gradient(145deg,#0d1b13,#07100b);
+}
+
+.form-card h3{
+    font-size:23px;
+}
+
+.form-description{
+    margin-top:9px;
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.6;
+}
+
+.form-group{
+    margin-top:16px;
+}
+
+.form-group label{
+    display:block;
+
+    color:#bac8bf;
+    font-size:10px;
+    font-weight:800;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+
+    margin-top:7px;
+    padding:12px;
+
+    border:1px solid var(--line);
+    border-radius:9px;
+
+    background:#050b07;
+    color:white;
+
+    outline:none;
+}
+
+.form-group textarea{
+    min-height:110px;
+    resize:vertical;
+}
+
+.form-submit{
+    margin-top:16px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid var(--line);
+    padding:35px 24px;
+
+    max-width:1250px;
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.footer-logo{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-weight:900;
+}
+
+.footer-logo img{
+    width:30px;
+    height:30px;
+    object-fit:cover;
+    border-radius:7px;
+}
+
+.footer-logo span{
+    color:var(--green);
+}
+
+footer p{
+    color:#65736b;
+    font-size:9px;
+}
+
+/* ================= FLOATING CONTACT ================= */
+
+.floating-contact{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:900;
+
+    display:flex;
+    gap:8px;
+}
+
+.float-btn{
+    width:48px;
+    height:48px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:#0e2116;
+    border:1px solid rgba(25,232,117,.3);
+
+    color:var(--green);
+
+    box-shadow:0 10px 30px #0008;
+
+    font-size:18px;
+}
+
+.float-btn:hover{
+    background:var(--green);
+    color:#031008;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .hero{
+        grid-template-columns:1fr;
+        padding-top:60px;
+    }
+
+    .hero-visual{
+        max-width:600px;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .game-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .gateway-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .wins-board{
+        grid-template-columns:1fr;
+    }
+
+    .forms{
+        grid-template-columns:1fr;
+    }
+
+    .nav-links a:not(.nav-button){
+        display:none;
+    }
+}
+
+@media(max-width:600px){
+
+    .nav-inner{
+        padding:0 16px;
+    }
+
+    .section,
+    .hero,
+    .stats{
+        padding-left:17px;
+        padding-right:17px;
+    }
+
+    .hero{
+        padding-top:50px;
+    }
+
+    .hero h1{
+        font-size:64px;
+        letter-spacing:-5px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .section h2{
+        font-size:34px;
+    }
+
+    .section-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .game-search{
+        width:100%;
+    }
+
+    .game-grid,
+    .gateway-grid,
+    .contact-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .notice-board{
+        grid-template-columns:1fr;
+    }
+
+    footer{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .floating-contact{
+        right:12px;
+        bottom:12px;
+    }
+}
+</style>
 </head>
+
 <body>
-<header class="nav">
-  <a class="brand" href="#top"><img src="image/greenzone-logo.jpg" alt="GreenZone Online Casino logo"><span>Green<span>Zone</span></span></a>
-  <nav><a href="#games">Games</a><a href="#notice">Notice</a><a href="#contact">Contact</a><a href="#complaint">Complaint</a></nav>
+
+<!-- =====================================================
+     NAVIGATION
+====================================================== -->
+
+<header class="navbar">
+
+<div class="nav-inner">
+
+<a href="#top" class="logo">
+    <img src="image/greenzone-logo.jpg" alt="GreenZone Casino">
+    Green<span>Zone</span>
+</a>
+
+<nav class="nav-links">
+
+<a href="#wins">Daily Wins</a>
+<a href="#games">Games</a>
+<a href="#notice">Promotions</a>
+<a href="#contact">Contact</a>
+<a href="#complaint" class="nav-button">Support</a>
+
+</nav>
+
+</div>
+
 </header>
 
+
 <main id="top">
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
 <section class="hero">
-  <div>
-    <div class="eyebrow">GREENZONE ONLINE CASINO</div>
-    <h1>Your Game.<br><span>Your Zone.</span></h1>
-    <p>Find your preferred gaming platform, see upcoming promotions, and contact GreenZone support from one simple portal.</p>
-    <div class="actions"><a class="btn primary" href="#games">Explore Games</a><a class="btn ghost" href="#contact">Text Me Here</a></div>
-    <p class="legal">18+ only. Gaming and gambling laws vary by location. This website is an informational front-end and does not itself process wagers, deposits, withdrawals, or payment credentials.</p>
-  </div>
-  <div class="logo-panel"><img src="image/greenzone-logo.jpg" alt="GreenZone logo"></div>
+
+<div>
+
+<div class="badge">
+    <span class="badge-dot"></span>
+    GREENZONE ONLINE CASINO
+</div>
+
+<h1>
+    YOUR<br>
+    <span class="green">GAME.</span><br>
+    YOUR <span class="gold">ZONE.</span>
+</h1>
+
+<p class="hero-description">
+    Welcome to GreenZone — your central gaming portal for
+    available platforms, daily wins, promotions and player support.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#games" class="btn btn-green">
+    EXPLORE GAMES
+</a>
+
+<a href="#wins" class="btn btn-dark">
+    VIEW DAILY WINS
+</a>
+
+</div>
+
+<p class="hero-warning">
+    18+ only. Availability and legality of online gaming vary by
+    jurisdiction. This website is an informational front-end and
+    does not itself process wagers or payment credentials.
+</p>
+
+</div>
+
+
+<div class="hero-visual">
+
+<div class="logo-card">
+
+<img src="image/greenzone-logo.jpg"
+     alt="GreenZone Online Casino">
+
+<div class="logo-glow"></div>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="ticker"><div><b>NOTICE</b><span id="noticeTicker">Welcome to GreenZone — check the notice board for upcoming events and promotions.</span></div></section>
 
-<section id="notice" class="section">
-  <div class="section-head"><div><div class="eyebrow">GREENZONE NOTICE BOARD</div><h2>What's <span>coming up?</span></h2></div></div>
-  <div class="notice-grid">
-    <article class="notice-card featured">
-      <div class="tag">UPCOMING FREE PLAY</div>
-      <h3 id="freeTitle">Next Free Play</h3>
-      <p id="freeDate">Set the event date in script.js</p>
-      <div class="countdown" id="freeCountdown">00d 00h 00m 00s</div>
-      <small>Promotional schedule shown for information only.</small>
-    </article>
-    <article class="notice-card">
-      <div class="tag">LARGEST WIN</div>
-      <h3 id="winTitle">Next Largest Win Update</h3>
-      <p id="winDate">Set the event date in script.js</p>
-      <div class="countdown" id="winCountdown">00d 00h 00m 00s</div>
-      <small>Update the title/date in script.js when you announce the next event.</small>
-    </article>
-  </div>
+<!-- =====================================================
+     TICKER
+====================================================== -->
+
+<div class="ticker">
+
+<div class="ticker-inner">
+
+<span class="ticker-title">GREENZONE NOTICE</span>
+
+<span class="ticker-message">
+    Welcome to GreenZone — check the Daily Wins and Notice Board
+    for current announcements.
+</span>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     STATS
+====================================================== -->
+
+<section class="stats">
+
+<div class="stat">
+    <div class="stat-number">13+</div>
+    <div class="stat-label">Gaming Platforms</div>
+</div>
+
+<div class="stat">
+    <div class="stat-number">4</div>
+    <div class="stat-label">Gateway Options</div>
+</div>
+
+<div class="stat">
+    <div class="stat-number">24/7</div>
+    <div class="stat-label">Portal Access</div>
+</div>
+
+<div class="stat">
+    <div class="stat-number">18+</div>
+    <div class="stat-label">Age Restriction</div>
+</div>
+
 </section>
 
-<section id="games" class="section">
-  <div class="section-head"><div><div class="eyebrow">AVAILABLE PLATFORMS</div><h2>Choose your <span>game zone.</span></h2></div><input id="gameSearch" type="search" placeholder="Search games..." aria-label="Search games"></div>
-  <div id="gameGrid" class="grid"></div>
+
+<!-- =====================================================
+     NOTICE BOARD
+====================================================== -->
+
+<section class="section" id="notice">
+
+<div class="section-header">
+
+<div>
+
+<div class="eyebrow">
+    GREENZONE NOTICE BOARD
+</div>
+
+<h2>
+    What's <span>coming up?</span>
+</h2>
+
+<p class="section-subtitle">
+    Keep players informed about upcoming Free Play events,
+    announcements and special updates.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="notice-board">
+
+
+<article class="notice featured">
+
+<div class="notice-label">
+    UPCOMING FREE PLAY
+</div>
+
+<h3 id="freeTitle">
+    Next Free Play
+</h3>
+
+<p id="freeDate">
+    Loading event...
+</p>
+
+<div class="countdown">
+
+<div class="time-box">
+    <div class="time-number" id="freeDays">00</div>
+    <div class="time-label">Days</div>
+</div>
+
+<div class="time-box">
+    <div class="time-number" id="freeHours">00</div>
+    <div class="time-label">Hours</div>
+</div>
+
+<div class="time-box">
+    <div class="time-number" id="freeMinutes">00</div>
+    <div class="time-label">Minutes</div>
+</div>
+
+<div class="time-box">
+    <div class="time-number" id="freeSeconds">00</div>
+    <div class="time-label">Seconds</div>
+</div>
+
+</div>
+
+</article>
+
+
+<article class="notice">
+
+<div class="notice-label">
+    LARGEST WIN
+</div>
+
+<h3 id="winTitle">
+    Largest Win Update
+</h3>
+
+<p id="winDate">
+    Loading event...
+</p>
+
+<div class="countdown">
+
+<div class="time-box">
+    <div class="time-number" id="winDays">00</div>
+    <div class="time-label">Days</div>
+</div>
+
+<div class="time-box">
+    <div class="time-number" id="winHours">00</div>
+    <div class="time-label">Hours</div>
+</div>
+
+<div class="time-box">
+    <div class="time-number" id="winMinutes">00</div>
+    <div class="time-label">Minutes</div>
+</div>
+
+<div class="time-box">
+    <div class="time-number" id="winSeconds">00</div>
+    <div class="time-label">Seconds</div>
+</div>
+
+</div>
+
+</article>
+
+</div>
+
 </section>
 
-<section id="gateways" class="section">
-  <div class="section-head"><div><div class="eyebrow">SUPPORTED GATEWAYS</div><h2>Payment <span>options.</span></h2></div></div>
-  <div class="gateway-grid">
-    <div class="gateway"><b>Chime</b><small>Gateway option</small></div>
-    <div class="gateway"><b>PayPal</b><small>Gateway option</small></div>
-    <div class="gateway"><b>Cash App</b><small>Gateway option</small></div>
-    <div class="gateway"><b>Venmo</b><small>Gateway option</small></div>
-  </div>
-  <p class="small">Payment methods are listed for information only. Never enter passwords, PINs, card numbers, crypto keys, or payment credentials into this website.</p>
+
+<!-- =====================================================
+     DAILY WINS
+====================================================== -->
+
+<section class="section wins-section" id="wins">
+
+<div class="section-header">
+
+<div>
+
+<div class="eyebrow">
+    DAILY WIN BOARD
+</div>
+
+<h2>
+    Today's <span>winners.</span>
+</h2>
+
+<p class="section-subtitle">
+    Upload verified winning receipts and display selected
+    daily wins on the GreenZone portal.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="wins-board">
+
+
+<!-- WIN LIST -->
+
+<div class="wins-card">
+
+<div class="wins-header">
+
+<h3>Recent Daily Wins</h3>
+
+<span class="live">
+    UPDATED DAILY
+</span>
+
+</div>
+
+
+<div class="win-list">
+
+<div class="win-row">
+<div>
+    <div class="win-player">Player •••482</div>
+    <div class="win-game">Game Vault</div>
+</div>
+<div class="win-amount">$2,450</div>
+</div>
+
+<div class="win-row">
+<div>
+    <div class="win-player">Player •••719</div>
+    <div class="win-game">Juwa</div>
+</div>
+<div class="win-amount">$1,875</div>
+</div>
+
+<div class="win-row">
+<div>
+    <div class="win-player">Player •••301</div>
+    <div class="win-game">FireKrin</div>
+</div>
+<div class="win-amount">$1,240</div>
+</div>
+
+<div class="win-row">
+<div>
+    <div class="win-player">Player •••925</div>
+    <div class="win-game">Orion Stars</div>
+</div>
+<div class="win-amount">$980</div>
+</div>
+
+<div class="win-row">
+<div>
+    <div class="win-player">Player •••644</div>
+    <div class="win-game">Panda Masters</div>
+</div>
+<div class="win-amount">$765</div>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- UPLOAD PORTAL -->
+
+<div class="wins-card">
+
+<div class="upload-box">
+
+<div class="upload-icon">
+    ↑
+</div>
+
+<h3>
+    Daily Wins Receipt Portal
+</h3>
+
+<p>
+    Upload a winning receipt for review. Only upload receipts
+    that you are authorized to submit.
+</p>
+
+<input
+    id="receiptInput"
+    class="file-input"
+    type="file"
+    accept="image/png,image/jpeg,image/webp,application/pdf"
+>
+
+<img
+    id="receiptPreview"
+    class="file-preview"
+    alt="Receipt preview"
+>
+
+<button
+    id="uploadReceipt"
+    class="btn btn-green upload-button"
+    type="button"
+>
+    SUBMIT RECEIPT
+</button>
+
+<span id="uploadStatus" class="upload-status">
+    Maximum recommended file size: 10 MB.
+</span>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<section id="contact" class="section contact-section">
-  <div class="section-head"><div><div class="eyebrow">TEXT ME HERE</div><h2>Contact <span>GreenZone.</span></h2></div></div>
-  <div class="contact-grid">
-    <a class="contact-card" href="mailto:protechmain622@gmail.com"><b>Email</b><span>protechmain622@gmail.com</span></a>
-    <a class="contact-card" href="https://wa.me/13614198619" target="_blank" rel="noopener"><b>WhatsApp</b><span>+1 (361) 419-8619</span></a>
-    <a class="contact-card" href="https://t.me/+pG04xmeAyBtlNjQx" target="_blank" rel="noopener"><b>Telegram</b><span>Join GreenZone Telegram</span></a>
-  </div>
+
+<!-- =====================================================
+     GAMES
+====================================================== -->
+
+<section class="section" id="games">
+
+<div class="section-header">
+
+<div>
+
+<div class="eyebrow">
+    AVAILABLE PLATFORMS
+</div>
+
+<h2>
+    Choose your <span>game zone.</span>
+</h2>
+
+</div>
+
+<input
+    id="gameSearch"
+    class="game-search"
+    type="search"
+    placeholder="Search games..."
+>
+
+</div>
+
+
+<div id="gameGrid" class="game-grid"></div>
+
 </section>
 
-<section class="section form-section">
-  <div class="form-card">
-    <div class="eyebrow">PLAYER SUPPORT</div>
-    <h2>Send us a <span>message.</span></h2>
-    <p class="form-note">This form can send basic contact/support information to your Google Sheet through Google Apps Script. Do not collect payment credentials, passwords, PINs, or other sensitive financial information.</p>
-    <form id="playerForm">
-      <input type="hidden" name="type" value="player">
-      <div class="two"><label>Name<input name="name" required maxlength="80"></label><label>Phone / Contact<input name="contact" required maxlength="80"></label></div>
-      <div class="two"><label>Preferred Platform<select name="platform"><option value="">Select</option><option>FireKrin</option><option>HighStake</option><option>Mafia</option><option>Game Vault</option><option>Panda Masters</option><option>Orion Stars</option><option>Juwa</option><option>Juwa 2</option><option>Milky Way Galaxy</option><option>Ultra Panda</option><option>VB Link</option><option>Cash Machine</option><option>Gaming Room</option></select></label><label>Preferred Contact<select name="preferred"><option>Email</option><option>WhatsApp</option><option>Telegram</option></select></label></div>
-      <label>Message<textarea name="message" rows="4" maxlength="1000" required></textarea></label>
-      <label class="check"><input type="checkbox" required> I agree that GreenZone may use the information submitted here to respond to my request.</label>
-      <button class="btn primary" type="submit">Send Message</button><span id="formStatus" class="status"></span>
-    </form>
-  </div>
+
+<!-- =====================================================
+     GATEWAYS
+====================================================== -->
+
+<section class="section" id="gateways">
+
+<div class="section-header">
+
+<div>
+
+<div class="eyebrow">
+    SUPPORTED GATEWAYS
+</div>
+
+<h2>
+    Payment <span>options.</span>
+</h2>
+
+</div>
+
+</div>
+
+
+<div class="gateway-grid">
+
+<div class="gateway">
+    <div class="gateway-icon">C</div>
+    <h3>Chime</h3>
+    <p>Supported gateway</p>
+</div>
+
+<div class="gateway">
+    <div class="gateway-icon">P</div>
+    <h3>PayPal</h3>
+    <p>Supported gateway</p>
+</div>
+
+<div class="gateway">
+    <div class="gateway-icon">$</div>
+    <h3>Cash App</h3>
+    <p>Supported gateway</p>
+</div>
+
+<div class="gateway">
+    <div class="gateway-icon">V</div>
+    <h3>Venmo</h3>
+    <p>Supported gateway</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="complaint" class="section form-section">
-  <div class="form-card">
-    <div class="eyebrow">PLAYER SUPPORT</div>
-    <h2>Complaint <span>box.</span></h2>
-    <p class="form-note">Describe the issue clearly. Please do not include passwords, payment PINs, full card numbers, or other financial credentials.</p>
-    <form id="complaintForm">
-      <input type="hidden" name="type" value="complaint">
-      <div class="two"><label>Name<input name="name" required maxlength="80"></label><label>Contact<input name="contact" required maxlength="80"></label></div>
-      <label>Complaint<textarea name="message" rows="6" maxlength="2000" required placeholder="Tell us what happened..."></textarea></label>
-      <button class="btn primary" type="submit">Submit Complaint</button><span id="complaintStatus" class="status"></span>
-    </form>
-  </div>
+
+<!-- =====================================================
+     CONTACT
+====================================================== -->
+
+<section class="section" id="contact">
+
+<div class="section-header">
+
+<div>
+
+<div class="eyebrow">
+    TEXT ME HERE
+</div>
+
+<h2>
+    Contact <span>GreenZone.</span>
+</h2>
+
+</div>
+
+</div>
+
+
+<div class="contact-grid">
+
+
+<a
+href="mailto:protechmain622@gmail.com"
+class="contact-card"
+>
+
+<div class="contact-icon">✉</div>
+
+<h3>Email</h3>
+
+<p>
+protechmain622@gmail.com
+</p>
+
+</a>
+
+
+<a
+href="https://wa.me/13614198619"
+target="_blank"
+rel="noopener"
+class="contact-card"
+>
+
+<div class="contact-icon">◉</div>
+
+<h3>WhatsApp</h3>
+
+<p>
++1 (361) 419-8619
+</p>
+
+</a>
+
+
+<a
+href="https://t.me/+pG04xmeAyBtlNjQx"
+target="_blank"
+rel="noopener"
+class="contact-card"
+>
+
+<div class="contact-icon">➤</div>
+
+<h3>Telegram</h3>
+
+<p>
+Join GreenZone Telegram
+</p>
+
+</a>
+
+
+</div>
+
 </section>
+
+
+<!-- =====================================================
+     PLAYER SUPPORT + COMPLAINT
+====================================================== -->
+
+<section class="section" id="complaint">
+
+<div class="forms">
+
+
+<div class="form-card">
+
+<div class="eyebrow">
+    PLAYER SUPPORT
+</div>
+
+<h3>
+    Send us a message
+</h3>
+
+<p class="form-description">
+    Use this form for general player support.
+</p>
+
+<form id="supportForm">
+
+<div class="form-group">
+<label>Name</label>
+<input name="name" maxlength="80" required>
+</div>
+
+<div class="form-group">
+<label>Contact</label>
+<input name="contact" maxlength="80" required>
+</div>
+
+<div class="form-group">
+<label>Message</label>
+<textarea name="message" maxlength="1500" required></textarea>
+</div>
+
+<button class="btn btn-green form-submit">
+    SEND MESSAGE
+</button>
+
+</form>
+
+</div>
+
+
+<div class="form-card">
+
+<div class="eyebrow">
+    PLAYER COMPLAINT
+</div>
+
+<h3>
+    Complaint Box
+</h3>
+
+<p class="form-description">
+    Tell us what happened so the support team can review your issue.
+</p>
+
+<form id="complaintForm">
+
+<div class="form-group">
+<label>Name</label>
+<input name="name" maxlength="80" required>
+</div>
+
+<div class="form-group">
+<label>Contact</label>
+<input name="contact" maxlength="80" required>
+</div>
+
+<div class="form-group">
+
+<label>Issue Type</label>
+
+<select name="issue">
+
+<option>General Complaint</option>
+<option>Account Issue</option>
+<option>Game Issue</option>
+<option>Support Issue</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Complaint</label>
+<textarea name="message" maxlength="2000" required></textarea>
+</div>
+
+<button class="btn btn-green form-submit">
+    SUBMIT COMPLAINT
+</button>
+
+</form>
+
+</div>
+
+
+</div>
+
+</section>
+
 </main>
 
-<footer><div class="brand"><img src="image/greenzone-logo.jpg" alt=""><span>Green<span>Zone</span></span></div><p>© <span id="year"></span> GreenZone Online Casino • 18+</p></footer>
-<script src="script.js"></script>
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+<div class="footer-logo">
+
+<img src="image/greenzone-logo.jpg" alt="GreenZone">
+
+Green<span>Zone</span>
+
+</div>
+
+<p>
+© <span id="year"></span> GreenZone Online Casino • 18+
+</p>
+
+</footer>
+
+
+<!-- =====================================================
+     FLOATING CONTACT
+====================================================== -->
+
+<div class="floating-contact">
+
+<a
+class="float-btn"
+href="https://wa.me/13614198619"
+target="_blank"
+rel="noopener"
+title="WhatsApp"
+>
+W
+</a>
+
+<a
+class="float-btn"
+href="https://t.me/+pG04xmeAyBtlNjQx"
+target="_blank"
+rel="noopener"
+title="Telegram"
+>
+T
+</a>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   GAME LIST
+========================================================= */
+
+const games = [
+
+"FireKrin",
+"HighStake",
+"Mafia",
+"Game Vault",
+"Panda Masters",
+"Orion Stars",
+"Juwa",
+"Juwa 2",
+"Milky Way Galaxy",
+"Ultra Panda",
+"VB Link",
+"Cash Machine",
+"Gaming Room"
+
+];
+
+const gameGrid = document.getElementById("gameGrid");
+const gameSearch = document.getElementById("gameSearch");
+
+function renderGames(list){
+
+    gameGrid.innerHTML = list.map((game,index)=>`
+
+        <article class="game">
+
+            <div class="game-number">
+                PLATFORM ${String(index+1).padStart(2,"0")}
+            </div>
+
+            <div class="game-name">
+                ${game}
+            </div>
+
+            <div class="game-status">
+                ● AVAILABLE
+            </div>
+
+        </article>
+
+    `).join("");
+
+}
+
+gameSearch.addEventListener("input",function(){
+
+    const query = this.value.toLowerCase();
+
+    renderGames(
+        games.filter(game =>
+            game.toLowerCase().includes(query)
+        )
+    );
+
+});
+
+renderGames(games);
+
+
+/* =========================================================
+   COUNTDOWN SETTINGS
+
+   CHANGE THESE DATES TO YOUR REAL EVENTS.
+========================================================= */
+
+const events = {
+
+    freePlay:{
+        title:"Next Free Play",
+        date:"2026-10-01T20:00:00-05:00"
+    },
+
+    largestWin:{
+        title:"Largest Win Update",
+        date:"2026-10-01T20:00:00-05:00"
+    }
+
+};
+
+
+function countdown(event,prefix){
+
+    const target = new Date(event.date);
+
+    document.getElementById(prefix+"Title").textContent =
+        event.title;
+
+    document.getElementById(prefix+"Date").textContent =
+        target.toLocaleString();
+
+    function update(){
+
+        let difference =
+            target.getTime() - Date.now();
+
+        if(difference <= 0){
+
+            difference = 0;
+
+        }
+
+        const days =
+            Math.floor(difference / 86400000);
+
+        const hours =
+            Math.floor(difference / 3600000) % 24;
+
+        const minutes =
+            Math.floor(difference / 60000) % 60;
+
+        const seconds =
+            Math.floor(difference / 1000) % 60;
+
+        document.getElementById(prefix+"Days").textContent =
+            String(days).padStart(2,"0");
+
+        document.getElementById(prefix+"Hours").textContent =
+            String(hours).padStart(2,"0");
+
+        document.getElementById(prefix+"Minutes").textContent =
+            String(minutes).padStart(2,"0");
+
+        document.getElementById(prefix+"Seconds").textContent =
+            String(seconds).padStart(2,"0");
+
+    }
+
+    update();
+
+    setInterval(update,1000);
+
+}
+
+
+countdown(events.freePlay,"free");
+countdown(events.largestWin,"win");
+
+
+/* =========================================================
+   RECEIPT UPLOAD PREVIEW
+========================================================= */
+
+const receiptInput =
+    document.getElementById("receiptInput");
+
+const receiptPreview =
+    document.getElementById("receiptPreview");
+
+const uploadButton =
+    document.getElementById("uploadReceipt");
+
+const uploadStatus =
+    document.getElementById("uploadStatus");
+
+
+receiptInput.addEventListener("change",function(){
+
+    const file = this.files[0];
+
+    if(!file){
+
+        receiptPreview.style.display="none";
+
+        return;
+
+    }
+
+    if(file.size > 10 * 1024 * 1024){
+
+        uploadStatus.textContent =
+            "File is larger than 10 MB.";
+
+        this.value="";
+
+        return;
+
+    }
+
+    if(file.type.startsWith("image/")){
+
+        const reader = new FileReader();
+
+        reader.onload = function(e){
+
+            receiptPreview.src = e.target.result;
+
+            receiptPreview.style.display="block";
+
+        };
+
+        reader.readAsDataURL(file);
+
+    }else{
+
+        receiptPreview.style.display="none";
+
+    }
+
+    uploadStatus.textContent =
+        file.name + " selected.";
+
+});
+
+
+uploadButton.addEventListener("click",function(){
+
+    const file = receiptInput.files[0];
+
+    if(!file){
+
+        uploadStatus.textContent =
+            "Please select a receipt first.";
+
+        return;
+
+    }
+
+    /*
+      IMPORTANT:
+
+      GitHub Pages cannot permanently store uploaded files.
+
+      Connect this button to your approved upload backend,
+      Google Apps Script, Cloudinary, Supabase, etc.
+
+      Example endpoint:
+
+      const UPLOAD_ENDPOINT =
+      "YOUR_UPLOAD_ENDPOINT";
+
+      Then use FormData + fetch() here.
+    */
+
+    uploadStatus.textContent =
+        "Receipt selected successfully. Connect your upload backend to permanently save it.";
+
+});
+
+
+/* =========================================================
+   SUPPORT + COMPLAINT DEMO
+========================================================= */
+
+document
+.getElementById("supportForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    alert(
+        "Your support form is ready. Connect it to your Google Apps Script endpoint to save submissions."
+    );
+
+});
+
+
+document
+.getElementById("complaintForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    alert(
+        "Your complaint form is ready. Connect it to your Google Apps Script endpoint to save submissions."
+    );
+
+});
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
 </body>
 </html>
