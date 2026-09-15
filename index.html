@@ -4,25 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GreenZone | Online Casino</title>
+<title>GreenZone Gaming | Player Information & Support Hub</title>
+
+<meta name="description"
+content="GreenZone Gaming — your player information, gaming platform updates, Free Play announcements, bonuses and support hub.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-    --green:#20ff78;
-    --green2:#00c95a;
-    --gold:#ffd45a;
-    --gold2:#ff9d00;
-    --pink:#ff2f92;
-    --purple:#8c42ff;
-    --cyan:#28e8ff;
-    --black:#08050d;
-    --dark:#0d0816;
-    --panel:#181026;
-    --panel2:#211331;
-    --white:#fff;
-    --muted:#b5a9bd;
-    --line:rgba(255,255,255,.1);
-    --max:1250px;
+    --bg:#07070b;
+    --bg2:#0d0715;
+    --card:#11101a;
+    --card2:#171322;
+    --green:#39ff88;
+    --green2:#00e676;
+    --pink:#ff2bd6;
+    --purple:#8a2cff;
+    --cyan:#00e5ff;
+    --gold:#ffd84d;
+    --orange:#ff8a00;
+    --red:#ff3d5a;
+    --white:#ffffff;
+    --muted:#aaa8b8;
+    --border:rgba(255,255,255,.09);
+    --shadow:0 0 30px rgba(57,255,136,.08);
 }
 
 *{
@@ -36,13 +44,13 @@ html{
 }
 
 body{
-    color:var(--white);
     background:
-        radial-gradient(circle at 10% 5%,rgba(32,255,120,.15),transparent 25%),
-        radial-gradient(circle at 90% 10%,rgba(255,47,146,.16),transparent 28%),
-        radial-gradient(circle at 50% 50%,rgba(140,66,255,.08),transparent 35%),
-        var(--black);
-    font-family:Arial,Helvetica,sans-serif;
+        radial-gradient(circle at 15% 10%,rgba(138,44,255,.16),transparent 30%),
+        radial-gradient(circle at 85% 20%,rgba(255,43,214,.10),transparent 28%),
+        radial-gradient(circle at 50% 80%,rgba(57,255,136,.07),transparent 35%),
+        var(--bg);
+    color:var(--white);
+    font-family:Poppins,sans-serif;
     overflow-x:hidden;
 }
 
@@ -51,11 +59,11 @@ body:before{
     position:fixed;
     inset:0;
     pointer-events:none;
-    opacity:.15;
     background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-    background-size:50px 50px;
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+    background-size:45px 45px;
+    mask-image:linear-gradient(to bottom,black,transparent 90%);
     z-index:-1;
 }
 
@@ -64,966 +72,1080 @@ a{
     text-decoration:none;
 }
 
-/* ================= NAV ================= */
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
 
-.navbar{
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+    background:linear-gradient(90deg,#160a24,#081b15,#160a24);
+    border-bottom:1px solid rgba(57,255,136,.16);
+    padding:10px 20px;
+    text-align:center;
+    font-size:13px;
+    color:#ddd;
+}
+
+.topbar strong{
+    color:var(--green);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
     position:sticky;
     top:0;
     z-index:1000;
-    height:78px;
-    background:rgba(8,5,13,.88);
-    backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(7,7,11,.86);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
 }
 
-.nav-inner{
-    max-width:var(--max);
-    height:100%;
+.nav{
+    max-width:1250px;
     margin:auto;
-    padding:0 22px;
+    min-height:78px;
+    padding:10px 22px;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:20px;
+}
+
+.logo-wrap{
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:20px;
-    font-weight:950;
-}
-
-.logo img{
-    width:45px;
-    height:45px;
+    width:58px;
+    height:58px;
+    border-radius:16px;
     object-fit:cover;
-    border-radius:12px;
-    box-shadow:0 0 20px rgba(32,255,120,.3);
+    border:2px solid var(--green);
+    box-shadow:
+        0 0 12px rgba(57,255,136,.65),
+        0 0 30px rgba(57,255,136,.15);
 }
 
-.logo-green{
+.brand{
+    font-family:Orbitron,sans-serif;
+    font-size:21px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.brand span{
     color:var(--green);
+    text-shadow:0 0 15px rgba(57,255,136,.7);
 }
 
-.logo-zone{
-    color:white;
+.brand small{
+    display:block;
+    color:#aaa;
+    font-family:Poppins,sans-serif;
+    font-size:9px;
+    letter-spacing:2px;
+    margin-top:2px;
 }
 
-.nav-links{
+nav{
     display:flex;
-    align-items:center;
-    gap:25px;
+    gap:6px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
 }
 
-.nav-links a{
-    color:#b5aabd;
+nav a{
+    padding:9px 12px;
+    border-radius:10px;
+    color:#c9c7d1;
     font-size:12px;
-    font-weight:800;
-    transition:.2s;
+    transition:.25s;
 }
 
-.nav-links a:hover{
+nav a:hover{
     color:var(--green);
+    background:rgba(57,255,136,.07);
 }
 
-.nav-cta{
-    padding:11px 18px;
-    border-radius:30px;
-    color:#050509!important;
-    background:linear-gradient(135deg,var(--green),#8dffb7);
-    box-shadow:0 0 20px rgba(32,255,120,.25);
-}
-
-/* ================= HERO ================= */
+/* =========================
+   HERO
+========================= */
 
 .hero{
-    max-width:var(--max);
-    min-height:680px;
+    max-width:1250px;
     margin:auto;
-    padding:85px 22px 70px;
+    padding:75px 22px 45px;
     display:grid;
-    grid-template-columns:1.05fr .95fr;
-    gap:65px;
+    grid-template-columns:1.3fr .7fr;
     align-items:center;
+    gap:45px;
 }
 
-.hero-badge{
+.hero-tag{
     display:inline-flex;
     align-items:center;
     gap:8px;
-    padding:9px 14px;
-    border:1px solid rgba(32,255,120,.35);
-    border-radius:50px;
+    padding:8px 13px;
+    border:1px solid rgba(57,255,136,.25);
+    background:rgba(57,255,136,.07);
+    border-radius:999px;
     color:var(--green);
-    background:rgba(32,255,120,.08);
-    font-size:9px;
-    font-weight:950;
-    letter-spacing:2px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:20px;
 }
 
-.pulse{
-    width:7px;
-    height:7px;
-    border-radius:50%;
+.live-dot{
+    width:8px;
+    height:8px;
     background:var(--green);
-    box-shadow:0 0 15px var(--green);
+    border-radius:50%;
+    box-shadow:0 0 12px var(--green);
     animation:pulse 1.5s infinite;
 }
 
 @keyframes pulse{
-    0%,100%{opacity:1;transform:scale(1)}
-    50%{opacity:.4;transform:scale(.7)}
+    50%{opacity:.35;transform:scale(.65)}
 }
 
 .hero h1{
-    margin-top:23px;
-    font-size:clamp(60px,8vw,110px);
-    line-height:.83;
-    letter-spacing:-7px;
-    font-weight:1000;
+    font-family:Orbitron,sans-serif;
+    font-size:clamp(40px,6vw,76px);
+    line-height:1.03;
+    font-weight:900;
+    letter-spacing:-2px;
 }
 
 .hero h1 .green{
     color:var(--green);
-    text-shadow:0 0 25px rgba(32,255,120,.3);
+    text-shadow:0 0 25px rgba(57,255,136,.35);
 }
 
 .hero h1 .pink{
     color:var(--pink);
-    text-shadow:0 0 25px rgba(255,47,146,.3);
+    text-shadow:0 0 25px rgba(255,43,214,.25);
 }
 
-.hero-description{
-    max-width:650px;
-    margin-top:28px;
-    color:var(--muted);
-    font-size:16px;
+.hero p{
+    color:#aaa8b8;
+    max-width:680px;
     line-height:1.8;
+    margin-top:22px;
+    font-size:15px;
 }
 
 .hero-buttons{
     display:flex;
+    flex-wrap:wrap;
     gap:12px;
-    margin-top:32px;
+    margin-top:28px;
 }
 
 .btn{
-    min-height:50px;
-    padding:0 22px;
+    border:none;
+    cursor:pointer;
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    border-radius:11px;
-    border:1px solid transparent;
-    font-size:12px;
-    font-weight:950;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.btn:hover{
-    transform:translateY(-3px);
+    gap:8px;
+    padding:13px 20px;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:800;
+    transition:.25s;
 }
 
 .btn-green{
-    color:#041009;
-    background:linear-gradient(135deg,var(--green),#9affbf);
-    box-shadow:0 8px 35px rgba(32,255,120,.18);
-}
-
-.btn-gold{
-    color:#160d00;
-    background:linear-gradient(135deg,var(--gold),var(--gold2));
-}
-
-.btn-dark{
-    border-color:var(--line);
-    background:#130c1c;
-}
-
-/* ================= HERO LOGO ================= */
-
-.hero-visual{
-    position:relative;
-}
-
-.hero-visual:before{
-    content:"";
-    position:absolute;
-    width:280px;
-    height:280px;
-    top:-80px;
-    right:-70px;
-    background:var(--pink);
-    filter:blur(120px);
-    opacity:.22;
-}
-
-.hero-visual:after{
-    content:"";
-    position:absolute;
-    width:220px;
-    height:220px;
-    bottom:-80px;
-    left:-60px;
     background:var(--green);
-    filter:blur(100px);
-    opacity:.2;
+    color:#041108;
+    box-shadow:0 0 25px rgba(57,255,136,.22);
 }
 
-.logo-card{
-    position:relative;
-    z-index:2;
-    overflow:hidden;
+.btn-green:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 35px rgba(57,255,136,.45);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.035);
+    color:#fff;
+}
+
+.btn-outline:hover{
+    border-color:var(--green);
+    color:var(--green);
+}
+
+/* HERO VISUAL */
+
+.hero-display{
+    min-height:360px;
+    border:1px solid rgba(255,255,255,.1);
     border-radius:30px;
-    border:2px solid rgba(255,212,90,.35);
-    background:white;
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.65),
-        0 0 60px rgba(255,47,146,.1);
-}
-
-.logo-card img{
-    display:block;
-    width:100%;
-}
-
-/* ================= PURPOSE NOTICE ================= */
-
-.purpose-wrap{
-    max-width:var(--max);
-    margin:auto;
-    padding:0 22px 35px;
-}
-
-.purpose{
+    background:
+        radial-gradient(circle at 50% 30%,rgba(57,255,136,.13),transparent 30%),
+        linear-gradient(145deg,rgba(138,44,255,.12),rgba(255,43,214,.06));
     position:relative;
     overflow:hidden;
-    padding:32px;
-    border-radius:22px;
-    border:1px solid rgba(32,255,120,.28);
-    background:
-        radial-gradient(circle at 100% 0,rgba(255,47,146,.13),transparent 35%),
-        linear-gradient(145deg,#151020,#0d0815);
-    box-shadow:0 15px 50px rgba(0,0,0,.25);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:var(--shadow);
 }
 
-.purpose:before{
+.hero-display:before,
+.hero-display:after{
     content:"";
     position:absolute;
-    left:0;
-    top:0;
-    width:5px;
-    height:100%;
-    background:linear-gradient(var(--green),var(--pink));
+    border:1px solid rgba(57,255,136,.15);
+    border-radius:50%;
 }
 
-.purpose-label{
-    color:var(--gold);
-    font-size:10px;
-    font-weight:950;
-    letter-spacing:2px;
+.hero-display:before{
+    width:300px;
+    height:300px;
 }
 
-.purpose h2{
-    margin-top:10px;
-    font-size:27px;
-}
-
-.purpose p{
-    max-width:950px;
-    margin-top:12px;
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.8;
-}
-
-.purpose strong{
-    color:white;
-}
-
-.purpose-alert{
-    display:inline-block;
-    margin-top:18px;
-    padding:10px 14px;
-    border-radius:9px;
-    color:var(--green);
-    background:rgba(32,255,120,.07);
-    border:1px solid rgba(32,255,120,.18);
-    font-size:10px;
-    font-weight:900;
-}
-
-/* ================= JACKPOT ================= */
-
-.jackpot-strip{
-    max-width:var(--max);
-    margin:auto;
-    padding:0 22px 20px;
+.hero-display:after{
+    width:210px;
+    height:210px;
 }
 
 .jackpot{
-    padding:18px 25px;
-    border:1px solid rgba(255,212,90,.3);
-    border-radius:16px;
-    background:linear-gradient(
-        90deg,
-        rgba(255,47,146,.08),
-        rgba(255,212,90,.1),
-        rgba(32,255,120,.08)
-    );
+    position:relative;
+    z-index:2;
+    text-align:center;
+}
+
+.jackpot .emoji{
+    font-size:60px;
+    filter:drop-shadow(0 0 18px rgba(255,216,77,.4));
+}
+
+.jackpot h2{
+    font-family:Orbitron,sans-serif;
+    color:var(--gold);
+    font-size:37px;
+    margin:5px 0;
+    text-shadow:0 0 18px rgba(255,216,77,.35);
+}
+
+.jackpot p{
+    color:#aaa;
+    font-size:12px;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    max-width:1250px;
+    margin:auto;
+    padding:65px 22px;
+}
+
+.section-head{
+    margin-bottom:28px;
+}
+
+.kicker{
+    color:var(--green);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:7px;
+}
+
+.section-head h2{
+    font-family:Orbitron,sans-serif;
+    font-size:clamp(25px,4vw,38px);
+    line-height:1.2;
+}
+
+.section-head p{
+    color:var(--muted);
+    font-size:13px;
+    max-width:750px;
+    line-height:1.7;
+    margin-top:10px;
+}
+
+/* =========================
+   IMPORTANT NOTICE
+========================= */
+
+.notice-alert{
+    max-width:1250px;
+    margin:5px auto 20px;
+    padding:0 22px;
+}
+
+.notice-alert-inner{
+    border:1px solid rgba(255,61,90,.4);
+    background:linear-gradient(90deg,rgba(255,61,90,.11),rgba(255,138,0,.06));
+    padding:16px 20px;
+    border-radius:15px;
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    gap:20px;
-}
-
-.jackpot-label{
-    color:var(--gold);
-    font-size:9px;
-    font-weight:950;
-    letter-spacing:2px;
-}
-
-.jackpot-sub{
-    margin-top:5px;
-    color:#aaa0b0;
-    font-size:10px;
-}
-
-.jackpot-value{
-    color:white;
-    font-size:25px;
-    font-weight:1000;
-}
-
-.jackpot-value span{
-    color:var(--green);
-}
-
-/* ================= TICKER ================= */
-
-.ticker{
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    background:#0d0815;
-}
-
-.ticker-inner{
-    max-width:var(--max);
-    margin:auto;
-    padding:14px 22px;
-    display:flex;
-    gap:14px;
-    font-size:10px;
-}
-
-.ticker-title{
-    color:var(--pink);
-    font-weight:950;
-    letter-spacing:2px;
-}
-
-.ticker-message{
-    color:var(--muted);
-}
-
-/* ================= STATS ================= */
-
-.stats{
-    max-width:var(--max);
-    margin:auto;
-    padding:35px 22px 25px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
     gap:13px;
 }
 
-.stat{
-    position:relative;
-    overflow:hidden;
+.notice-alert-icon{
+    font-size:24px;
+}
+
+.notice-alert strong{
+    color:#ff687c;
+    font-size:13px;
+}
+
+.notice-alert span{
+    color:#bbb;
+    font-size:12px;
+}
+
+/* =========================
+   WHY WEBSITE
+========================= */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.info-card{
     padding:23px;
-    border:1px solid var(--line);
-    border-radius:17px;
-    background:linear-gradient(
-        145deg,
-        rgba(32,255,120,.06),
-        rgba(140,66,255,.04)
-    );
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+    transition:.3s;
 }
 
-.stat-number{
-    color:var(--green);
-    font-size:29px;
-    font-weight:1000;
+.info-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(57,255,136,.3);
 }
 
-.stat:nth-child(2) .stat-number{color:var(--gold)}
-.stat:nth-child(3) .stat-number{color:var(--pink)}
-.stat:nth-child(4) .stat-number{color:var(--cyan)}
-
-.stat-label{
-    margin-top:5px;
-    color:var(--muted);
-    font-size:10px;
+.info-icon{
+    font-size:28px;
+    margin-bottom:13px;
 }
 
-/* ================= SECTIONS ================= */
-
-.section{
-    max-width:var(--max);
-    margin:auto;
-    padding:85px 22px;
+.info-card h3{
+    font-size:15px;
+    margin-bottom:8px;
 }
 
-.section-header{
-    margin-bottom:32px;
-    display:flex;
-    align-items:end;
-    justify-content:space-between;
-    gap:20px;
-}
-
-.eyebrow{
-    margin-bottom:12px;
-    color:var(--green);
-    font-size:9px;
-    font-weight:950;
-    letter-spacing:3px;
-}
-
-.section h2{
-    font-size:44px;
-    line-height:1;
-    letter-spacing:-2.5px;
-}
-
-.section h2 span{
-    color:var(--pink);
-}
-
-.section-description{
-    max-width:650px;
-    margin-top:12px;
-    color:var(--muted);
+.info-card p{
+    color:#9997a7;
     font-size:12px;
     line-height:1.7;
 }
 
-/* ================= NOTICE ================= */
+/* =========================
+   NOTICE BOARD
+========================= */
 
 .notice-board{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
+    grid-template-columns:1.1fr .9fr;
+    gap:18px;
 }
 
-.notice{
-    padding:30px;
-    border:1px solid var(--line);
-    border-radius:20px;
+.notice-main{
+    border:1px solid rgba(57,255,136,.18);
+    border-radius:22px;
+    padding:25px;
     background:
-        radial-gradient(circle at 100% 0,rgba(255,47,146,.13),transparent 35%),
-        var(--panel);
+        radial-gradient(circle at 100% 0,rgba(57,255,136,.1),transparent 35%),
+        var(--card);
 }
 
-.notice.featured{
-    border-color:rgba(32,255,120,.35);
-}
-
-.notice-label{
-    color:var(--green);
-    font-size:9px;
-    font-weight:950;
-    letter-spacing:2px;
-}
-
-.notice:nth-child(2) .notice-label{
-    color:var(--gold);
-}
-
-.notice h3{
-    margin-top:12px;
-    font-size:24px;
-}
-
-.notice p{
-    margin-top:7px;
-    color:var(--muted);
-    font-size:11px;
-}
-
-.countdown{
+.notice-title{
     display:flex;
-    gap:7px;
-    margin-top:24px;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.notice-title h3{
+    font-family:Orbitron,sans-serif;
+    font-size:17px;
+}
+
+.live-badge{
+    font-size:9px;
+    padding:6px 9px;
+    border-radius:999px;
+    background:rgba(57,255,136,.1);
+    color:var(--green);
+    border:1px solid rgba(57,255,136,.2);
+}
+
+.notice-item{
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.notice-item:last-child{
+    border-bottom:0;
+}
+
+.notice-item strong{
+    display:block;
+    font-size:13px;
+    margin-bottom:5px;
+}
+
+.notice-item p{
+    color:#9997a7;
+    font-size:11px;
+    line-height:1.65;
+}
+
+.notice-side{
+    display:grid;
+    gap:18px;
+}
+
+.mini-card{
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:23px;
+    background:var(--card);
+}
+
+.mini-card h3{
+    font-size:15px;
+    margin-bottom:9px;
+}
+
+.mini-card p{
+    color:#9997a7;
+    font-size:11px;
+    line-height:1.65;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.countdown-card{
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:28px;
+    background:
+        radial-gradient(circle at 100% 0,rgba(255,43,214,.13),transparent 40%),
+        var(--card);
+}
+
+.countdown-card.green-card{
+    background:
+        radial-gradient(circle at 100% 0,rgba(57,255,136,.13),transparent 40%),
+        var(--card);
+}
+
+.countdown-card .label{
+    color:#aaa;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-weight:700;
+}
+
+.countdown-card h3{
+    font-family:Orbitron,sans-serif;
+    font-size:21px;
+    margin:7px 0 18px;
+}
+
+.timer{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
 }
 
 .time-box{
-    min-width:64px;
-    padding:12px 7px;
+    background:rgba(0,0,0,.35);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:13px;
+    padding:13px 5px;
     text-align:center;
-    border:1px solid var(--line);
-    border-radius:9px;
-    background:#09060d;
 }
 
-.time-number{
+.time-box strong{
+    display:block;
+    font-family:Orbitron,sans-serif;
+    font-size:23px;
     color:var(--green);
-    font-size:20px;
-    font-weight:1000;
 }
 
-.time-label{
-    margin-top:3px;
-    color:#716678;
-    font-size:7px;
+.countdown-card:not(.green-card) .time-box strong{
+    color:var(--pink);
+}
+
+.time-box span{
+    color:#777;
+    font-size:8px;
     text-transform:uppercase;
 }
 
-/* ================= WINS ================= */
+/* =========================
+   DAILY WINS
+========================= */
+
+.wins-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
 
 .wins-board{
-    display:grid;
-    grid-template-columns:1.15fr .85fr;
-    gap:15px;
-}
-
-.wins-card{
-    overflow:hidden;
-    border:1px solid var(--line);
-    border-radius:20px;
-    background:#0d0816;
-}
-
-.wins-header{
-    padding:20px 23px;
-    border-bottom:1px solid var(--line);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.wins-header h3{
-    font-size:16px;
-}
-
-.live{
-    color:var(--green);
-    font-size:8px;
-    font-weight:950;
-    letter-spacing:1px;
-}
-
-.win-list{
-    padding:5px 22px 15px;
+    border:1px solid rgba(255,216,77,.15);
+    border-radius:22px;
+    padding:23px;
+    background:
+        radial-gradient(circle at 0 0,rgba(255,216,77,.08),transparent 35%),
+        var(--card);
 }
 
 .win-row{
-    min-height:68px;
     display:grid;
-    grid-template-columns:1fr auto;
+    grid-template-columns:50px 1fr auto;
     align-items:center;
-    border-bottom:1px solid rgba(255,255,255,.055);
+    gap:12px;
+    padding:14px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .win-row:last-child{
     border-bottom:0;
 }
 
-.win-player{
+.rank{
+    width:38px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:11px;
+    background:rgba(255,216,77,.08);
+    color:var(--gold);
+    font-family:Orbitron,sans-serif;
     font-size:12px;
-    font-weight:850;
 }
 
-.win-game{
-    margin-top:4px;
-    color:var(--muted);
+.player-name{
+    font-weight:700;
+    font-size:12px;
+}
+
+.player-game{
+    color:#777;
     font-size:9px;
+    margin-top:2px;
 }
 
 .win-amount{
-    color:var(--gold);
-    font-size:17px;
-    font-weight:1000;
-}
-
-/* ================= UPLOAD ================= */
-
-.upload-box{
-    padding:29px;
-}
-
-.upload-icon{
-    width:58px;
-    height:58px;
-    display:grid;
-    place-items:center;
-    border-radius:16px;
+    font-family:Orbitron,sans-serif;
     color:var(--green);
-    background:linear-gradient(
-        135deg,
-        rgba(32,255,120,.12),
-        rgba(140,66,255,.1)
-    );
-    border:1px solid rgba(32,255,120,.25);
-    font-size:25px;
+    font-size:13px;
 }
 
-.upload-box h3{
-    margin-top:17px;
-    font-size:21px;
+.receipt-box{
+    border:1px dashed rgba(57,255,136,.28);
+    border-radius:22px;
+    padding:25px;
+    background:rgba(57,255,136,.025);
 }
 
-.upload-box p{
-    margin-top:9px;
-    color:var(--muted);
-    font-size:10px;
+.receipt-box h3{
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+.receipt-box p{
+    color:#92909e;
+    font-size:11px;
     line-height:1.7;
+    margin-bottom:17px;
 }
 
-.file-input{
-    width:100%;
-    margin-top:18px;
-    padding:11px;
-    border:1px dashed rgba(32,255,120,.4);
-    border-radius:10px;
-    background:#08050d;
-    color:var(--muted);
-    font-size:10px;
+.upload-label{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:110px;
+    border:1px dashed rgba(255,255,255,.15);
+    border-radius:16px;
+    cursor:pointer;
+    color:#888;
+    font-size:11px;
+    text-align:center;
+    padding:15px;
 }
 
-.file-preview{
+.upload-label:hover{
+    color:var(--green);
+    border-color:var(--green);
+}
+
+#receipt{
     display:none;
+}
+
+#preview{
     max-width:100%;
-    max-height:180px;
-    margin-top:12px;
-    border-radius:10px;
+    max-height:230px;
+    display:none;
+    margin:15px auto 0;
+    border-radius:14px;
 }
 
-.upload-button{
-    width:100%;
-    margin-top:11px;
-}
+/* =========================
+   GAMES
+========================= */
 
-.upload-status{
-    display:block;
-    margin-top:9px;
-    color:#776d7e;
-    font-size:9px;
-}
-
-/* ================= GAMES ================= */
-
-.game-search{
-    width:245px;
-    padding:13px 15px;
-    border:1px solid var(--line);
-    border-radius:10px;
-    background:#0c0711;
-    color:white;
-    outline:none;
-}
-
-.game-grid{
+.games-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:13px;
+    gap:15px;
 }
 
-.game{
+.game-card{
     position:relative;
     overflow:hidden;
-    min-height:170px;
-    padding:21px;
-    border:1px solid var(--line);
-    border-radius:17px;
-    background:linear-gradient(145deg,#1a0e25,#0b0710);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:20px;
+    background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+    transition:.3s;
+}
+
+.game-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(57,255,136,.35);
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+.game-card:before{
+    content:"";
+    position:absolute;
+    width:90px;
+    height:90px;
+    right:-35px;
+    top:-35px;
+    background:var(--green);
+    filter:blur(55px);
+    opacity:.12;
+}
+
+.game-icon{
+    width:48px;
+    height:48px;
+    border-radius:14px;
     display:flex;
-    flex-direction:column;
-    justify-content:space-between;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,rgba(57,255,136,.15),rgba(138,44,255,.12));
+    border:1px solid rgba(255,255,255,.07);
+    font-size:23px;
+    margin-bottom:14px;
+}
+
+.game-card h3{
+    font-size:14px;
+    margin-bottom:4px;
+}
+
+.game-type{
+    color:#777;
+    font-size:9px;
+    margin-bottom:15px;
+}
+
+.platform-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:5px;
+    margin-bottom:15px;
+}
+
+.platform-tag{
+    font-size:8px;
+    padding:4px 7px;
+    border-radius:999px;
+    background:rgba(255,255,255,.05);
+    color:#aaa;
+}
+
+.ios{
+    color:#fff;
+    background:rgba(255,255,255,.08);
+}
+
+.open-game{
+    width:100%;
+    border-radius:10px;
+    padding:10px;
+    display:block;
+    text-align:center;
+    background:rgba(57,255,136,.08);
+    border:1px solid rgba(57,255,136,.18);
+    color:var(--green);
+    font-size:10px;
+    font-weight:800;
     transition:.25s;
 }
 
-.game:hover{
-    transform:translateY(-6px) scale(1.01);
-    border-color:rgba(32,255,120,.55);
-    box-shadow:
-        0 15px 40px rgba(0,0,0,.45),
-        0 0 30px rgba(32,255,120,.08);
+.open-game:hover{
+    background:var(--green);
+    color:#041108;
 }
 
-.game-number{
-    color:#716579;
-    font-size:8px;
-    letter-spacing:2px;
-}
-
-.game-name{
-    font-size:17px;
-    font-weight:950;
-}
-
-.game-status{
-    color:var(--green);
-    font-size:8px;
-    font-weight:900;
-}
-
-.game-button{
-    margin-top:10px;
-    width:100%;
-    padding:10px;
-    border:0;
-    border-radius:9px;
-    background:linear-gradient(135deg,var(--green),#8dffb7);
-    color:#041009;
-    font-size:9px;
-    font-weight:950;
-    cursor:pointer;
-}
-
-.game:nth-child(3n) .game-status{
-    color:var(--gold);
-}
-
-.game:nth-child(4n) .game-status{
-    color:var(--pink);
-}
-
-/* ================= GATEWAYS ================= */
+/* =========================
+   GATEWAYS
+========================= */
 
 .gateway-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:14px;
+    gap:18px;
 }
 
-.gateway{
-    padding:25px;
-    border:1px solid var(--line);
-    border-radius:17px;
-    background:#100a18;
-    transition:.2s;
+.gateway-card{
+    overflow:hidden;
+    border:1px solid var(--border);
+    border-radius:22px;
+    background:var(--card);
+    transition:.3s;
 }
 
-.gateway:hover{
-    transform:translateY(-4px);
+.gateway-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(57,255,136,.3);
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
 }
 
-.gateway-icon{
-    width:46px;
-    height:46px;
-    display:grid;
-    place-items:center;
-    border-radius:13px;
-    background:#21142d;
-    color:var(--green);
-    font-weight:1000;
-    font-size:18px;
+.gateway-image{
+    height:205px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
 }
 
-.gateway h3{
-    margin-top:16px;
+.gateway-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.gateway-info{
+    padding:18px;
+}
+
+.gateway-info h3{
+    font-family:Orbitron,sans-serif;
     font-size:15px;
 }
 
-.gateway p{
+.gateway-info p{
+    color:#777;
+    font-size:10px;
     margin-top:5px;
-    color:var(--muted);
-    font-size:9px;
 }
 
-/* ================= CONTACT ================= */
+/* =========================
+   SUPPORT
+========================= */
 
-.contact-grid{
+.support-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:14px;
+    grid-template-columns:.8fr 1.2fr;
+    gap:18px;
+}
+
+.contact-list{
+    display:grid;
+    gap:12px;
 }
 
 .contact-card{
-    padding:25px;
-    border:1px solid var(--line);
+    padding:18px;
     border-radius:17px;
-    background:linear-gradient(145deg,#180d23,#0c0711);
-    transition:.2s;
+    border:1px solid var(--border);
+    background:var(--card);
 }
 
-.contact-card:hover{
-    transform:translateY(-4px);
-    border-color:rgba(32,255,120,.4);
+.contact-card span{
+    color:#777;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:1px;
 }
 
-.contact-icon{
-    width:45px;
-    height:45px;
-    display:grid;
-    place-items:center;
-    border-radius:12px;
-    background:#21142d;
-    color:var(--green);
-    font-weight:950;
+.contact-card strong{
+    display:block;
+    margin-top:4px;
+    font-size:13px;
 }
 
-.contact-card h3{
-    margin-top:15px;
-    font-size:15px;
+.contact-card.whatsapp strong{
+    color:#32ff83;
 }
 
-.contact-card p{
-    margin-top:6px;
-    color:var(--muted);
-    font-size:10px;
+.contact-card.telegram strong{
+    color:#38aefc;
 }
 
-/* ================= FORMS ================= */
-
-.forms{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
+.contact-card.email strong{
+    color:#ff65df;
 }
 
 .form-card{
-    padding:30px;
-    border:1px solid var(--line);
-    border-radius:20px;
-    background:linear-gradient(145deg,#150b20,#0a060e);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:24px;
+    background:var(--card);
 }
 
 .form-card h3{
-    font-size:22px;
+    font-size:16px;
+    margin-bottom:6px;
 }
 
-.form-description{
-    margin-top:9px;
-    color:var(--muted);
+.form-card > p{
+    color:#777;
     font-size:10px;
-    line-height:1.7;
+    margin-bottom:18px;
 }
 
-.form-group{
-    margin-top:16px;
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
 }
 
-.form-group label{
-    display:block;
-    color:#c9bfce;
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.field.full{
+    grid-column:1/-1;
+}
+
+.field label{
+    color:#8d8b99;
     font-size:9px;
-    font-weight:850;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea{
+.field input,
+.field textarea,
+.field select{
     width:100%;
-    margin-top:7px;
-    padding:12px;
-    border:1px solid var(--line);
-    border-radius:9px;
-    background:#08050d;
-    color:white;
+    border:1px solid rgba(255,255,255,.08);
     outline:none;
+    background:#0a0910;
+    color:#fff;
+    border-radius:10px;
+    padding:11px 12px;
+    font-size:11px;
 }
 
-.form-group textarea{
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+    border-color:var(--green);
+}
+
+.field textarea{
     min-height:110px;
     resize:vertical;
 }
 
 .form-submit{
-    margin-top:16px;
+    margin-top:14px;
 }
 
-/* ================= FOOTER ================= */
+/* =========================
+   RESOURCES
+========================= */
+
+.resources{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.resource-card{
+    padding:22px;
+    border-radius:20px;
+    border:1px solid var(--border);
+    background:var(--card);
+}
+
+.resource-card h3{
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.resource-card p{
+    color:#777;
+    font-size:10px;
+    line-height:1.6;
+    margin-bottom:15px;
+}
+
+.resource-card a{
+    display:inline-block;
+    color:var(--cyan);
+    font-size:10px;
+    font-weight:800;
+}
+
+/* =========================
+   RESPONSIBLE PLAY
+========================= */
+
+.responsible{
+    border:1px solid rgba(255,216,77,.16);
+    background:linear-gradient(120deg,rgba(255,216,77,.055),rgba(255,255,255,.018));
+    border-radius:22px;
+    padding:25px;
+}
+
+.responsible h3{
+    color:var(--gold);
+    font-family:Orbitron,sans-serif;
+    font-size:17px;
+    margin-bottom:9px;
+}
+
+.responsible p{
+    color:#92909d;
+    font-size:11px;
+    line-height:1.8;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    max-width:var(--max);
-    margin:auto;
-    padding:35px 22px;
-    border-top:1px solid var(--line);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
+    border-top:1px solid var(--border);
+    padding:35px 22px 100px;
+    text-align:center;
+    background:#050509;
 }
 
 .footer-logo{
-    display:flex;
-    align-items:center;
-    gap:9px;
-    font-size:14px;
-    font-weight:950;
-}
-
-.footer-logo img{
-    width:31px;
-    height:31px;
+    width:55px;
+    height:55px;
     object-fit:cover;
-    border-radius:8px;
+    border-radius:15px;
+    margin-bottom:10px;
 }
 
-.footer-logo span{
+footer h3{
+    font-family:Orbitron,sans-serif;
+    font-size:16px;
+}
+
+footer h3 span{
     color:var(--green);
 }
 
 footer p{
-    color:#716779;
-    font-size:9px;
+    color:#666;
+    font-size:10px;
+    margin-top:8px;
 }
 
-/* ================= FLOATING ================= */
+/* =========================
+   FLOATING BUTTONS
+========================= */
 
-.floating-contact{
+.float-buttons{
     position:fixed;
     right:18px;
     bottom:18px;
-    z-index:900;
+    z-index:999;
     display:flex;
-    gap:8px;
+    flex-direction:column;
+    gap:9px;
 }
 
 .float-btn{
-    width:50px;
-    height:50px;
-    display:grid;
-    place-items:center;
+    width:49px;
+    height:49px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     border-radius:50%;
-    background:#170d21;
-    border:1px solid rgba(32,255,120,.35);
-    color:var(--green);
-    box-shadow:0 10px 35px rgba(0,0,0,.55);
-    font-size:16px;
-    font-weight:950;
-    transition:.2s;
+    font-size:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.4);
+    border:1px solid rgba(255,255,255,.1);
 }
 
-.float-btn:hover{
-    color:#041009;
-    background:var(--green);
-    transform:translateY(-4px);
+.float-whatsapp{
+    background:#20d56b;
 }
 
-/* ================= MOBILE ================= */
+.float-telegram{
+    background:#229ed9;
+}
 
-@media(max-width:900px){
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:950px){
 
     .hero{
         grid-template-columns:1fr;
-        padding-top:60px;
+        padding-top:50px;
     }
 
-    .hero-visual{
-        max-width:600px;
+    .hero-display{
+        min-height:280px;
     }
 
-    .stats{
-        grid-template-columns:repeat(2,1fr);
+    .info-grid,
+    .resources{
+        grid-template-columns:1fr 1fr;
     }
 
-    .game-grid{
+    .games-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
@@ -1031,79 +1153,83 @@ footer p{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .wins-board,
-    .forms{
+    .notice-board,
+    .wins-grid,
+    .support-grid{
         grid-template-columns:1fr;
-    }
-
-    .nav-links a:not(.nav-cta){
-        display:none;
     }
 }
 
-@media(max-width:600px){
+@media(max-width:650px){
 
-    .hero h1{
-        font-size:63px;
-        letter-spacing:-5px;
+    .nav{
+        min-height:auto;
+        padding:10px 15px;
     }
 
-    .hero-buttons{
-        flex-direction:column;
+    nav{
+        display:none;
     }
 
-    .btn{
-        width:100%;
+    .brand{
+        font-size:17px;
     }
 
-    .section{
-        padding-top:65px;
-        padding-bottom:65px;
+    .logo{
+        width:47px;
+        height:47px;
     }
 
-    .section h2{
-        font-size:35px;
+    section{
+        padding:48px 15px;
     }
 
-    .section-header{
-        flex-direction:column;
+    .notice-alert{
+        padding:0 15px;
+    }
+
+    .notice-alert-inner{
         align-items:flex-start;
     }
 
-    .game-search{
-        width:100%;
-    }
-
-    .game-grid,
-    .gateway-grid,
-    .contact-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .notice-board{
+    .info-grid,
+    .resources,
+    .countdown-grid,
+    .games-grid,
+    .gateway-grid{
         grid-template-columns:1fr;
     }
 
-    .stats{
-        grid-template-columns:1fr 1fr;
+    .hero{
+        padding:45px 15px 25px;
     }
 
-    .jackpot{
-        flex-direction:column;
-        align-items:flex-start;
+    .hero h1{
+        font-size:42px;
     }
 
-    .countdown{
+    .hero-display{
+        min-height:250px;
+    }
+
+    .gateway-image{
+        height:230px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .field.full{
+        grid-column:auto;
+    }
+
+    .timer{
         gap:5px;
     }
 
-    .time-box{
-        min-width:58px;
-    }
-
-    footer{
-        flex-direction:column;
-        align-items:flex-start;
+    .time-box strong{
+        font-size:19px;
     }
 }
 </style>
@@ -1111,1301 +1237,1365 @@ footer p{
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
-
-<header class="navbar">
-
-<div class="nav-inner">
-
-<a href="#top" class="logo">
-
-<img src="image/greenzone-logo.jpg" alt="GreenZone">
-
-<div>
-<span class="logo-green">Green</span><span class="logo-zone">Zone</span>
+<!-- TOP ANNOUNCEMENT -->
+<div class="topbar">
+    🎰 <strong>GREENZONE GAMING</strong> • Your Information & Support Hub •
+    Check here for platform updates, Free Play & important announcements.
 </div>
 
-</a>
+<!-- HEADER -->
+<header>
+    <div class="nav">
 
-<nav class="nav-links">
+        <a href="#home" class="logo-wrap">
+            <img src="image/greenzone-logo.jpg" class="logo" alt="GreenZone Gaming Logo">
 
-<a href="#purpose">About</a>
-<a href="#wins">Daily Wins</a>
-<a href="#games">Games</a>
-<a href="#notice">Free Play</a>
-<a href="#contact">Contact</a>
+            <div class="brand">
+                GREEN<span>ZONE</span>
+                <small>GAMING • INFORMATION • SUPPORT</small>
+            </div>
+        </a>
 
-<a href="#complaint" class="nav-cta">
-SUPPORT
-</a>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#notices">Notices</a>
+            <a href="#events">Free Play</a>
+            <a href="#games">Platforms</a>
+            <a href="#gateways">Gateways</a>
+            <a href="#support">Support</a>
+        </nav>
 
-</nav>
-
-</div>
-
+    </div>
 </header>
 
 
-<main id="top">
-
-
-<!-- ================= HERO ================= -->
+<!-- HERO -->
+<main id="home">
 
 <section class="hero">
 
-<div>
+    <div>
 
-<div class="hero-badge">
-<span class="pulse"></span>
-GREENZONE ONLINE CASINO
-</div>
+        <div class="hero-tag">
+            <span class="live-dot"></span>
+            GreenZone Player Hub
+        </div>
 
-<h1>
-YOUR<br>
-<span class="green">GAME.</span><br>
-YOUR <span class="pink">ZONE.</span>
-</h1>
+        <h1>
+            STAY INFORMED.<br>
+            PLAY <span class="green">SMART.</span><br>
+            WIN THE <span class="pink">EXCITEMENT.</span>
+        </h1>
 
-<p class="hero-description">
+        <p>
+            Welcome to the official GreenZone Gaming information and support hub.
+            This website is designed to keep players updated about available
+            gaming platforms, bonuses, Free Play announcements, daily updates,
+            platform issues and the best ways to communicate with GreenZone.
+        </p>
 
-Your GreenZone information hub — stay updated on
-bonuses, Free Play, daily wins, platform status and
-the best ways to reach our support team when
-technical issues occur.
+        <div class="hero-buttons">
+            <a href="#games" class="btn btn-green">
+                🎮 EXPLORE PLATFORMS
+            </a>
 
-</p>
+            <a href="#events" class="btn btn-outline">
+                🔥 VIEW UPCOMING EVENTS
+            </a>
+        </div>
 
-<div class="hero-buttons">
-
-<a href="#games" class="btn btn-green">
-🎰 EXPLORE GAMES
-</a>
-
-<a href="#notice" class="btn btn-gold">
-🎁 CHECK FREE PLAY
-</a>
-
-</div>
-
-<p style="
-margin-top:22px;
-color:#756a7d;
-font-size:9px;
-line-height:1.6;
-">
-
-18+ only. Gaming laws vary by jurisdiction.
-Please play responsibly and only where permitted.
-
-</p>
-
-</div>
+    </div>
 
 
-<div class="hero-visual">
+    <div class="hero-display">
 
-<div class="logo-card">
+        <div class="jackpot">
 
-<img
-src="image/greenzone-logo.jpg"
-alt="GreenZone Online Casino"
->
+            <div class="emoji">🎰</div>
 
-</div>
+            <h2>GREENZONE</h2>
 
-</div>
+            <p>
+                INFORMATION • UPDATES • SUPPORT
+            </p>
+
+            <div style="margin-top:18px;color:#777;font-size:10px;">
+                ✦ CHECK THE HUB REGULARLY ✦
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- ================= PRIMARY PURPOSE ================= -->
+<!-- PLATFORM PROBLEM ALERT -->
+<div class="notice-alert">
 
-<section class="purpose-wrap" id="purpose">
+    <div class="notice-alert-inner">
 
-<div class="purpose">
+        <div class="notice-alert-icon">⚠️</div>
 
-<div class="purpose-label">
-🎯 WHY THIS WEBSITE EXISTS
-</div>
+        <div>
+            <strong>PLATFORM NOT WORKING?</strong><br>
+            <span>
+                Don't panic. Check the latest Notice Board update or contact
+                GreenZone Support for assistance.
+            </span>
+        </div>
 
-<h2>
-Your GreenZone Information & Support Hub
-</h2>
-
-<p>
-
-<strong>The primary purpose of this website is to keep all GreenZone
-players informed.</strong>
-
-Please check this website regularly for important updates about
-<strong>bonuses, Free Play, daily wins, upcoming promotions and
-GreenZone announcements.</strong>
-
-</p>
-
-<p>
-
-We also want to make sure every player knows how to communicate
-with us if any of our available gaming platforms stops working,
-becomes temporarily unavailable, or experiences technical glitches.
-
-If you experience a problem with a platform, please check the
-latest notice on this website or contact GreenZone through our
-available communication channels.
-
-</p>
-
-<div class="purpose-alert">
-
-⚠️ PLATFORM NOT WORKING?
-CHECK THE NOTICE BOARD OR CONTACT GREENZONE SUPPORT.
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= JACKPOT ================= -->
-
-<div class="jackpot-strip">
-
-<div class="jackpot">
-
-<div>
-
-<div class="jackpot-label">
-🔥 GREENZONE WIN BOARD
-</div>
-
-<div class="jackpot-sub">
-Featured player win information
-</div>
-
-</div>
-
-<div class="jackpot-value">
-<span>$</span> 2,450.00
-</div>
-
-</div>
+    </div>
 
 </div>
 
 
-<!-- ================= TICKER ================= -->
+<!-- WHY THIS WEBSITE -->
+<section>
 
-<div class="ticker">
+    <div class="section-head">
+        <div class="kicker">Why GreenZone Hub?</div>
 
-<div class="ticker-inner">
+        <h2>Your Information. Your Updates. One Place.</h2>
 
-<span class="ticker-title">
-🔥 IMPORTANT
-</span>
-
-<span class="ticker-message">
-For platform glitches or interruptions, contact GreenZone
-through WhatsApp, Telegram or Email.
-</span>
-
-</div>
-
-</div>
+        <p>
+            The primary purpose of this website is to make sure GreenZone players
+            stay informed and always know where to find the latest information.
+        </p>
+    </div>
 
 
-<!-- ================= STATS ================= -->
+    <div class="info-grid">
 
-<section class="stats">
+        <div class="info-card">
+            <div class="info-icon">🎁</div>
+            <h3>Bonuses & Free Play</h3>
+            <p>
+                Check this website for important bonus announcements,
+                Free Play events and upcoming GreenZone promotions.
+            </p>
+        </div>
 
-<div class="stat">
-<div class="stat-number">13+</div>
-<div class="stat-label">Gaming Platforms</div>
-</div>
+        <div class="info-card">
+            <div class="info-icon">🚨</div>
+            <h3>Platform Updates</h3>
+            <p>
+                If a gaming platform experiences glitches, downtime or
+                temporary issues, updates can be posted here.
+            </p>
+        </div>
 
-<div class="stat">
-<div class="stat-number">4</div>
-<div class="stat-label">Gateway Options</div>
-</div>
+        <div class="info-card">
+            <div class="info-icon">💬</div>
+            <h3>Easy Communication</h3>
+            <p>
+                Players can use WhatsApp, Telegram or the support form
+                whenever they need to communicate with GreenZone.
+            </p>
+        </div>
 
-<div class="stat">
-<div class="stat-number">24/7</div>
-<div class="stat-label">Information Access</div>
-</div>
-
-<div class="stat">
-<div class="stat-number">18+</div>
-<div class="stat-label">Age Restriction</div>
-</div>
+    </div>
 
 </section>
 
 
-<!-- ================= NOTICE BOARD ================= -->
+<!-- NOTICE BOARD -->
+<section id="notices">
 
-<section class="section" id="notice">
+    <div class="section-head">
+        <div class="kicker">Live Information</div>
+        <h2>📢 GreenZone Notice Board</h2>
 
-<div class="section-header">
-
-<div>
-
-<div class="eyebrow">
-🎁 GREENZONE NOTICE BOARD
-</div>
-
-<h2>
-What's <span>coming up?</span>
-</h2>
-
-<p class="section-description">
-Check this section for upcoming Free Play, announcements,
-platform updates and featured events.
-</p>
-
-</div>
-
-</div>
+        <p>
+            Check this section before contacting support. Important platform
+            and service updates can be displayed here.
+        </p>
+    </div>
 
 
-<div class="notice-board">
+    <div class="notice-board">
+
+        <div class="notice-main">
+
+            <div class="notice-title">
+                <h3>Latest Announcements</h3>
+                <span class="live-badge">● ACTIVE</span>
+            </div>
+
+            <div class="notice-item">
+                <strong>🎁 Free Play Updates</strong>
+                <p>
+                    Keep checking GreenZone for upcoming Free Play announcements
+                    and special player events.
+                </p>
+            </div>
+
+            <div class="notice-item">
+                <strong>⚠️ Platform Glitch?</strong>
+                <p>
+                    If a platform stops loading, becomes unavailable or gives
+                    an unexpected error, check this board first.
+                </p>
+            </div>
+
+            <div class="notice-item">
+                <strong>📲 Communication Reminder</strong>
+                <p>
+                    If you cannot access a gaming platform, you can still
+                    communicate with GreenZone through the available support channels.
+                </p>
+            </div>
+
+            <div class="notice-item">
+                <strong>🔥 New Platform Information</strong>
+                <p>
+                    New platform links and important changes can be added to
+                    the GreenZone platform directory.
+                </p>
+            </div>
+
+        </div>
 
 
-<article class="notice featured">
+        <div class="notice-side">
 
-<div class="notice-label">
-🎁 UPCOMING FREE PLAY
-</div>
+            <div class="mini-card">
+                <h3>🟢 Website Status</h3>
+                <p>
+                    GreenZone information hub is online. Bookmark this page
+                    and check it whenever you need an update.
+                </p>
+            </div>
 
-<h3 id="freeTitle">
-Next Free Play
-</h3>
+            <div class="mini-card">
+                <h3>🔔 Quick Rule</h3>
+                <p>
+                    Before assuming a platform is permanently unavailable,
+                    check the Notice Board and contact support.
+                </p>
+            </div>
 
-<p id="freeDate">
-Loading...
-</p>
+        </div>
 
-<div class="countdown">
-
-<div class="time-box">
-<div class="time-number" id="freeDays">00</div>
-<div class="time-label">Days</div>
-</div>
-
-<div class="time-box">
-<div class="time-number" id="freeHours">00</div>
-<div class="time-label">Hours</div>
-</div>
-
-<div class="time-box">
-<div class="time-number" id="freeMinutes">00</div>
-<div class="time-label">Minutes</div>
-</div>
-
-<div class="time-box">
-<div class="time-number" id="freeSeconds">00</div>
-<div class="time-label">Seconds</div>
-</div>
-
-</div>
-
-</article>
-
-
-<article class="notice">
-
-<div class="notice-label">
-🏆 LARGEST WIN
-</div>
-
-<h3 id="winTitle">
-Largest Win Update
-</h3>
-
-<p id="winDate">
-Loading...
-</p>
-
-<div class="countdown">
-
-<div class="time-box">
-<div class="time-number" id="winDays">00</div>
-<div class="time-label">Days</div>
-</div>
-
-<div class="time-box">
-<div class="time-number" id="winHours">00</div>
-<div class="time-label">Hours</div>
-</div>
-
-<div class="time-box">
-<div class="time-number" id="winMinutes">00</div>
-<div class="time-label">Minutes</div>
-</div>
-
-<div class="time-box">
-<div class="time-number" id="winSeconds">00</div>
-<div class="time-label">Seconds</div>
-</div>
-
-</div>
-
-</article>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- ================= DAILY WINS ================= -->
+<!-- COUNTDOWN -->
+<section id="events">
 
-<section class="section" id="wins">
+    <div class="section-head">
+        <div class="kicker">Coming Up</div>
+        <h2>🔥 Don't Miss The Next Event</h2>
 
-<div class="section-header">
-
-<div>
-
-<div class="eyebrow">
-🏆 DAILY WIN BOARD
-</div>
-
-<h2>
-Today's <span>winners.</span>
-</h2>
-
-<p class="section-description">
-Featured winning receipts and player win updates.
-</p>
-
-</div>
-
-</div>
+        <p>
+            Countdown timers can be updated whenever GreenZone announces
+            a new Free Play or Largest Win event.
+        </p>
+    </div>
 
 
-<div class="wins-board">
+    <div class="countdown-grid">
+
+        <div class="countdown-card green-card">
+
+            <div class="label">Next Event</div>
+
+            <h3>🎁 Free Play Countdown</h3>
+
+            <div class="timer" id="freeplayTimer">
+
+                <div class="time-box">
+                    <strong id="fpDays">00</strong>
+                    <span>Days</span>
+                </div>
+
+                <div class="time-box">
+                    <strong id="fpHours">00</strong>
+                    <span>Hours</span>
+                </div>
+
+                <div class="time-box">
+                    <strong id="fpMinutes">00</strong>
+                    <span>Minutes</span>
+                </div>
+
+                <div class="time-box">
+                    <strong id="fpSeconds">00</strong>
+                    <span>Seconds</span>
+                </div>
+
+            </div>
+
+        </div>
 
 
-<div class="wins-card">
+        <div class="countdown-card">
 
-<div class="wins-header">
+            <div class="label">Special Event</div>
 
-<h3>
-🔥 Recent Daily Wins
-</h3>
+            <h3>🏆 Largest Win Countdown</h3>
 
-<span class="live">
-UPDATED DAILY
-</span>
+            <div class="timer">
 
-</div>
+                <div class="time-box">
+                    <strong id="lwDays">00</strong>
+                    <span>Days</span>
+                </div>
 
-<div class="win-list">
+                <div class="time-box">
+                    <strong id="lwHours">00</strong>
+                    <span>Hours</span>
+                </div>
 
-<div class="win-row">
-<div>
-<div class="win-player">Player •••482</div>
-<div class="win-game">Game Vault</div>
-</div>
-<div class="win-amount">$2,450</div>
-</div>
+                <div class="time-box">
+                    <strong id="lwMinutes">00</strong>
+                    <span>Minutes</span>
+                </div>
 
-<div class="win-row">
-<div>
-<div class="win-player">Player •••719</div>
-<div class="win-game">Juwa</div>
-</div>
-<div class="win-amount">$1,875</div>
-</div>
+                <div class="time-box">
+                    <strong id="lwSeconds">00</strong>
+                    <span>Seconds</span>
+                </div>
 
-<div class="win-row">
-<div>
-<div class="win-player">Player •••301</div>
-<div class="win-game">FireKrin</div>
-</div>
-<div class="win-amount">$1,240</div>
-</div>
+            </div>
 
-<div class="win-row">
-<div>
-<div class="win-player">Player •••925</div>
-<div class="win-game">Orion Stars</div>
-</div>
-<div class="win-amount">$980</div>
-</div>
+        </div>
 
-<div class="win-row">
-<div>
-<div class="win-player">Player •••644</div>
-<div class="win-game">Panda Masters</div>
-</div>
-<div class="win-amount">$765</div>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- RECEIPT -->
-
-<div class="wins-card">
-
-<div class="upload-box">
-
-<div class="upload-icon">
-↑
-</div>
-
-<h3>
-Daily Wins Receipt
-</h3>
-
-<p>
-Upload your winning receipt for review and possible
-feature on the GreenZone Daily Wins board.
-</p>
-
-<input
-id="receiptInput"
-class="file-input"
-type="file"
-accept="image/png,image/jpeg,image/webp,application/pdf"
->
-
-<img
-id="receiptPreview"
-class="file-preview"
-alt="Receipt preview"
->
-
-<button
-id="uploadReceipt"
-class="btn btn-green upload-button"
-type="button"
->
-
-📤 SUBMIT WINNING RECEIPT
-
-</button>
-
-<span id="uploadStatus" class="upload-status">
-Maximum recommended file size: 10 MB.
-</span>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- ================= GAMES ================= -->
+<!-- DAILY WINS -->
+<section>
 
-<section class="section" id="games">
+    <div class="section-head">
+        <div class="kicker">Player Highlights</div>
+        <h2>🏆 Daily Wins</h2>
 
-<div class="section-header">
-
-<div>
-
-<div class="eyebrow">
-🎰 GAME COLLECTION
-</div>
-
-<h2>
-Choose your <span>game.</span>
-</h2>
-
-<p class="section-description">
-Select a platform below to visit its game page.
-</p>
-
-</div>
-
-<input
-id="gameSearch"
-class="game-search"
-type="search"
-placeholder="🔍 Search games..."
->
-
-</div>
+        <p>
+            A showcase area for GreenZone daily win updates.
+            Replace the sample entries with your latest verified updates.
+        </p>
+    </div>
 
 
-<div id="gameGrid" class="game-grid"></div>
+    <div class="wins-grid">
 
-</section>
+        <div class="wins-board">
 
+            <div class="win-row">
+                <div class="rank">01</div>
 
-<!-- ================= GATEWAYS ================= -->
+                <div>
+                    <div class="player-name">Player One</div>
+                    <div class="player-game">FireKirin</div>
+                </div>
 
-<section class="section" id="gateways">
-
-<div class="section-header">
-
-<div>
-
-<div class="eyebrow">
-💳 SUPPORTED GATEWAYS
-</div>
-
-<h2>
-Payment <span>options.</span>
-</h2>
-
-</div>
-
-</div>
+                <div class="win-amount">$1,250</div>
+            </div>
 
 
-<div class="gateway-grid">
+            <div class="win-row">
+                <div class="rank">02</div>
 
-<div class="gateway">
-<div class="gateway-icon">C</div>
-<h3>Chime</h3>
-<p>Supported gateway</p>
-</div>
+                <div>
+                    <div class="player-name">Player Two</div>
+                    <div class="player-game">Juwa</div>
+                </div>
 
-<div class="gateway">
-<div class="gateway-icon">P</div>
-<h3>PayPal</h3>
-<p>Supported gateway</p>
-</div>
-
-<div class="gateway">
-<div class="gateway-icon">$</div>
-<h3>Cash App</h3>
-<p>Supported gateway</p>
-</div>
-
-<div class="gateway">
-<div class="gateway-icon">V</div>
-<h3>Venmo</h3>
-<p>Supported gateway</p>
-</div>
-
-</div>
-
-</section>
+                <div class="win-amount">$980</div>
+            </div>
 
 
-<!-- ================= CONTACT ================= -->
+            <div class="win-row">
+                <div class="rank">03</div>
 
-<section class="section" id="contact">
+                <div>
+                    <div class="player-name">Player Three</div>
+                    <div class="player-game">Panda Masters</div>
+                </div>
 
-<div class="section-header">
-
-<div>
-
-<div class="eyebrow">
-📲 TEXT ME HERE
-</div>
-
-<h2>
-Contact <span>GreenZone.</span>
-</h2>
-
-<p class="section-description">
-If a platform is unavailable or you experience a technical
-problem, use any of the communication channels below.
-</p>
-
-</div>
-
-</div>
+                <div class="win-amount">$750</div>
+            </div>
 
 
-<div class="contact-grid">
+            <div class="win-row">
+                <div class="rank">04</div>
+
+                <div>
+                    <div class="player-name">Player Four</div>
+                    <div class="player-game">Orion Stars</div>
+                </div>
+
+                <div class="win-amount">$620</div>
+            </div>
 
 
-<a
-href="mailto:protechmain622@gmail.com"
-class="contact-card"
->
+            <div class="win-row">
+                <div class="rank">05</div>
 
-<div class="contact-icon">✉</div>
+                <div>
+                    <div class="player-name">Player Five</div>
+                    <div class="player-game">Milky Way</div>
+                </div>
 
-<h3>Email</h3>
+                <div class="win-amount">$515</div>
+            </div>
 
-<p>
-protechmain622@gmail.com
-</p>
-
-</a>
+        </div>
 
 
-<a
-href="https://wa.me/13614198619"
-target="_blank"
-rel="noopener"
-class="contact-card"
->
+        <div class="receipt-box">
 
-<div class="contact-icon">W</div>
+            <h3>📸 Player Win Receipt</h3>
 
-<h3>WhatsApp</h3>
+            <p>
+                Want to submit a win receipt for consideration on the Daily
+                Wins board? Select your screenshot below.
+            </p>
 
-<p>
-+1 (361) 419-8619
-</p>
+            <label class="upload-label" for="receipt">
+                📤<br>
+                Click to select a screenshot
+            </label>
 
-</a>
+            <input type="file" id="receipt" accept="image/*">
 
+            <img id="preview" alt="Receipt Preview">
 
-<a
-href="https://t.me/+pG04xmeAyBtlNjQx"
-target="_blank"
-rel="noopener"
-class="contact-card"
->
+        </div>
 
-<div class="contact-icon">T</div>
-
-<h3>Telegram</h3>
-
-<p>
-Join GreenZone Telegram
-</p>
-
-</a>
-
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- ================= SUPPORT ================= -->
+<!-- GAMING PLATFORMS -->
+<section id="games">
 
-<section class="section" id="complaint">
+    <div class="section-head">
+        <div class="kicker">Platform Directory</div>
 
-<div class="forms">
+        <h2>🎮 Available Gaming Platforms</h2>
 
-
-<div class="form-card">
-
-<div class="eyebrow">
-💬 PLAYER SUPPORT
-</div>
-
-<h3>
-Send us a message
-</h3>
-
-<p class="form-description">
-Have a question or platform issue? Send a message to GreenZone.
-</p>
+        <p>
+            Use the platform buttons below to access the links supplied by
+            GreenZone. If a link does not work, please check the Notice Board
+            or contact support.
+        </p>
+    </div>
 
 
-<form id="supportForm">
-
-<div class="form-group">
-<label>NAME</label>
-<input name="name" maxlength="80" required>
-</div>
-
-<div class="form-group">
-<label>CONTACT</label>
-<input name="contact" maxlength="80" required>
-</div>
-
-<div class="form-group">
-<label>MESSAGE</label>
-<textarea name="message" maxlength="1500" required></textarea>
-</div>
-
-<button class="btn btn-green form-submit" type="submit">
-SEND MESSAGE
-</button>
-
-</form>
-
-</div>
+    <div class="games-grid">
 
 
-<div class="form-card">
+        <!-- FIREKIRIN -->
+        <div class="game-card">
+            <div class="game-icon">🔥</div>
+            <h3>FireKirin</h3>
+            <div class="game-type">Gaming Platform</div>
 
-<div class="eyebrow">
-⚠️ PLAYER COMPLAINT
-</div>
+            <div class="platform-tags">
+                <span class="platform-tag">WEB</span>
+                <span class="platform-tag">MOBILE</span>
+            </div>
 
-<h3>
-Complaint Box
-</h3>
-
-<p class="form-description">
-Tell us what happened so GreenZone support can review the issue.
-</p>
-
-
-<form id="complaintForm">
-
-<div class="form-group">
-<label>NAME</label>
-<input name="name" maxlength="80" required>
-</div>
-
-<div class="form-group">
-<label>CONTACT</label>
-<input name="contact" maxlength="80" required>
-</div>
-
-<div class="form-group">
-
-<label>ISSUE TYPE</label>
-
-<select name="issue">
-
-<option>General Complaint</option>
-<option>Platform Not Working</option>
-<option>Game Issue</option>
-<option>Account Issue</option>
-<option>Support Issue</option>
-<option>Other</option>
-
-</select>
-
-</div>
-
-<div class="form-group">
-
-<label>COMPLAINT</label>
-
-<textarea
-name="message"
-maxlength="2000"
-required
-></textarea>
-
-</div>
-
-<button class="btn btn-gold form-submit" type="submit">
-SUBMIT COMPLAINT
-</button>
-
-</form>
-
-</div>
+            <a class="open-game"
+               href="http://start.firekirin.xyz:8580/index.html"
+               target="_blank"
+               rel="noopener noreferrer">
+                OPEN PLATFORM →
+            </a>
+        </div>
 
 
-</div>
+        <!-- HIGHSTAKE -->
+        <div class="game-card">
+            <div class="game-icon">♠️</div>
+            <h3>HighStake</h3>
+            <div class="game-type">Gaming Platform</div>
+
+            <div class="platform-tags">
+                <span class="platform-tag">WEB</span>
+            </div>
+
+            <a class="open-game"
+               href="https://dl.highstakesweeps.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+                OPEN PLATFORM →
+            </a>
+        </div>
+
+
+        <!-- MAFIA -->
+        <div class="game-card">
+            <div class="game-icon">🕶️</div>
+            <h3>Mafia</h3>
+            <div class="game-type">iOS Platform</div>
+
+            <div class="platform-tags">
+                <span class="platform-tag ios"> iOS</span>
+                <span class="platform-tag">MOBILE</span>
+            </div>
+
+            <a class="open-game"
+               href="http://www.mafia77777.com/m"
+               target="_blank"
+               rel="noopener noreferrer">
+                 OPEN iOS PLATFORM →
+            </a>
+        </div>
+
+
+        <!-- GAME VAULT -->
+        <div class="game-card">
+            <div class="game-icon">🎰</div>
+            <h3>Game Vault</h3>
+            <div class="game-type">Gaming Platform</div>
+
+            <div class="platform-tags">
+                <span class="platform-tag">PLATFORM</span>
+            </div>
+
+            <a class="open-game"
+               href="#"
+               onclick="event.preventDefault(); alert('Game Vault link will be added soon.');">
+                LINK COMING SOON
+            </a>
+        </div>
+
+
+        <!-- PANDA MASTERS -->
+        <div class="game-card">
+            <div class="game-icon">🐼</div>
+            <h3>Panda Masters</h3>
+            <div class="game-type">Gaming Platform</div>
+
+            <div class="platform-tags">
+                <span class="platform-tag">WEB</span>
+                <span class="platform-tag">MOBILE</span>
+            </div>
+
+            <a class="open-game"
+               href="https://pandamaster.vip:8888/index.html"
+               target="_blank"
+               rel="noopener noreferrer">
+                OPEN PLATFORM →
+            </a>
+        </div>
+
+
+        <!-- ORION -->
+        <div class="game-card">
+            <div class="game-icon">🌌</div>
+            <h3>Orion Stars</h3>
+            <div class="game-type">Gaming Platform</div>
+
+            <div class="platform-tags">
+                <span class="platform-tag">WEB</span>
+            </div>
+
+            <a class="open-game"
+               href="http://Orionstarsonline.com"
+               target="_blank"
+               rel="noopener noreferrer">
+                OPEN PLATFORM →
+            </a>
+        </div>
+
+
+        <!-- JUWA -->
+        <div class="game-card">
+            <div class="game-icon">🎯</div>
+            <h3>Juwa</h3>
+            <div class="game-type">App / Mobile</div>
+
+            <div class="platform-tags">
+                <span class="platform-tag">APP</span>
+                <span class="platform-tag">MOBILE</span>
+            </div>
+
+            <a class="open-game"
+               href="https://juwa777.games/app-download/"
+               target="_blank"
+               rel="noopener noreferrer">
+                OPEN PLATFORM →
+            </a>
+        </div>
+
+
+        <!-- JUWA 2 -->
+        <div class="game-card">
+            <div class="game-icon">🎲</div>
+            <h3>Juwa 2</h3>
+            <div class="game-type">Mobile Platform</div>
+
+            <div class="platform-tags">
+                <span class="platform-tag">MOBILE</span>
+                <span class="platform-tag">WEB</span>
+            </div>
+
+            <a class="open-game"
+               href="https://m.juwa2.com"
+               target="_blank"
+               rel="noopener noreferrer">
+                OPEN PLATFORM →
+            </a>
+        </div>
+
+
+        <!-- MILKY WAY -->
+        <div class="game-card">
+            <div class="game-icon">🌌</div>
+            <h3>Milky Way Galaxy</h3>
+            <div class="game-type">Gaming Platform</div>
+
+            <div class="platform-tags">
+                <span class="platform-tag">WEB</span>
+                <span class="platform-tag">MOBILE</span>
+            </div>
+
+            <a class="open-game"
+               href="https://milkywayapp.xyz/"
+               target="_blank"
+               rel="noopener noreferrer">
+                OPEN PLATFORM →
+            </a>
+        </div>
+
+
+        <!-- ULTRA PANDA -->
+        <div class="game-card">
+            <div class="game-icon">🐼</div>
+            <h3>Ultra Panda</h3>
+            <div class="game-type">Gaming Platform</div>
+
+            <div class="platform-tags">
+                <span class="platform-tag">WEB</span>
+                <span class="platform-tag">MOBILE</span>
+            </div>
+
+            <a class="open-game"
+               href="http://www.ultrapanda.mobi"
+               target="_blank"
+               rel="noopener noreferrer">
+                OPEN PLATFORM →
+            </a>
+        </div>
+
+
+        <!-- VB LINK -->
+        <div class="game-card">
+            <div class="game-icon">🔗</div>
+            <h3>VB Link</h3>
+            <div class="game-type">Gaming Platform</div>
+
+            <div class="platform-tags">
+                <span class="platform-tag">WEB</span>
+                <span class="platform-tag">MOBILE</span>
+            </div>
+
+            <a class="open-game"
+               href="https://www.vblink777.club/"
+               target="_blank"
+               rel="noopener noreferrer">
+                OPEN PLATFORM →
+            </a>
+        </div>
+
+
+        <!-- CASH MACHINE -->
+        <div class="game-card">
+            <div class="game-icon">💰</div>
+            <h3>Cash Machine</h3>
+            <div class="game-type">Gaming Platform</div>
+
+            <div class="platform-tags">
+                <span class="platform-tag">PLATFORM</span>
+            </div>
+
+            <a class="open-game"
+               href="#"
+               onclick="event.preventDefault(); alert('Cash Machine link will be added soon.');">
+                LINK COMING SOON
+            </a>
+        </div>
+
+
+        <!-- GAMING ROOM -->
+        <div class="game-card">
+            <div class="game-icon">🎮</div>
+            <h3>Gaming Room</h3>
+            <div class="game-type">Gaming Platform</div>
+
+            <div class="platform-tags">
+                <span class="platform-tag">WEB</span>
+            </div>
+
+            <a class="open-game"
+               href="https://www.gameroom777.com"
+               target="_blank"
+               rel="noopener noreferrer">
+                OPEN PLATFORM →
+            </a>
+        </div>
+
+
+        <!-- RIVER -->
+        <div class="game-card">
+            <div class="game-icon">🌊</div>
+            <h3>River777</h3>
+            <div class="game-type">Gaming Platform</div>
+
+            <div class="platform-tags">
+                <span class="platform-tag">WEB</span>
+                <span class="platform-tag">MOBILE</span>
+            </div>
+
+            <a class="open-game"
+               href="https://river777.net"
+               target="_blank"
+               rel="noopener noreferrer">
+                OPEN PLATFORM →
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GATEWAYS -->
+<section id="gateways">
+
+    <div class="section-head">
+
+        <div class="kicker">Available Gateways</div>
+
+        <h2>💳 Supported Payment Gateways</h2>
+
+        <p>
+            GreenZone supports communication around the following gateways.
+            Gateway availability may change, so please check with GreenZone
+            before proceeding.
+        </p>
+
+    </div>
+
+
+    <div class="gateway-grid">
+
+
+        <!-- CHIME -->
+        <div class="gateway-card">
+
+            <div class="gateway-image">
+                <img src="image/chime.jpg"
+                     alt="Chime"
+                     loading="lazy">
+            </div>
+
+            <div class="gateway-info">
+                <h3>Chime</h3>
+                <p>Gateway information available</p>
+            </div>
+
+        </div>
+
+
+        <!-- PAYPAL -->
+        <div class="gateway-card">
+
+            <div class="gateway-image">
+                <img src="image/paypal.jpg"
+                     alt="PayPal"
+                     loading="lazy">
+            </div>
+
+            <div class="gateway-info">
+                <h3>PayPal</h3>
+                <p>Gateway information available</p>
+            </div>
+
+        </div>
+
+
+        <!-- CASHAPP -->
+        <div class="gateway-card">
+
+            <div class="gateway-image">
+                <img src="image/cashapp.jpg"
+                     alt="Cash App"
+                     loading="lazy">
+            </div>
+
+            <div class="gateway-info">
+                <h3>Cashapp</h3>
+                <p>Gateway information available</p>
+            </div>
+
+        </div>
+
+
+        <!-- VENMO -->
+        <div class="gateway-card">
+
+            <div class="gateway-image">
+                <img src="image/venmo.png"
+                     alt="Venmo"
+                     loading="lazy">
+            </div>
+
+            <div class="gateway-info">
+                <h3>Venmo</h3>
+                <p>Gateway information available</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SUPPORT -->
+<section id="support">
+
+    <div class="section-head">
+
+        <div class="kicker">We're Here To Help</div>
+
+        <h2>💬 GreenZone Support Center</h2>
+
+        <p>
+            Having trouble with a platform? Need to report a problem?
+            Use the available communication channels below.
+        </p>
+
+    </div>
+
+
+    <div class="support-grid">
+
+
+        <div class="contact-list">
+
+            <a class="contact-card whatsapp"
+               href="https://wa.me/13614198619"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <span>WhatsApp</span>
+                <strong>📱 +1 (361) 419-8619</strong>
+
+            </a>
+
+
+            <a class="contact-card telegram"
+               href="https://t.me/+pG04xmeAyBtlNjQx"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <span>Telegram</span>
+                <strong>✈️ GreenZone Gaming</strong>
+
+            </a>
+
+
+            <a class="contact-card email"
+               href="mailto:protechmain622@gmail.com">
+
+                <span>Email</span>
+                <strong>✉️ protechmain622@gmail.com</strong>
+
+            </a>
+
+
+            <div class="contact-card">
+
+                <span>Platform Issue?</span>
+
+                <strong>
+                    ⚠️ Send the platform name + describe the issue.
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMPLAINT FORM -->
+        <div class="form-card">
+
+            <h3>📝 Complaint / Support Box</h3>
+
+            <p>
+                Tell us what happened and provide enough information for
+                GreenZone Support to understand your issue.
+            </p>
+
+
+            <form id="supportForm">
+
+                <div class="form-grid">
+
+                    <div class="field">
+
+                        <label>Your Name</label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Enter your name"
+                            required>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>Contact</label>
+
+                        <input
+                            type="text"
+                            name="contact"
+                            placeholder="Phone / Telegram / Email"
+                            required>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>Platform</label>
+
+                        <select name="platform">
+
+                            <option value="">Select Platform</option>
+
+                            <option>FireKirin</option>
+                            <option>HighStake</option>
+                            <option>Mafia iOS</option>
+                            <option>Game Vault</option>
+                            <option>Panda Masters</option>
+                            <option>Orion Stars</option>
+                            <option>Juwa</option>
+                            <option>Juwa 2</option>
+                            <option>Milky Way</option>
+                            <option>Ultra Panda</option>
+                            <option>VB Link</option>
+                            <option>Cash Machine</option>
+                            <option>Gaming Room</option>
+                            <option>River777</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>Issue Type</label>
+
+                        <select name="issue">
+
+                            <option>Platform Not Working</option>
+                            <option>Technical Problem</option>
+                            <option>Account Issue</option>
+                            <option>General Question</option>
+                            <option>Other</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field full">
+
+                        <label>Message</label>
+
+                        <textarea
+                            name="message"
+                            placeholder="Describe your issue..."
+                            required></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-green form-submit">
+
+                    SEND SUPPORT REQUEST →
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RESOURCES -->
+<section>
+
+    <div class="section-head">
+
+        <div class="kicker">Player Resources</div>
+
+        <h2>📚 GreenZone Resources</h2>
+
+        <p>
+            Useful information and resources can be placed here so players
+            have a single place to find important updates.
+        </p>
+
+    </div>
+
+
+    <div class="resources">
+
+
+        <div class="resource-card">
+
+            <h3>📄 Player Information</h3>
+
+            <p>
+                Access the GreenZone information document for important
+                player-related updates.
+            </p>
+
+            <a href="https://docs.google.com/document/d/1-Zh_x77Bq649141-NG9OXZmYsTcv1EhI/edit?usp=drivesdk&ouid=103357956196561309711&rtpof=true&sd=true"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                OPEN DOCUMENT →
+
+            </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+            <h3>🔗 GreenZone Share Link</h3>
+
+            <p>
+                Quick access to the GreenZone shared information resource.
+            </p>
+
+            <a href="https://share.google/Gghf3Co4GbhjZVU7z"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                OPEN RESOURCE →
+
+            </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+            <h3>📲 Communication</h3>
+
+            <p>
+                If a platform stops working, use WhatsApp or Telegram
+                instead of waiting for the platform to return.
+            </p>
+
+            <a href="#support">
+                CONTACT SUPPORT →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RESPONSIBLE PLAY -->
+<section>
+
+    <div class="responsible">
+
+        <h3>🎯 Play Responsibly</h3>
+
+        <p>
+            Gaming should remain entertainment. Set limits, understand the
+            risks involved and never play with money you cannot afford to lose.
+            Promotions, platform availability and Free Play events may change
+            without notice. Always verify current information through
+            GreenZone Support before taking action.
+        </p>
+
+    </div>
 
 </section>
 
 </main>
 
 
-<!-- ================= FOOTER ================= -->
-
+<!-- FOOTER -->
 <footer>
 
-<div class="footer-logo">
+    <img
+        src="image/greenzone-logo.jpg"
+        class="footer-logo"
+        alt="GreenZone Logo">
 
-<img
-src="image/greenzone-logo.jpg"
-alt="GreenZone"
->
+    <h3>
+        GREEN<span>ZONE</span> GAMING
+    </h3>
 
-Green<span>Zone</span>
+    <p>
+        Player Information • Platform Updates • Free Play • Support
+    </p>
 
-</div>
-
-<p>
-© <span id="year"></span>
-GreenZone Online Casino • 18+
-</p>
+    <p>
+        © <span id="year"></span> GreenZone Gaming. All rights reserved.
+    </p>
 
 </footer>
 
 
-<!-- ================= FLOATING CONTACT ================= -->
+<!-- FLOATING CONTACT -->
+<div class="float-buttons">
 
-<div class="floating-contact">
+    <a class="float-btn float-whatsapp"
+       href="https://wa.me/13614198619"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="WhatsApp">
 
-<a
-class="float-btn"
-href="https://wa.me/13614198619"
-target="_blank"
-rel="noopener"
-title="WhatsApp"
->
-W
-</a>
+        💬
 
-<a
-class="float-btn"
-href="https://t.me/+pG04xmeAyBtlNjQx"
-target="_blank"
-rel="noopener"
-title="Telegram"
->
-T
-</a>
+    </a>
+
+
+    <a class="float-btn float-telegram"
+       href="https://t.me/+pG04xmeAyBtlNjQx"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="Telegram">
+
+        ✈️
+
+    </a>
 
 </div>
 
 
 <script>
 
-/* ==========================================================
-   GAME LINKS
-   ----------------------------------------------------------
-   REPLACE THE "#" VALUES WITH YOUR ACTUAL GAME URLs.
-   
-   Example:
-   {
-       name: "Juwa",
-       url: "https://YOUR-JUWA-LINK.com"
-   }
-========================================================== */
+/* =========================
+   YEAR
+========================= */
 
-const games = [
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
-    {
-        name: "FireKrin",
-        url: "http://start.firekirin.xyz:8580/index.html"
-    },
 
-    {
-        name: "HighStake",
-        url: "https://dl.highstakesweeps.com/"
-    },
+/* =========================
+   COUNTDOWN SETTINGS
+   CHANGE THESE DATES
+========================= */
 
-    {
-        name: "Mafia — iOS",
-        url: "http://www.mafia77777.com/m"
-    },
+const freePlayDate =
+    new Date("2026-10-01T20:00:00").getTime();
 
-    {
-        name: "Game Vault",
-        url: "#"
-    },
+const largestWinDate =
+    new Date("2026-10-15T20:00:00").getTime();
 
-    {
-        name: "Panda Masters",
-        url: "https://pandamaster.vip:8888/index.html"
-    },
 
-    {
-        name: "Orion Stars",
-        url: "http://Orionstarsonline.com"
-    },
+/* =========================
+   COUNTDOWN FUNCTION
+========================= */
 
-    {
-        name: "Juwa",
-        url: "https://juwa777.games/app-download/"
-    },
+function updateCountdown(target, prefix){
 
-    {
-        name: "Juwa 2",
-        url: "https://m.juwa2.com"
-    },
+    const now = new Date().getTime();
 
-    {
-        name: "Milky Way Galaxy",
-        url: "https://milkywayapp.xyz/"
-    },
+    let distance = target - now;
 
-    {
-        name: "Ultra Panda",
-        url: "http://www.ultrapanda.mobi"
-    },
-
-    {
-        name: "VB Link",
-        url: "https://www.vblink777.club/"
-    },
-
-    {
-        name: "Cash Machine",
-        url: "#"
-    },
-
-    {
-        name: "Gaming Room",
-        url: "https://www.gameroom777.com"
-    },
-
-    {
-        name: "River Sweeps",
-        url: "https://river777.net"
+    if(distance < 0){
+        distance = 0;
     }
 
-];
+    const days =
+        Math.floor(distance / (1000 * 60 * 60 * 24));
 
-/* ==========================================================
-   RENDER GAMES
-========================================================== */
+    const hours =
+        Math.floor(
+            (distance % (1000 * 60 * 60 * 24))
+            / (1000 * 60 * 60)
+        );
 
-const gameGrid =
-document.getElementById("gameGrid");
+    const minutes =
+        Math.floor(
+            (distance % (1000 * 60 * 60))
+            / (1000 * 60)
+        );
 
-const gameSearch =
-document.getElementById("gameSearch");
+    const seconds =
+        Math.floor(
+            (distance % (1000 * 60))
+            / 1000
+        );
 
 
-function renderGames(list){
+    document.getElementById(prefix+"Days").textContent =
+        String(days).padStart(2,"0");
 
-    gameGrid.innerHTML = "";
+    document.getElementById(prefix+"Hours").textContent =
+        String(hours).padStart(2,"0");
 
-    if(list.length === 0){
+    document.getElementById(prefix+"Minutes").textContent =
+        String(minutes).padStart(2,"0");
 
-        gameGrid.innerHTML = `
-            <div style="
-                grid-column:1/-1;
-                padding:40px;
-                text-align:center;
-                color:#8d8293;
-                border:1px solid rgba(255,255,255,.08);
-                border-radius:15px;
-            ">
-                No game platform found.
-            </div>
-        `;
+    document.getElementById(prefix+"Seconds").textContent =
+        String(seconds).padStart(2,"0");
+}
 
+
+function updateTimers(){
+
+    updateCountdown(freePlayDate,"fp");
+
+    updateCountdown(largestWinDate,"lw");
+
+}
+
+updateTimers();
+
+setInterval(updateTimers,1000);
+
+
+/* =========================
+   RECEIPT PREVIEW
+========================= */
+
+const receipt =
+    document.getElementById("receipt");
+
+const preview =
+    document.getElementById("preview");
+
+
+receipt.addEventListener("change",function(){
+
+    const file = this.files[0];
+
+    if(!file){
+        preview.style.display = "none";
         return;
     }
 
+    const reader = new FileReader();
 
-    list.forEach((game,index)=>{
+    reader.onload = function(e){
 
-        const card =
-        document.createElement("article");
+        preview.src = e.target.result;
 
-        card.className = "game";
+        preview.style.display = "block";
 
+    };
 
-        card.innerHTML = `
+    reader.readAsDataURL(file);
 
-            <div class="game-number">
-                PLATFORM ${String(index+1).padStart(2,"0")}
-            </div>
-
-            <div class="game-name">
-                ${game.name}
-            </div>
-
-            <div class="game-status">
-                ● AVAILABLE
-            </div>
-
-            <a
-                class="game-button"
-                href="${game.url}"
-                ${game.url !== "#" ? 'target="_blank" rel="noopener"' : ''}
-                onclick="
-                    if('${game.url}' === '#'){
-                        event.preventDefault();
-                        alert('Game link has not been added yet.');
-                    }
-                "
-            >
-                🎰 OPEN ${game.name.toUpperCase()}
-            </a>
-
-        `;
+});
 
 
-        gameGrid.appendChild(card);
+/* =========================
+   SUPPORT FORM
+========================= */
+
+document.getElementById("supportForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    /*
+      GitHub Pages is static and cannot permanently
+      store form submissions by itself.
+
+      Connect this form to Google Apps Script,
+      Formspree, or another backend if you want
+      submissions saved automatically.
+    */
+
+    alert(
+        "Your support request has been prepared. " +
+        "For immediate assistance, please contact GreenZone through WhatsApp or Telegram."
+    );
+
+    this.reset();
+
+});
+
+
+/* =========================
+   SIMPLE PLATFORM SEARCH
+========================= */
+
+const searchInput = document.createElement("input");
+
+searchInput.type = "search";
+searchInput.placeholder =
+    "🔎 Search gaming platforms...";
+
+searchInput.style.cssText = `
+    width:100%;
+    max-width:500px;
+    display:block;
+    margin:0 auto 25px;
+    padding:13px 15px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.1);
+    background:#0d0c13;
+    color:#fff;
+    outline:none;
+    font-family:Poppins,sans-serif;
+    font-size:12px;
+`;
+
+const gamesSection =
+    document.querySelector("#games .section-head");
+
+gamesSection.appendChild(searchInput);
+
+
+searchInput.addEventListener("input",function(){
+
+    const search =
+        this.value.toLowerCase().trim();
+
+    document.querySelectorAll(".game-card")
+    .forEach(card => {
+
+        const name =
+            card.querySelector("h3")
+            .textContent
+            .toLowerCase();
+
+        card.style.display =
+            name.includes(search)
+            ? ""
+            : "none";
 
     });
 
-}
-
-
-gameSearch.addEventListener(
-    "input",
-    function(){
-
-        const query =
-        this.value.toLowerCase().trim();
-
-
-        renderGames(
-
-            games.filter(game =>
-                game.name
-                .toLowerCase()
-                .includes(query)
-            )
-
-        );
-
-    }
-);
-
-
-renderGames(games);
-
-
-/* ==========================================================
-   COUNTDOWN EVENTS
-
-   CHANGE THESE TWO DATES
-========================================================== */
-
-const events = {
-
-    freePlay:{
-        title:"Next Free Play",
-        date:"2026-10-01T20:00:00-05:00"
-    },
-
-    largestWin:{
-        title:"Largest Win Update",
-        date:"2026-10-01T20:00:00-05:00"
-    }
-
-};
-
-
-function countdown(event,prefix){
-
-    const target =
-    new Date(event.date);
-
-
-    document.getElementById(prefix+"Title")
-    .textContent =
-    event.title;
-
-
-    document.getElementById(prefix+"Date")
-    .textContent =
-    target.toLocaleString();
-
-
-    function update(){
-
-        let difference =
-        target.getTime() - Date.now();
-
-
-        if(difference < 0){
-            difference = 0;
-        }
-
-
-        const days =
-        Math.floor(
-            difference / 86400000
-        );
-
-
-        const hours =
-        Math.floor(
-            difference / 3600000
-        ) % 24;
-
-
-        const minutes =
-        Math.floor(
-            difference / 60000
-        ) % 60;
-
-
-        const seconds =
-        Math.floor(
-            difference / 1000
-        ) % 60;
-
-
-        document.getElementById(
-            prefix+"Days"
-        ).textContent =
-        String(days).padStart(2,"0");
-
-
-        document.getElementById(
-            prefix+"Hours"
-        ).textContent =
-        String(hours).padStart(2,"0");
-
-
-        document.getElementById(
-            prefix+"Minutes"
-        ).textContent =
-        String(minutes).padStart(2,"0");
-
-
-        document.getElementById(
-            prefix+"Seconds"
-        ).textContent =
-        String(seconds).padStart(2,"0");
-
-    }
-
-
-    update();
-
-    setInterval(update,1000);
-
-}
-
-
-countdown(events.freePlay,"free");
-
-countdown(events.largestWin,"win");
-
-
-/* ==========================================================
-   RECEIPT PREVIEW
-========================================================== */
-
-const receiptInput =
-document.getElementById("receiptInput");
-
-const receiptPreview =
-document.getElementById("receiptPreview");
-
-const uploadStatus =
-document.getElementById("uploadStatus");
-
-
-receiptInput.addEventListener(
-    "change",
-    function(){
-
-        const file =
-        this.files[0];
-
-
-        if(!file){
-
-            receiptPreview.style.display =
-            "none";
-
-            return;
-
-        }
-
-
-        if(
-            file.size >
-            10 * 1024 * 1024
-        ){
-
-            uploadStatus.textContent =
-            "File is larger than 10 MB.";
-
-            this.value = "";
-
-            return;
-
-        }
-
-
-        if(
-            file.type.startsWith("image/")
-        ){
-
-            const reader =
-            new FileReader();
-
-
-            reader.onload =
-            function(e){
-
-                receiptPreview.src =
-                e.target.result;
-
-                receiptPreview.style.display =
-                "block";
-
-            };
-
-
-            reader.readAsDataURL(file);
-
-        }
-
-
-        uploadStatus.textContent =
-        file.name + " selected.";
-
-    }
-);
-
-
-/* ==========================================================
-   RECEIPT SUBMISSION
-
-   GitHub Pages itself cannot permanently store uploaded
-   files. Connect this section to Google Apps Script,
-   Firebase, Supabase, Cloudinary or another approved
-   backend when you are ready.
-========================================================== */
-
-document
-.getElementById("uploadReceipt")
-.addEventListener(
-    "click",
-    function(){
-
-        if(!receiptInput.files[0]){
-
-            uploadStatus.textContent =
-            "Please select a winning receipt first.";
-
-            return;
-
-        }
-
-
-        uploadStatus.textContent =
-        "Receipt selected. Connect your upload backend to permanently save it.";
-
-    }
-);
-
-
-/* ==========================================================
-   SUPPORT FORM
-========================================================== */
-
-document
-.getElementById("supportForm")
-.addEventListener(
-    "submit",
-    function(e){
-
-        e.preventDefault();
-
-        alert(
-            "Your support form is ready. Connect it to your Google Apps Script endpoint to save submissions."
-        );
-
-    }
-);
-
-
-/* ==========================================================
-   COMPLAINT FORM
-========================================================== */
-
-document
-.getElementById("complaintForm")
-.addEventListener(
-    "submit",
-    function(e){
-
-        e.preventDefault();
-
-        alert(
-            "Your complaint form is ready. Connect it to your Google Apps Script endpoint to save complaints."
-        );
-
-    }
-);
-
-
-/* ==========================================================
-   FOOTER YEAR
-========================================================== */
-
-document.getElementById("year")
-.textContent =
-new Date().getFullYear();
+});
 
 </script>
 
