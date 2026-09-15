@@ -2520,29 +2520,86 @@ receipt.addEventListener("change",function(){
    SUPPORT FORM
 ========================= */
 
+const GOOGLE_SCRIPT_URL =
+    "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+
 document.getElementById("supportForm")
-.addEventListener("submit",function(e){
+.addEventListener("submit", async function(e) {
 
     e.preventDefault();
 
-    /*
-      GitHub Pages is static and cannot permanently
-      store form submissions by itself.
+    const form = this;
 
-      Connect this form to Google Apps Script,
-      Formspree, or another backend if you want
-      submissions saved automatically.
-    */
+    const submitButton =
+        form.querySelector("button[type='submit']");
 
-    alert(
-        "Your support request has been prepared. " +
-        "For immediate assistance, please contact GreenZone through WhatsApp or Telegram."
-    );
+    submitButton.disabled = true;
+    submitButton.textContent = "SENDING...";
 
-    this.reset();
+
+    const formData = new FormData(form);
+
+    const data = {
+
+        name: formData.get("name"),
+
+        contact: formData.get("contact"),
+
+        platform: formData.get("platform"),
+
+        issue: formData.get("issue"),
+
+        message: formData.get("message"),
+
+        page: window.location.href
+
+    };
+
+
+    try {
+
+        await fetch(GOOGLE_SCRIPT_URL, {
+
+            method: "POST",
+
+            mode: "no-cors",
+
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+            },
+
+            body: JSON.stringify(data)
+
+        });
+
+
+        alert(
+            "✅ Your message has been submitted successfully.\n\n" +
+            "GreenZone Support will review your request."
+        );
+
+
+        form.reset();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "❌ There was a problem submitting your message.\n\n" +
+            "Please contact GreenZone through WhatsApp or Telegram."
+        );
+
+    }
+
+
+    submitButton.disabled = false;
+    submitButton.textContent =
+        "SEND SUPPORT REQUEST →";
 
 });
-
 
 /* =========================
    SIMPLE PLATFORM SEARCH
