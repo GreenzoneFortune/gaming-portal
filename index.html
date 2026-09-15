@@ -4,37 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GreenZone Online Casino</title>
-
-<meta name="description"
-      content="GreenZone Online Casino — gaming platforms, daily wins, promotions and player support.">
+<title>GreenZone | Online Casino</title>
 
 <style>
-/* =========================================================
-   GREENZONE CASINO
-   SINGLE FILE VERSION
-   ========================================================= */
-
 :root{
-    --green:#19e875;
-    --green-dark:#079b48;
-    --gold:#e7c66b;
-    --red:#e21c2a;
-    --black:#030605;
-    --dark:#07100b;
-    --dark2:#0b1710;
-    --panel:#0d1b13;
-    --panel2:#112219;
-    --line:rgba(255,255,255,.09);
-    --white:#f7fff9;
-    --muted:#8fa399;
-    --shadow:0 25px 80px rgba(0,0,0,.55);
+    --green:#20ff78;
+    --green2:#00c95a;
+    --gold:#ffd45a;
+    --gold2:#ff9d00;
+    --pink:#ff2f92;
+    --purple:#8c42ff;
+    --red:#ff3045;
+    --cyan:#28e8ff;
+    --black:#08050d;
+    --dark:#0d0816;
+    --dark2:#140b20;
+    --panel:#181026;
+    --panel2:#211331;
+    --white:#fff;
+    --muted:#b5a9bd;
+    --line:rgba(255,255,255,.1);
+    --max:1250px;
 }
 
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 html{
@@ -42,13 +38,27 @@ html{
 }
 
 body{
-    background:
-        radial-gradient(circle at 20% 0%,rgba(25,232,117,.12),transparent 30%),
-        radial-gradient(circle at 90% 20%,rgba(226,28,42,.08),transparent 25%),
-        var(--black);
     color:var(--white);
+    background:
+        radial-gradient(circle at 10% 5%,rgba(32,255,120,.15),transparent 25%),
+        radial-gradient(circle at 90% 10%,rgba(255,47,146,.16),transparent 28%),
+        radial-gradient(circle at 50% 50%,rgba(140,66,255,.08),transparent 35%),
+        var(--black);
     font-family:Inter,Arial,Helvetica,sans-serif;
     overflow-x:hidden;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.16;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:50px 50px;
+    z-index:-1;
 }
 
 a{
@@ -56,30 +66,25 @@ a{
     text-decoration:none;
 }
 
-button,
-input,
-textarea,
-select{
-    font:inherit;
-}
-
-/* ================= NAVIGATION ================= */
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 .navbar{
     position:sticky;
     top:0;
     z-index:1000;
-    height:76px;
-    background:rgba(3,6,5,.88);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid var(--line);
+    height:78px;
+    background:rgba(8,5,13,.82);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .nav-inner{
-    max-width:1250px;
+    max-width:var(--max);
     height:100%;
     margin:auto;
-    padding:0 24px;
+    padding:0 22px;
 
     display:flex;
     align-items:center;
@@ -89,110 +94,152 @@ select{
 .logo{
     display:flex;
     align-items:center;
-    gap:11px;
+    gap:10px;
+
     font-size:20px;
-    font-weight:900;
-    letter-spacing:-.7px;
+    font-weight:950;
+    letter-spacing:-1px;
 }
 
 .logo img{
-    width:43px;
-    height:43px;
+    width:45px;
+    height:45px;
     object-fit:cover;
-    border-radius:10px;
-    background:white;
+    border-radius:12px;
+    box-shadow:
+        0 0 15px rgba(32,255,120,.3);
 }
 
-.logo span{
+.logo-green{
     color:var(--green);
+}
+
+.logo-zone{
+    color:white;
 }
 
 .nav-links{
     display:flex;
     align-items:center;
-    gap:27px;
+    gap:25px;
 }
 
 .nav-links a{
-    color:#a1afa7;
-    font-size:13px;
-    font-weight:700;
+    color:#b5aabd;
+    font-size:12px;
+    font-weight:800;
     transition:.2s;
 }
 
 .nav-links a:hover{
-    color:white;
+    color:var(--green);
 }
 
-.nav-button{
-    padding:11px 17px;
-    border-radius:9px;
-    background:var(--green);
-    color:#031008!important;
+.nav-cta{
+    padding:11px 18px;
+    border-radius:30px;
+    color:#050509!important;
+
+    background:linear-gradient(
+        135deg,
+        var(--green),
+        #8dffb7
+    );
+
+    box-shadow:
+        0 0 20px rgba(32,255,120,.25);
 }
 
-/* ================= HERO ================= */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
-    max-width:1250px;
+    max-width:var(--max);
     min-height:720px;
     margin:auto;
-    padding:90px 24px 70px;
+    padding:90px 22px 75px;
 
     display:grid;
     grid-template-columns:1.05fr .95fr;
-    gap:70px;
+    gap:65px;
     align-items:center;
 }
 
-.badge{
+.hero-badge{
     display:inline-flex;
     align-items:center;
     gap:8px;
 
-    padding:8px 12px;
-    border:1px solid rgba(25,232,117,.25);
+    padding:9px 14px;
+
+    border:1px solid rgba(32,255,120,.35);
     border-radius:50px;
 
-    background:rgba(25,232,117,.07);
     color:var(--green);
+    background:rgba(32,255,120,.08);
 
-    font-size:10px;
-    font-weight:900;
+    font-size:9px;
+    font-weight:950;
     letter-spacing:2px;
+
+    box-shadow:
+        0 0 25px rgba(32,255,120,.08);
 }
 
-.badge-dot{
+.pulse{
     width:7px;
     height:7px;
     border-radius:50%;
     background:var(--green);
     box-shadow:0 0 15px var(--green);
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{
+        opacity:1;
+        transform:scale(1);
+    }
+    50%{
+        opacity:.4;
+        transform:scale(.7);
+    }
 }
 
 .hero h1{
-    margin-top:22px;
+    margin-top:23px;
 
-    font-size:clamp(60px,8vw,105px);
-    line-height:.86;
+    font-size:clamp(60px,8vw,110px);
+    line-height:.83;
     letter-spacing:-7px;
-    font-weight:950;
+    font-weight:1000;
 }
 
 .hero h1 .green{
     color:var(--green);
+    text-shadow:
+        0 0 25px rgba(32,255,120,.3);
+}
+
+.hero h1 .pink{
+    color:var(--pink);
+    text-shadow:
+        0 0 25px rgba(255,47,146,.3);
 }
 
 .hero h1 .gold{
     color:var(--gold);
+    text-shadow:
+        0 0 25px rgba(255,212,90,.25);
 }
 
 .hero-description{
-    max-width:620px;
+    max-width:610px;
     margin-top:28px;
 
     color:var(--muted);
-    font-size:17px;
+    font-size:16px;
     line-height:1.8;
 }
 
@@ -203,103 +250,219 @@ select{
 }
 
 .btn{
+    min-height:50px;
+    padding:0 22px;
+
     display:inline-flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
-    min-height:48px;
-    padding:0 20px;
-
-    border-radius:10px;
+    border-radius:11px;
     border:1px solid transparent;
 
-    cursor:pointer;
-    font-size:13px;
-    font-weight:900;
+    font-size:12px;
+    font-weight:950;
+
     transition:.2s;
 }
 
 .btn:hover{
-    transform:translateY(-2px);
+    transform:translateY(-3px);
 }
 
 .btn-green{
-    background:var(--green);
-    color:#031008;
+    color:#041009;
+
+    background:linear-gradient(
+        135deg,
+        var(--green),
+        #9affbf
+    );
+
+    box-shadow:
+        0 8px 35px rgba(32,255,120,.18);
+}
+
+.btn-gold{
+    color:#160d00;
+
+    background:linear-gradient(
+        135deg,
+        var(--gold),
+        var(--gold2)
+    );
+
+    box-shadow:
+        0 8px 35px rgba(255,180,30,.18);
 }
 
 .btn-dark{
-    background:#0b1510;
     border-color:var(--line);
+    background:#130c1c;
 }
 
-.hero-warning{
-    margin-top:24px;
-    color:#68766e;
-    font-size:10px;
-    line-height:1.6;
-}
-
-/* ================= HERO LOGO CARD ================= */
+/* =====================================================
+   HERO VISUAL
+===================================================== */
 
 .hero-visual{
     position:relative;
 }
 
+.hero-visual:before{
+    content:"";
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    top:-80px;
+    right:-70px;
+
+    background:var(--pink);
+    filter:blur(120px);
+    opacity:.22;
+}
+
+.hero-visual:after{
+    content:"";
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    bottom:-80px;
+    left:-60px;
+
+    background:var(--green);
+    filter:blur(100px);
+    opacity:.2;
+}
+
 .logo-card{
     position:relative;
+    z-index:2;
+
     overflow:hidden;
 
-    border-radius:28px;
-    border:1px solid rgba(255,255,255,.1);
+    border-radius:30px;
+
+    border:2px solid rgba(255,212,90,.35);
 
     background:white;
-    box-shadow:var(--shadow);
+
+    box-shadow:
+        0 0 0 1px rgba(32,255,120,.1),
+        0 25px 80px rgba(0,0,0,.65),
+        0 0 60px rgba(255,47,146,.1);
 }
 
 .logo-card img{
     display:block;
     width:100%;
-    height:auto;
 }
 
-.logo-glow{
+/* =====================================================
+   JACKPOT STRIP
+===================================================== */
+
+.jackpot-strip{
+    max-width:var(--max);
+    margin:0 auto 20px;
+    padding:0 22px;
+}
+
+.jackpot{
+    position:relative;
+    overflow:hidden;
+
+    padding:18px 25px;
+
+    border:1px solid rgba(255,212,90,.3);
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,47,146,.08),
+            rgba(255,212,90,.1),
+            rgba(32,255,120,.08)
+        );
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.jackpot:before{
+    content:"";
     position:absolute;
-    width:250px;
-    height:250px;
+    width:200px;
+    height:100%;
+    top:0;
+    left:-220px;
 
-    right:-100px;
-    bottom:-100px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.12),
+        transparent
+    );
 
-    border-radius:50%;
-    background:var(--green);
-    filter:blur(100px);
-    opacity:.3;
+    transform:skewX(-20deg);
+    animation:shine 4s infinite;
 }
 
-/* ================= TICKER ================= */
+@keyframes shine{
+    0%{left:-220px}
+    45%,100%{left:110%}
+}
+
+.jackpot-label{
+    color:var(--gold);
+    font-size:9px;
+    font-weight:950;
+    letter-spacing:2px;
+}
+
+.jackpot-value{
+    color:white;
+    font-size:25px;
+    font-weight:1000;
+
+    text-shadow:
+        0 0 20px rgba(255,212,90,.25);
+}
+
+.jackpot-value span{
+    color:var(--green);
+}
+
+/* =====================================================
+   TICKER
+===================================================== */
 
 .ticker{
     border-top:1px solid var(--line);
     border-bottom:1px solid var(--line);
-    background:#08110c;
+    background:#0d0815;
 }
 
 .ticker-inner{
-    max-width:1250px;
+    max-width:var(--max);
     margin:auto;
-    padding:14px 24px;
+    padding:14px 22px;
 
     display:flex;
-    gap:15px;
-    align-items:center;
+    gap:14px;
 
-    font-size:11px;
+    font-size:10px;
 }
 
 .ticker-title{
-    color:var(--red);
-    font-weight:900;
+    color:var(--pink);
+    font-weight:950;
     letter-spacing:2px;
 }
 
@@ -307,12 +470,14 @@ select{
     color:var(--muted);
 }
 
-/* ================= STATS ================= */
+/* =====================================================
+   STATS
+===================================================== */
 
 .stats{
-    max-width:1250px;
+    max-width:var(--max);
     margin:auto;
-    padding:35px 24px;
+    padding:35px 22px 25px;
 
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -320,49 +485,90 @@ select{
 }
 
 .stat{
-    padding:24px;
+    position:relative;
+    overflow:hidden;
+
+    padding:23px;
 
     border:1px solid var(--line);
-    border-radius:16px;
+    border-radius:17px;
 
-    background:linear-gradient(145deg,#0d1b13,#07100b);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(32,255,120,.06),
+            rgba(140,66,255,.04)
+        );
+}
+
+.stat:after{
+    content:"";
+    position:absolute;
+
+    width:70px;
+    height:70px;
+
+    right:-30px;
+    top:-30px;
+
+    border-radius:50%;
+
+    background:var(--green);
+    filter:blur(35px);
+    opacity:.16;
 }
 
 .stat-number{
     color:var(--green);
-    font-size:30px;
-    font-weight:950;
+    font-size:29px;
+    font-weight:1000;
+}
+
+.stat:nth-child(2) .stat-number{
+    color:var(--gold);
+}
+
+.stat:nth-child(3) .stat-number{
+    color:var(--pink);
+}
+
+.stat:nth-child(4) .stat-number{
+    color:var(--cyan);
 }
 
 .stat-label{
     margin-top:5px;
     color:var(--muted);
-    font-size:11px;
+    font-size:10px;
 }
 
-/* ================= GENERAL SECTION ================= */
+/* =====================================================
+   SECTIONS
+===================================================== */
 
 .section{
-    max-width:1250px;
+    max-width:var(--max);
     margin:auto;
-    padding:90px 24px;
+    padding:85px 22px;
 }
 
 .section-header{
-    margin-bottom:35px;
+    margin-bottom:32px;
 
     display:flex;
-    justify-content:space-between;
     align-items:end;
+    justify-content:space-between;
     gap:20px;
 }
 
 .eyebrow{
-    color:var(--green);
-    font-size:10px;
-    font-weight:900;
-    letter-spacing:2.5px;
     margin-bottom:12px;
+
+    color:var(--green);
+
+    font-size:9px;
+    font-weight:950;
+    letter-spacing:3px;
 }
 
 .section h2{
@@ -372,24 +578,26 @@ select{
 }
 
 .section h2 span{
-    color:var(--green);
+    color:var(--pink);
 }
 
-.section-subtitle{
+.section-description{
     max-width:650px;
-    margin-top:13px;
+    margin-top:12px;
 
     color:var(--muted);
-    font-size:13px;
+    font-size:12px;
     line-height:1.7;
 }
 
-/* ================= NOTICE BOARD ================= */
+/* =====================================================
+   NOTICE
+===================================================== */
 
 .notice-board{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:16px;
+    gap:15px;
 }
 
 .notice{
@@ -402,105 +610,116 @@ select{
     border-radius:20px;
 
     background:
-        radial-gradient(circle at 100% 0,rgba(25,232,117,.13),transparent 35%),
+        radial-gradient(
+            circle at 100% 0,
+            rgba(255,47,146,.13),
+            transparent 35%
+        ),
         var(--panel);
 }
 
 .notice.featured{
-    border-color:rgba(25,232,117,.35);
+    border-color:rgba(32,255,120,.35);
 }
 
 .notice-label{
     color:var(--green);
-    font-size:10px;
-    font-weight:900;
+    font-size:9px;
+    font-weight:950;
     letter-spacing:2px;
+}
+
+.notice:nth-child(2) .notice-label{
+    color:var(--gold);
 }
 
 .notice h3{
     margin-top:12px;
-    font-size:25px;
+    font-size:24px;
 }
 
 .notice p{
-    margin-top:8px;
+    margin-top:7px;
     color:var(--muted);
-    font-size:12px;
+    font-size:11px;
 }
 
 .countdown{
     display:flex;
-    gap:8px;
-    margin-top:25px;
+    gap:7px;
+    margin-top:24px;
 }
 
 .time-box{
-    min-width:65px;
-    padding:12px 8px;
+    min-width:64px;
+
+    padding:12px 7px;
 
     text-align:center;
 
     border:1px solid var(--line);
-    border-radius:10px;
+    border-radius:9px;
 
-    background:#07100b;
+    background:#09060d;
 }
 
 .time-number{
     color:var(--green);
-    font-size:21px;
-    font-weight:950;
+    font-size:20px;
+    font-weight:1000;
 }
 
 .time-label{
     margin-top:3px;
-    color:#65736b;
-    font-size:8px;
+    color:#716678;
+    font-size:7px;
     text-transform:uppercase;
 }
 
-/* ================= DAILY WINS ================= */
-
-.wins-section{
-    background:
-        linear-gradient(180deg,transparent,#08130c 50%,transparent);
-}
+/* =====================================================
+   DAILY WINS
+===================================================== */
 
 .wins-board{
     display:grid;
-    grid-template-columns:1.2fr .8fr;
-    gap:16px;
+    grid-template-columns:1.15fr .85fr;
+    gap:15px;
 }
 
 .wins-card{
+    overflow:hidden;
+
     border:1px solid var(--line);
     border-radius:20px;
-    overflow:hidden;
-    background:#0a130d;
+
+    background:#0d0816;
 }
 
 .wins-header{
     padding:20px 23px;
+
     border-bottom:1px solid var(--line);
 
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
 }
 
 .wins-header h3{
-    font-size:17px;
+    font-size:16px;
 }
 
 .live{
     color:var(--green);
-    font-size:9px;
-    font-weight:900;
+
+    font-size:8px;
+    font-weight:950;
     letter-spacing:1px;
 }
 
 .live:before{
     content:"";
+
     display:inline-block;
 
     width:6px;
@@ -508,8 +727,10 @@ select{
     margin-right:6px;
 
     border-radius:50%;
+
     background:var(--green);
-    box-shadow:0 0 10px var(--green);
+
+    box-shadow:0 0 12px var(--green);
 }
 
 .win-list{
@@ -517,13 +738,13 @@ select{
 }
 
 .win-row{
-    min-height:65px;
+    min-height:68px;
 
     display:grid;
     grid-template-columns:1fr auto;
     align-items:center;
 
-    border-bottom:1px solid rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(255,255,255,.055);
 }
 
 .win-row:last-child{
@@ -532,7 +753,7 @@ select{
 
 .win-player{
     font-size:12px;
-    font-weight:800;
+    font-weight:850;
 }
 
 .win-game{
@@ -542,93 +763,114 @@ select{
 }
 
 .win-amount{
-    color:var(--green);
+    color:var(--gold);
     font-size:17px;
-    font-weight:950;
+    font-weight:1000;
+
+    text-shadow:
+        0 0 15px rgba(255,212,90,.18);
 }
 
+/* =====================================================
+   RECEIPT UPLOAD
+===================================================== */
+
 .upload-box{
-    padding:27px;
+    padding:29px;
 }
 
 .upload-icon{
-    width:55px;
-    height:55px;
+    width:58px;
+    height:58px;
 
     display:grid;
     place-items:center;
 
-    border-radius:15px;
+    border-radius:16px;
 
-    background:rgba(25,232,117,.09);
     color:var(--green);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(32,255,120,.12),
+            rgba(140,66,255,.1)
+        );
+
+    border:1px solid rgba(32,255,120,.25);
 
     font-size:25px;
 }
 
 .upload-box h3{
     margin-top:17px;
-    font-size:20px;
+    font-size:21px;
 }
 
 .upload-box p{
     margin-top:9px;
+
     color:var(--muted);
-    font-size:11px;
-    line-height:1.6;
+
+    font-size:10px;
+    line-height:1.7;
 }
 
 .file-input{
-    margin-top:20px;
-
     width:100%;
-    padding:12px;
+    margin-top:18px;
+    padding:11px;
 
-    border:1px dashed rgba(25,232,117,.4);
+    border:1px dashed rgba(32,255,120,.4);
     border-radius:10px;
 
-    background:#07100b;
+    background:#08050d;
     color:var(--muted);
 
-    font-size:11px;
+    font-size:10px;
 }
 
 .file-preview{
     display:none;
 
-    margin-top:12px;
-
     max-width:100%;
     max-height:180px;
 
+    margin-top:12px;
+
     border-radius:10px;
-    border:1px solid var(--line);
 }
 
 .upload-button{
     width:100%;
-    margin-top:12px;
+    margin-top:11px;
 }
 
 .upload-status{
     display:block;
-    margin-top:10px;
-    color:var(--muted);
-    font-size:10px;
+
+    margin-top:9px;
+
+    color:#776d7e;
+
+    font-size:9px;
 }
 
-/* ================= GAMES ================= */
+/* =====================================================
+   GAMES
+===================================================== */
 
 .game-search{
-    width:240px;
+    width:245px;
 
     padding:13px 15px;
 
     border:1px solid var(--line);
     border-radius:10px;
 
-    background:#08110c;
+    background:#0c0711;
     color:white;
+
     outline:none;
 }
 
@@ -639,46 +881,88 @@ select{
 }
 
 .game{
-    min-height:145px;
-    padding:22px;
+    position:relative;
+    overflow:hidden;
+
+    min-height:150px;
+
+    padding:21px;
 
     border:1px solid var(--line);
-    border-radius:16px;
+    border-radius:17px;
 
     background:
-        linear-gradient(145deg,#101e15,#07100b);
+        linear-gradient(
+            145deg,
+            #1a0e25,
+            #0b0710
+        );
 
     display:flex;
     flex-direction:column;
     justify-content:space-between;
 
-    transition:.2s;
+    transition:.25s;
+}
+
+.game:before{
+    content:"";
+
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    right:-40px;
+    top:-40px;
+
+    border-radius:50%;
+
+    background:var(--purple);
+    filter:blur(30px);
+    opacity:.25;
 }
 
 .game:hover{
-    transform:translateY(-4px);
-    border-color:rgba(25,232,117,.45);
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
+    transform:translateY(-5px) scale(1.01);
+
+    border-color:rgba(32,255,120,.5);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.45),
+        0 0 25px rgba(32,255,120,.06);
 }
 
 .game-number{
-    color:#56645c;
-    font-size:9px;
-    letter-spacing:1px;
+    color:#716579;
+    font-size:8px;
+    letter-spacing:2px;
 }
 
 .game-name{
     font-size:16px;
-    font-weight:900;
+    font-weight:950;
 }
 
 .game-status{
     color:var(--green);
-    font-size:9px;
-    font-weight:800;
+    font-size:8px;
+    font-weight:900;
 }
 
-/* ================= GATEWAYS ================= */
+/* alternating colors */
+
+.game:nth-child(3n) .game-status{
+    color:var(--gold);
+}
+
+.game:nth-child(4n) .game-status{
+    color:var(--pink);
+}
+
+/* =====================================================
+   GATEWAYS
+===================================================== */
 
 .gateway-grid{
     display:grid;
@@ -687,42 +971,72 @@ select{
 }
 
 .gateway{
-    padding:24px;
+    position:relative;
+    overflow:hidden;
+
+    padding:25px;
 
     border:1px solid var(--line);
-    border-radius:16px;
+    border-radius:17px;
 
-    background:#0a130d;
+    background:#100a18;
+
+    transition:.2s;
+}
+
+.gateway:hover{
+    transform:translateY(-4px);
+}
+
+.gateway:nth-child(1){
+    border-color:rgba(32,255,120,.25);
+}
+
+.gateway:nth-child(2){
+    border-color:rgba(28,180,255,.25);
+}
+
+.gateway:nth-child(3){
+    border-color:rgba(32,255,120,.25);
+}
+
+.gateway:nth-child(4){
+    border-color:rgba(70,170,255,.25);
 }
 
 .gateway-icon{
-    width:45px;
-    height:45px;
+    width:46px;
+    height:46px;
 
     display:grid;
     place-items:center;
 
-    border-radius:12px;
+    border-radius:13px;
 
-    background:#122319;
+    background:#21142d;
+
     color:var(--green);
 
-    font-size:19px;
-    font-weight:950;
+    font-weight:1000;
+    font-size:18px;
 }
 
 .gateway h3{
-    margin-top:17px;
+    margin-top:16px;
     font-size:15px;
 }
 
 .gateway p{
     margin-top:5px;
+
     color:var(--muted);
-    font-size:10px;
+
+    font-size:9px;
 }
 
-/* ================= CONTACT ================= */
+/* =====================================================
+   CONTACT
+===================================================== */
 
 .contact-grid{
     display:grid;
@@ -734,20 +1048,46 @@ select{
     padding:25px;
 
     border:1px solid var(--line);
-    border-radius:16px;
+    border-radius:17px;
 
-    background:#0a130d;
+    background:
+        linear-gradient(
+            145deg,
+            #180d23,
+            #0c0711
+        );
 
     transition:.2s;
 }
 
 .contact-card:hover{
-    transform:translateY(-3px);
-    border-color:rgba(25,232,117,.4);
+    transform:translateY(-4px);
+
+    border-color:rgba(32,255,120,.4);
 }
 
 .contact-icon{
-    font-size:22px;
+    width:45px;
+    height:45px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:12px;
+
+    background:#21142d;
+
+    color:var(--green);
+
+    font-weight:950;
+}
+
+.contact-card:nth-child(2) .contact-icon{
+    color:#38d879;
+}
+
+.contact-card:nth-child(3) .contact-icon{
+    color:#35a9ff;
 }
 
 .contact-card h3{
@@ -757,16 +1097,20 @@ select{
 
 .contact-card p{
     margin-top:6px;
+
     color:var(--muted);
-    font-size:11px;
+
+    font-size:10px;
 }
 
-/* ================= FORMS ================= */
+/* =====================================================
+   FORMS
+===================================================== */
 
 .forms{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:16px;
+    gap:15px;
 }
 
 .form-card{
@@ -775,18 +1119,25 @@ select{
     border:1px solid var(--line);
     border-radius:20px;
 
-    background:linear-gradient(145deg,#0d1b13,#07100b);
+    background:
+        linear-gradient(
+            145deg,
+            #150b20,
+            #0a060e
+        );
 }
 
 .form-card h3{
-    font-size:23px;
+    font-size:22px;
 }
 
 .form-description{
     margin-top:9px;
+
     color:var(--muted);
-    font-size:11px;
-    line-height:1.6;
+
+    font-size:10px;
+    line-height:1.7;
 }
 
 .form-group{
@@ -796,9 +1147,10 @@ select{
 .form-group label{
     display:block;
 
-    color:#bac8bf;
-    font-size:10px;
-    font-weight:800;
+    color:#c9bfce;
+
+    font-size:9px;
+    font-weight:850;
 }
 
 .form-group input,
@@ -812,10 +1164,17 @@ select{
     border:1px solid var(--line);
     border-radius:9px;
 
-    background:#050b07;
+    background:#08050d;
     color:white;
 
     outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:rgba(32,255,120,.45);
+    box-shadow:0 0 15px rgba(32,255,120,.05);
 }
 
 .form-group textarea{
@@ -827,14 +1186,17 @@ select{
     margin-top:16px;
 }
 
-/* ================= FOOTER ================= */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
-    border-top:1px solid var(--line);
-    padding:35px 24px;
-
-    max-width:1250px;
+    max-width:var(--max);
     margin:auto;
+
+    padding:35px 22px;
+
+    border-top:1px solid var(--line);
 
     display:flex;
     justify-content:space-between;
@@ -846,14 +1208,17 @@ footer{
     display:flex;
     align-items:center;
     gap:9px;
-    font-weight:900;
+
+    font-size:14px;
+    font-weight:950;
 }
 
 .footer-logo img{
-    width:30px;
-    height:30px;
+    width:31px;
+    height:31px;
+
     object-fit:cover;
-    border-radius:7px;
+    border-radius:8px;
 }
 
 .footer-logo span{
@@ -861,16 +1226,20 @@ footer{
 }
 
 footer p{
-    color:#65736b;
+    color:#716779;
     font-size:9px;
 }
 
-/* ================= FLOATING CONTACT ================= */
+/* =====================================================
+   FLOATING BUTTONS
+===================================================== */
 
 .floating-contact{
     position:fixed;
-    right:20px;
-    bottom:20px;
+
+    right:18px;
+    bottom:18px;
+
     z-index:900;
 
     display:flex;
@@ -878,30 +1247,39 @@ footer p{
 }
 
 .float-btn{
-    width:48px;
-    height:48px;
+    width:50px;
+    height:50px;
 
     display:grid;
     place-items:center;
 
     border-radius:50%;
 
-    background:#0e2116;
-    border:1px solid rgba(25,232,117,.3);
+    background:#170d21;
+
+    border:1px solid rgba(32,255,120,.35);
 
     color:var(--green);
 
-    box-shadow:0 10px 30px #0008;
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.55),
+        0 0 20px rgba(32,255,120,.08);
 
-    font-size:18px;
+    font-size:16px;
+    font-weight:950;
+
+    transition:.2s;
 }
 
 .float-btn:hover{
+    color:#041009;
     background:var(--green);
-    color:#031008;
+    transform:translateY(-4px);
 }
 
-/* ================= MOBILE ================= */
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
 @media(max-width:900px){
 
@@ -934,30 +1312,15 @@ footer p{
         grid-template-columns:1fr;
     }
 
-    .nav-links a:not(.nav-button){
+    .nav-links a:not(.nav-cta){
         display:none;
     }
 }
 
 @media(max-width:600px){
 
-    .nav-inner{
-        padding:0 16px;
-    }
-
-    .section,
-    .hero,
-    .stats{
-        padding-left:17px;
-        padding-right:17px;
-    }
-
-    .hero{
-        padding-top:50px;
-    }
-
     .hero h1{
-        font-size:64px;
+        font-size:63px;
         letter-spacing:-5px;
     }
 
@@ -969,8 +1332,13 @@ footer p{
         width:100%;
     }
 
+    .section{
+        padding-top:65px;
+        padding-bottom:65px;
+    }
+
     .section h2{
-        font-size:34px;
+        font-size:35px;
     }
 
     .section-header{
@@ -988,22 +1356,30 @@ footer p{
         grid-template-columns:1fr 1fr;
     }
 
+    .notice-board{
+        grid-template-columns:1fr;
+    }
+
     .stats{
         grid-template-columns:1fr 1fr;
     }
 
-    .notice-board{
-        grid-template-columns:1fr;
+    .jackpot{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .countdown{
+        gap:5px;
+    }
+
+    .time-box{
+        min-width:58px;
     }
 
     footer{
         flex-direction:column;
         align-items:flex-start;
-    }
-
-    .floating-contact{
-        right:12px;
-        bottom:12px;
     }
 }
 </style>
@@ -1011,26 +1387,40 @@ footer p{
 
 <body>
 
+
 <!-- =====================================================
      NAVIGATION
-====================================================== -->
+===================================================== -->
 
 <header class="navbar">
 
 <div class="nav-inner">
 
 <a href="#top" class="logo">
-    <img src="image/greenzone-logo.jpg" alt="GreenZone Casino">
-    Green<span>Zone</span>
+
+<img src="image/greenzone-logo.jpg"
+     alt="GreenZone">
+
+<div>
+    <span class="logo-green">Green</span><span class="logo-zone">Zone</span>
+</div>
+
 </a>
+
 
 <nav class="nav-links">
 
 <a href="#wins">Daily Wins</a>
+
 <a href="#games">Games</a>
+
 <a href="#notice">Promotions</a>
+
 <a href="#contact">Contact</a>
-<a href="#complaint" class="nav-button">Support</a>
+
+<a href="#complaint" class="nav-cta">
+    SUPPORT
+</a>
 
 </nav>
 
@@ -1041,46 +1431,68 @@ footer p{
 
 <main id="top">
 
+
 <!-- =====================================================
      HERO
-====================================================== -->
+===================================================== -->
 
 <section class="hero">
 
 <div>
 
-<div class="badge">
-    <span class="badge-dot"></span>
-    GREENZONE ONLINE CASINO
+<div class="hero-badge">
+
+<span class="pulse"></span>
+
+GREENZONE ONLINE CASINO
+
 </div>
 
+
 <h1>
-    YOUR<br>
-    <span class="green">GAME.</span><br>
-    YOUR <span class="gold">ZONE.</span>
+
+YOUR<br>
+
+<span class="green">GAME.</span><br>
+
+YOUR <span class="pink">ZONE.</span>
+
 </h1>
 
+
 <p class="hero-description">
-    Welcome to GreenZone — your central gaming portal for
-    available platforms, daily wins, promotions and player support.
+
+Welcome to GreenZone — your gaming destination for
+available platforms, daily wins, promotions and
+player support.
+
 </p>
+
 
 <div class="hero-buttons">
 
 <a href="#games" class="btn btn-green">
-    EXPLORE GAMES
+    🎰 EXPLORE GAMES
 </a>
 
-<a href="#wins" class="btn btn-dark">
-    VIEW DAILY WINS
+<a href="#wins" class="btn btn-gold">
+    🏆 DAILY WINS
 </a>
 
 </div>
 
-<p class="hero-warning">
-    18+ only. Availability and legality of online gaming vary by
-    jurisdiction. This website is an informational front-end and
-    does not itself process wagers or payment credentials.
+
+<p style="
+margin-top:22px;
+color:#756a7d;
+font-size:9px;
+line-height:1.6;
+">
+
+18+ only. Online gaming laws vary by jurisdiction.
+This website is an informational front-end and does not
+itself process wagers or payment credentials.
+
 </p>
 
 </div>
@@ -1090,10 +1502,10 @@ footer p{
 
 <div class="logo-card">
 
-<img src="image/greenzone-logo.jpg"
-     alt="GreenZone Online Casino">
-
-<div class="logo-glow"></div>
+<img
+src="image/greenzone-logo.jpg"
+alt="GreenZone Online Casino"
+>
 
 </div>
 
@@ -1103,18 +1515,59 @@ footer p{
 
 
 <!-- =====================================================
+     JACKPOT
+===================================================== -->
+
+<div class="jackpot-strip">
+
+<div class="jackpot">
+
+<div>
+
+<div class="jackpot-label">
+    🔥 GREENZONE JACKPOT BOARD
+</div>
+
+<div style="
+margin-top:5px;
+color:#aaa0b0;
+font-size:10px;
+">
+
+Daily wins & featured player updates
+
+</div>
+
+</div>
+
+
+<div class="jackpot-value">
+
+<span>$</span>
+2,450.00
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
      TICKER
-====================================================== -->
+===================================================== -->
 
 <div class="ticker">
 
 <div class="ticker-inner">
 
-<span class="ticker-title">GREENZONE NOTICE</span>
+<span class="ticker-title">
+    🔥 HOT UPDATE
+</span>
 
 <span class="ticker-message">
-    Welcome to GreenZone — check the Daily Wins and Notice Board
-    for current announcements.
+    Welcome to GreenZone — check the Daily Wins and Notice
+    Board for current announcements.
 </span>
 
 </div>
@@ -1124,28 +1577,59 @@ footer p{
 
 <!-- =====================================================
      STATS
-====================================================== -->
+===================================================== -->
 
 <section class="stats">
 
 <div class="stat">
-    <div class="stat-number">13+</div>
-    <div class="stat-label">Gaming Platforms</div>
+
+<div class="stat-number">
+    13+
 </div>
 
-<div class="stat">
-    <div class="stat-number">4</div>
-    <div class="stat-label">Gateway Options</div>
+<div class="stat-label">
+    Gaming Platforms
 </div>
 
-<div class="stat">
-    <div class="stat-number">24/7</div>
-    <div class="stat-label">Portal Access</div>
 </div>
 
+
 <div class="stat">
-    <div class="stat-number">18+</div>
-    <div class="stat-label">Age Restriction</div>
+
+<div class="stat-number">
+    4
+</div>
+
+<div class="stat-label">
+    Gateway Options
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number">
+    24/7
+</div>
+
+<div class="stat-label">
+    Portal Access
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number">
+    18+
+</div>
+
+<div class="stat-label">
+    Age Restriction
+</div>
+
 </div>
 
 </section>
@@ -1153,7 +1637,7 @@ footer p{
 
 <!-- =====================================================
      NOTICE BOARD
-====================================================== -->
+===================================================== -->
 
 <section class="section" id="notice">
 
@@ -1162,16 +1646,16 @@ footer p{
 <div>
 
 <div class="eyebrow">
-    GREENZONE NOTICE BOARD
+    🎁 GREENZONE NOTICE BOARD
 </div>
 
 <h2>
     What's <span>coming up?</span>
 </h2>
 
-<p class="section-subtitle">
-    Keep players informed about upcoming Free Play events,
-    announcements and special updates.
+<p class="section-description">
+    Stay updated with upcoming Free Play events,
+    announcements and featured promotions.
 </p>
 
 </div>
@@ -1185,7 +1669,7 @@ footer p{
 <article class="notice featured">
 
 <div class="notice-label">
-    UPCOMING FREE PLAY
+    🎁 UPCOMING FREE PLAY
 </div>
 
 <h3 id="freeTitle">
@@ -1193,29 +1677,30 @@ footer p{
 </h3>
 
 <p id="freeDate">
-    Loading event...
+    Loading...
 </p>
+
 
 <div class="countdown">
 
 <div class="time-box">
-    <div class="time-number" id="freeDays">00</div>
-    <div class="time-label">Days</div>
+<div class="time-number" id="freeDays">00</div>
+<div class="time-label">Days</div>
 </div>
 
 <div class="time-box">
-    <div class="time-number" id="freeHours">00</div>
-    <div class="time-label">Hours</div>
+<div class="time-number" id="freeHours">00</div>
+<div class="time-label">Hours</div>
 </div>
 
 <div class="time-box">
-    <div class="time-number" id="freeMinutes">00</div>
-    <div class="time-label">Minutes</div>
+<div class="time-number" id="freeMinutes">00</div>
+<div class="time-label">Minutes</div>
 </div>
 
 <div class="time-box">
-    <div class="time-number" id="freeSeconds">00</div>
-    <div class="time-label">Seconds</div>
+<div class="time-number" id="freeSeconds">00</div>
+<div class="time-label">Seconds</div>
 </div>
 
 </div>
@@ -1226,7 +1711,7 @@ footer p{
 <article class="notice">
 
 <div class="notice-label">
-    LARGEST WIN
+    🏆 LARGEST WIN
 </div>
 
 <h3 id="winTitle">
@@ -1234,29 +1719,30 @@ footer p{
 </h3>
 
 <p id="winDate">
-    Loading event...
+    Loading...
 </p>
+
 
 <div class="countdown">
 
 <div class="time-box">
-    <div class="time-number" id="winDays">00</div>
-    <div class="time-label">Days</div>
+<div class="time-number" id="winDays">00</div>
+<div class="time-label">Days</div>
 </div>
 
 <div class="time-box">
-    <div class="time-number" id="winHours">00</div>
-    <div class="time-label">Hours</div>
+<div class="time-number" id="winHours">00</div>
+<div class="time-label">Hours</div>
 </div>
 
 <div class="time-box">
-    <div class="time-number" id="winMinutes">00</div>
-    <div class="time-label">Minutes</div>
+<div class="time-number" id="winMinutes">00</div>
+<div class="time-label">Minutes</div>
 </div>
 
 <div class="time-box">
-    <div class="time-number" id="winSeconds">00</div>
-    <div class="time-label">Seconds</div>
+<div class="time-number" id="winSeconds">00</div>
+<div class="time-label">Seconds</div>
 </div>
 
 </div>
@@ -1270,25 +1756,24 @@ footer p{
 
 <!-- =====================================================
      DAILY WINS
-====================================================== -->
+===================================================== -->
 
-<section class="section wins-section" id="wins">
+<section class="section" id="wins">
 
 <div class="section-header">
 
 <div>
 
 <div class="eyebrow">
-    DAILY WIN BOARD
+    🏆 DAILY WIN BOARD
 </div>
 
 <h2>
     Today's <span>winners.</span>
 </h2>
 
-<p class="section-subtitle">
-    Upload verified winning receipts and display selected
-    daily wins on the GreenZone portal.
+<p class="section-description">
+    Featured winning receipts and player win updates.
 </p>
 
 </div>
@@ -1299,13 +1784,13 @@ footer p{
 <div class="wins-board">
 
 
-<!-- WIN LIST -->
-
 <div class="wins-card">
 
 <div class="wins-header">
 
-<h3>Recent Daily Wins</h3>
+<h3>
+    🔥 Recent Daily Wins
+</h3>
 
 <span class="live">
     UPDATED DAILY
@@ -1316,52 +1801,118 @@ footer p{
 
 <div class="win-list">
 
-<div class="win-row">
-<div>
-    <div class="win-player">Player •••482</div>
-    <div class="win-game">Game Vault</div>
-</div>
-<div class="win-amount">$2,450</div>
-</div>
 
 <div class="win-row">
+
 <div>
-    <div class="win-player">Player •••719</div>
-    <div class="win-game">Juwa</div>
+
+<div class="win-player">
+    Player •••482
 </div>
-<div class="win-amount">$1,875</div>
+
+<div class="win-game">
+    Game Vault
 </div>
+
+</div>
+
+<div class="win-amount">
+    $2,450
+</div>
+
+</div>
+
 
 <div class="win-row">
+
 <div>
-    <div class="win-player">Player •••301</div>
-    <div class="win-game">FireKrin</div>
+
+<div class="win-player">
+    Player •••719
 </div>
-<div class="win-amount">$1,240</div>
+
+<div class="win-game">
+    Juwa
 </div>
+
+</div>
+
+<div class="win-amount">
+    $1,875
+</div>
+
+</div>
+
 
 <div class="win-row">
+
 <div>
-    <div class="win-player">Player •••925</div>
-    <div class="win-game">Orion Stars</div>
+
+<div class="win-player">
+    Player •••301
 </div>
-<div class="win-amount">$980</div>
+
+<div class="win-game">
+    FireKrin
 </div>
+
+</div>
+
+<div class="win-amount">
+    $1,240
+</div>
+
+</div>
+
 
 <div class="win-row">
+
 <div>
-    <div class="win-player">Player •••644</div>
-    <div class="win-game">Panda Masters</div>
+
+<div class="win-player">
+    Player •••925
 </div>
-<div class="win-amount">$765</div>
+
+<div class="win-game">
+    Orion Stars
 </div>
+
+</div>
+
+<div class="win-amount">
+    $980
+</div>
+
+</div>
+
+
+<div class="win-row">
+
+<div>
+
+<div class="win-player">
+    Player •••644
+</div>
+
+<div class="win-game">
+    Panda Masters
+</div>
+
+</div>
+
+<div class="win-amount">
+    $765
+</div>
+
+</div>
+
 
 </div>
 
 </div>
 
 
-<!-- UPLOAD PORTAL -->
+<!-- RECEIPT UPLOAD -->
 
 <div class="wins-card">
 
@@ -1372,42 +1923,54 @@ footer p{
 </div>
 
 <h3>
-    Daily Wins Receipt Portal
+    Daily Wins Receipt
 </h3>
 
 <p>
-    Upload a winning receipt for review. Only upload receipts
-    that you are authorized to submit.
+    Upload your winning receipt for review and possible
+    feature on the GreenZone Daily Wins board.
 </p>
 
+
 <input
-    id="receiptInput"
-    class="file-input"
-    type="file"
-    accept="image/png,image/jpeg,image/webp,application/pdf"
+id="receiptInput"
+class="file-input"
+type="file"
+accept="image/png,image/jpeg,image/webp,application/pdf"
 >
+
 
 <img
-    id="receiptPreview"
-    class="file-preview"
-    alt="Receipt preview"
+id="receiptPreview"
+class="file-preview"
+alt="Receipt preview"
 >
+
 
 <button
-    id="uploadReceipt"
-    class="btn btn-green upload-button"
-    type="button"
+id="uploadReceipt"
+class="btn btn-green upload-button"
+type="button"
 >
-    SUBMIT RECEIPT
+
+📤 SUBMIT WINNING RECEIPT
+
 </button>
 
-<span id="uploadStatus" class="upload-status">
-    Maximum recommended file size: 10 MB.
+
+<span
+id="uploadStatus"
+class="upload-status"
+>
+
+Maximum recommended file size: 10 MB.
+
 </span>
 
 </div>
 
 </div>
+
 
 </div>
 
@@ -1416,7 +1979,7 @@ footer p{
 
 <!-- =====================================================
      GAMES
-====================================================== -->
+===================================================== -->
 
 <section class="section" id="games">
 
@@ -1425,33 +1988,38 @@ footer p{
 <div>
 
 <div class="eyebrow">
-    AVAILABLE PLATFORMS
+    🎰 GAME COLLECTION
 </div>
 
 <h2>
-    Choose your <span>game zone.</span>
+    Choose your <span>game.</span>
 </h2>
 
 </div>
 
+
 <input
-    id="gameSearch"
-    class="game-search"
-    type="search"
-    placeholder="Search games..."
+id="gameSearch"
+class="game-search"
+type="search"
+placeholder="🔍 Search games..."
 >
 
 </div>
 
 
-<div id="gameGrid" class="game-grid"></div>
+<div
+id="gameGrid"
+class="game-grid"
+>
+</div>
 
 </section>
 
 
 <!-- =====================================================
      GATEWAYS
-====================================================== -->
+===================================================== -->
 
 <section class="section" id="gateways">
 
@@ -1460,7 +2028,7 @@ footer p{
 <div>
 
 <div class="eyebrow">
-    SUPPORTED GATEWAYS
+    💳 SUPPORTED GATEWAYS
 </div>
 
 <h2>
@@ -1474,29 +2042,74 @@ footer p{
 
 <div class="gateway-grid">
 
-<div class="gateway">
-    <div class="gateway-icon">C</div>
-    <h3>Chime</h3>
-    <p>Supported gateway</p>
-</div>
 
 <div class="gateway">
-    <div class="gateway-icon">P</div>
-    <h3>PayPal</h3>
-    <p>Supported gateway</p>
+
+<div class="gateway-icon">
+    C
 </div>
 
-<div class="gateway">
-    <div class="gateway-icon">$</div>
-    <h3>Cash App</h3>
-    <p>Supported gateway</p>
+<h3>
+    Chime
+</h3>
+
+<p>
+    Supported gateway
+</p>
+
 </div>
 
+
 <div class="gateway">
-    <div class="gateway-icon">V</div>
-    <h3>Venmo</h3>
-    <p>Supported gateway</p>
+
+<div class="gateway-icon">
+    P
 </div>
+
+<h3>
+    PayPal
+</h3>
+
+<p>
+    Supported gateway
+</p>
+
+</div>
+
+
+<div class="gateway">
+
+<div class="gateway-icon">
+    $
+</div>
+
+<h3>
+    Cash App
+</h3>
+
+<p>
+    Supported gateway
+</p>
+
+</div>
+
+
+<div class="gateway">
+
+<div class="gateway-icon">
+    V
+</div>
+
+<h3>
+    Venmo
+</h3>
+
+<p>
+    Supported gateway
+</p>
+
+</div>
+
 
 </div>
 
@@ -1505,7 +2118,7 @@ footer p{
 
 <!-- =====================================================
      CONTACT
-====================================================== -->
+===================================================== -->
 
 <section class="section" id="contact">
 
@@ -1514,7 +2127,7 @@ footer p{
 <div>
 
 <div class="eyebrow">
-    TEXT ME HERE
+    📲 TEXT ME HERE
 </div>
 
 <h2>
@@ -1534,12 +2147,16 @@ href="mailto:protechmain622@gmail.com"
 class="contact-card"
 >
 
-<div class="contact-icon">✉</div>
+<div class="contact-icon">
+    ✉
+</div>
 
-<h3>Email</h3>
+<h3>
+    Email
+</h3>
 
 <p>
-protechmain622@gmail.com
+    protechmain622@gmail.com
 </p>
 
 </a>
@@ -1552,12 +2169,16 @@ rel="noopener"
 class="contact-card"
 >
 
-<div class="contact-icon">◉</div>
+<div class="contact-icon">
+    W
+</div>
 
-<h3>WhatsApp</h3>
+<h3>
+    WhatsApp
+</h3>
 
 <p>
-+1 (361) 419-8619
+    +1 (361) 419-8619
 </p>
 
 </a>
@@ -1570,12 +2191,16 @@ rel="noopener"
 class="contact-card"
 >
 
-<div class="contact-icon">➤</div>
+<div class="contact-icon">
+    T
+</div>
 
-<h3>Telegram</h3>
+<h3>
+    Telegram
+</h3>
 
 <p>
-Join GreenZone Telegram
+    Join GreenZone Telegram
 </p>
 
 </a>
@@ -1587,8 +2212,8 @@ Join GreenZone Telegram
 
 
 <!-- =====================================================
-     PLAYER SUPPORT + COMPLAINT
-====================================================== -->
+     SUPPORT / COMPLAINT
+===================================================== -->
 
 <section class="section" id="complaint">
 
@@ -1598,7 +2223,7 @@ Join GreenZone Telegram
 <div class="form-card">
 
 <div class="eyebrow">
-    PLAYER SUPPORT
+    💬 PLAYER SUPPORT
 </div>
 
 <h3>
@@ -1606,28 +2231,66 @@ Join GreenZone Telegram
 </h3>
 
 <p class="form-description">
-    Use this form for general player support.
+    Contact GreenZone support with your question or request.
 </p>
 
-<form id="supportForm">
+
+<form
+id="supportForm"
+>
 
 <div class="form-group">
-<label>Name</label>
-<input name="name" maxlength="80" required>
+
+<label>
+    NAME
+</label>
+
+<input
+name="name"
+maxlength="80"
+required
+>
+
 </div>
+
 
 <div class="form-group">
-<label>Contact</label>
-<input name="contact" maxlength="80" required>
+
+<label>
+    CONTACT
+</label>
+
+<input
+name="contact"
+maxlength="80"
+required
+>
+
 </div>
+
 
 <div class="form-group">
-<label>Message</label>
-<textarea name="message" maxlength="1500" required></textarea>
+
+<label>
+    MESSAGE
+</label>
+
+<textarea
+name="message"
+maxlength="1500"
+required
+></textarea>
+
 </div>
 
-<button class="btn btn-green form-submit">
-    SEND MESSAGE
+
+<button
+class="btn btn-green form-submit"
+type="submit"
+>
+
+SEND MESSAGE
+
 </button>
 
 </form>
@@ -1638,7 +2301,7 @@ Join GreenZone Telegram
 <div class="form-card">
 
 <div class="eyebrow">
-    PLAYER COMPLAINT
+    ⚠️ PLAYER COMPLAINT
 </div>
 
 <h3>
@@ -1646,44 +2309,99 @@ Join GreenZone Telegram
 </h3>
 
 <p class="form-description">
-    Tell us what happened so the support team can review your issue.
+    Tell us what happened and our support team can review the issue.
 </p>
 
-<form id="complaintForm">
+
+<form
+id="complaintForm"
+>
 
 <div class="form-group">
-<label>Name</label>
-<input name="name" maxlength="80" required>
+
+<label>
+    NAME
+</label>
+
+<input
+name="name"
+maxlength="80"
+required
+>
+
 </div>
 
+
 <div class="form-group">
-<label>Contact</label>
-<input name="contact" maxlength="80" required>
+
+<label>
+    CONTACT
+</label>
+
+<input
+name="contact"
+maxlength="80"
+required
+>
+
 </div>
 
+
 <div class="form-group">
 
-<label>Issue Type</label>
+<label>
+    ISSUE TYPE
+</label>
 
 <select name="issue">
 
-<option>General Complaint</option>
-<option>Account Issue</option>
-<option>Game Issue</option>
-<option>Support Issue</option>
-<option>Other</option>
+<option>
+General Complaint
+</option>
+
+<option>
+Account Issue
+</option>
+
+<option>
+Game Issue
+</option>
+
+<option>
+Support Issue
+</option>
+
+<option>
+Other
+</option>
 
 </select>
 
 </div>
 
+
 <div class="form-group">
-<label>Complaint</label>
-<textarea name="message" maxlength="2000" required></textarea>
+
+<label>
+    COMPLAINT
+</label>
+
+<textarea
+name="message"
+maxlength="2000"
+required
+></textarea>
+
 </div>
 
-<button class="btn btn-green form-submit">
-    SUBMIT COMPLAINT
+
+<button
+class="btn btn-gold form-submit"
+type="submit"
+>
+
+SUBMIT COMPLAINT
+
 </button>
 
 </form>
@@ -1695,25 +2413,33 @@ Join GreenZone Telegram
 
 </section>
 
+
 </main>
 
 
 <!-- =====================================================
      FOOTER
-====================================================== -->
+===================================================== -->
 
 <footer>
 
 <div class="footer-logo">
 
-<img src="image/greenzone-logo.jpg" alt="GreenZone">
+<img
+src="image/greenzone-logo.jpg"
+alt="GreenZone"
+>
 
 Green<span>Zone</span>
 
 </div>
 
+
 <p>
-© <span id="year"></span> GreenZone Online Casino • 18+
+
+© <span id="year"></span>
+GreenZone Online Casino • 18+
+
 </p>
 
 </footer>
@@ -1721,7 +2447,7 @@ Green<span>Zone</span>
 
 <!-- =====================================================
      FLOATING CONTACT
-====================================================== -->
+===================================================== -->
 
 <div class="floating-contact">
 
@@ -1732,8 +2458,11 @@ target="_blank"
 rel="noopener"
 title="WhatsApp"
 >
+
 W
+
 </a>
+
 
 <a
 class="float-btn"
@@ -1742,7 +2471,9 @@ target="_blank"
 rel="noopener"
 title="Telegram"
 >
+
 T
+
 </a>
 
 </div>
@@ -1750,9 +2481,9 @@ T
 
 <script>
 
-/* =========================================================
-   GAME LIST
-========================================================= */
+/* =====================================================
+   GAME PLATFORMS
+===================================================== */
 
 const games = [
 
@@ -1772,12 +2503,18 @@ const games = [
 
 ];
 
-const gameGrid = document.getElementById("gameGrid");
-const gameSearch = document.getElementById("gameSearch");
+
+const gameGrid =
+document.getElementById("gameGrid");
+
+const gameSearch =
+document.getElementById("gameSearch");
+
 
 function renderGames(list){
 
-    gameGrid.innerHTML = list.map((game,index)=>`
+    gameGrid.innerHTML =
+    list.map((game,index)=>`
 
         <article class="game">
 
@@ -1799,26 +2536,31 @@ function renderGames(list){
 
 }
 
-gameSearch.addEventListener("input",function(){
 
-    const query = this.value.toLowerCase();
+gameSearch.addEventListener(
+    "input",
+    function(){
 
-    renderGames(
-        games.filter(game =>
-            game.toLowerCase().includes(query)
-        )
-    );
+        const query =
+        this.value.toLowerCase().trim();
 
-});
+        renderGames(
+            games.filter(game =>
+                game.toLowerCase().includes(query)
+            )
+        );
+
+    }
+);
+
 
 renderGames(games);
 
 
-/* =========================================================
-   COUNTDOWN SETTINGS
-
-   CHANGE THESE DATES TO YOUR REAL EVENTS.
-========================================================= */
+/* =====================================================
+   COUNTDOWN
+   CHANGE THESE DATES
+===================================================== */
 
 const events = {
 
@@ -1837,50 +2579,78 @@ const events = {
 
 function countdown(event,prefix){
 
-    const target = new Date(event.date);
+    const target =
+    new Date(event.date);
 
-    document.getElementById(prefix+"Title").textContent =
-        event.title;
+    document.getElementById(prefix+"Title")
+    .textContent =
+    event.title;
 
-    document.getElementById(prefix+"Date").textContent =
-        target.toLocaleString();
+    document.getElementById(prefix+"Date")
+    .textContent =
+    target.toLocaleString();
+
 
     function update(){
 
         let difference =
-            target.getTime() - Date.now();
+        target.getTime() - Date.now();
 
-        if(difference <= 0){
 
+        if(difference < 0){
             difference = 0;
-
         }
 
+
         const days =
-            Math.floor(difference / 86400000);
+        Math.floor(
+            difference / 86400000
+        );
+
 
         const hours =
-            Math.floor(difference / 3600000) % 24;
+        Math.floor(
+            difference / 3600000
+        ) % 24;
+
 
         const minutes =
-            Math.floor(difference / 60000) % 60;
+        Math.floor(
+            difference / 60000
+        ) % 60;
+
 
         const seconds =
-            Math.floor(difference / 1000) % 60;
+        Math.floor(
+            difference / 1000
+        ) % 60;
 
-        document.getElementById(prefix+"Days").textContent =
-            String(days).padStart(2,"0");
 
-        document.getElementById(prefix+"Hours").textContent =
-            String(hours).padStart(2,"0");
+        document.getElementById(
+            prefix+"Days"
+        ).textContent =
+        String(days).padStart(2,"0");
 
-        document.getElementById(prefix+"Minutes").textContent =
-            String(minutes).padStart(2,"0");
 
-        document.getElementById(prefix+"Seconds").textContent =
-            String(seconds).padStart(2,"0");
+        document.getElementById(
+            prefix+"Hours"
+        ).textContent =
+        String(hours).padStart(2,"0");
+
+
+        document.getElementById(
+            prefix+"Minutes"
+        ).textContent =
+        String(minutes).padStart(2,"0");
+
+
+        document.getElementById(
+            prefix+"Seconds"
+        ).textContent =
+        String(seconds).padStart(2,"0");
 
     }
+
 
     update();
 
@@ -1890,146 +2660,176 @@ function countdown(event,prefix){
 
 
 countdown(events.freePlay,"free");
+
 countdown(events.largestWin,"win");
 
 
-/* =========================================================
-   RECEIPT UPLOAD PREVIEW
-========================================================= */
+/* =====================================================
+   RECEIPT PREVIEW
+===================================================== */
 
 const receiptInput =
-    document.getElementById("receiptInput");
+document.getElementById("receiptInput");
 
 const receiptPreview =
-    document.getElementById("receiptPreview");
+document.getElementById("receiptPreview");
 
-const uploadButton =
-    document.getElementById("uploadReceipt");
+const uploadReceipt =
+document.getElementById("uploadReceipt");
 
 const uploadStatus =
-    document.getElementById("uploadStatus");
+document.getElementById("uploadStatus");
 
 
-receiptInput.addEventListener("change",function(){
+receiptInput.addEventListener(
+    "change",
+    function(){
 
-    const file = this.files[0];
+        const file =
+        this.files[0];
 
-    if(!file){
+        if(!file){
 
-        receiptPreview.style.display="none";
+            receiptPreview.style.display =
+            "none";
 
-        return;
+            return;
+        }
 
-    }
 
-    if(file.size > 10 * 1024 * 1024){
+        if(
+            file.size >
+            10 * 1024 * 1024
+        ){
 
-        uploadStatus.textContent =
+            uploadStatus.textContent =
             "File is larger than 10 MB.";
 
-        this.value="";
+            this.value="";
 
-        return;
-
-    }
-
-    if(file.type.startsWith("image/")){
-
-        const reader = new FileReader();
-
-        reader.onload = function(e){
-
-            receiptPreview.src = e.target.result;
-
-            receiptPreview.style.display="block";
-
-        };
-
-        reader.readAsDataURL(file);
-
-    }else{
-
-        receiptPreview.style.display="none";
-
-    }
-
-    uploadStatus.textContent =
-        file.name + " selected.";
-
-});
+            return;
+        }
 
 
-uploadButton.addEventListener("click",function(){
+        if(file.type.startsWith("image/")){
 
-    const file = receiptInput.files[0];
+            const reader =
+            new FileReader();
 
-    if(!file){
+
+            reader.onload =
+            function(e){
+
+                receiptPreview.src =
+                e.target.result;
+
+                receiptPreview.style.display =
+                "block";
+
+            };
+
+
+            reader.readAsDataURL(file);
+
+        }
+        else{
+
+            receiptPreview.style.display =
+            "none";
+
+        }
+
 
         uploadStatus.textContent =
-            "Please select a receipt first.";
-
-        return;
+        file.name + " selected.";
 
     }
-
-    /*
-      IMPORTANT:
-
-      GitHub Pages cannot permanently store uploaded files.
-
-      Connect this button to your approved upload backend,
-      Google Apps Script, Cloudinary, Supabase, etc.
-
-      Example endpoint:
-
-      const UPLOAD_ENDPOINT =
-      "YOUR_UPLOAD_ENDPOINT";
-
-      Then use FormData + fetch() here.
-    */
-
-    uploadStatus.textContent =
-        "Receipt selected successfully. Connect your upload backend to permanently save it.";
-
-});
+);
 
 
-/* =========================================================
-   SUPPORT + COMPLAINT DEMO
-========================================================= */
+/*
+ IMPORTANT:
+
+ GitHub Pages cannot permanently store
+ uploaded files.
+
+ Connect this button to your approved
+ upload/storage backend.
+
+ Example:
+
+ Google Apps Script
+ Cloudinary
+ Supabase
+ Firebase
+ Your own API
+
+*/
+
+uploadReceipt.addEventListener(
+    "click",
+    function(){
+
+        if(!receiptInput.files[0]){
+
+            uploadStatus.textContent =
+            "Please select a receipt first.";
+
+            return;
+
+        }
+
+
+        uploadStatus.textContent =
+        "Receipt selected. Connect your upload backend to permanently save it.";
+
+    }
+);
+
+
+/* =====================================================
+   FORM DEMO
+===================================================== */
 
 document
 .getElementById("supportForm")
-.addEventListener("submit",function(e){
+.addEventListener(
+    "submit",
+    function(e){
 
-    e.preventDefault();
+        e.preventDefault();
 
-    alert(
-        "Your support form is ready. Connect it to your Google Apps Script endpoint to save submissions."
-    );
+        alert(
+            "Support form is ready. Connect your Google Apps Script endpoint to save submissions."
+        );
 
-});
+    }
+);
 
 
 document
 .getElementById("complaintForm")
-.addEventListener("submit",function(e){
+.addEventListener(
+    "submit",
+    function(e){
 
-    e.preventDefault();
+        e.preventDefault();
 
-    alert(
-        "Your complaint form is ready. Connect it to your Google Apps Script endpoint to save submissions."
-    );
+        alert(
+            "Complaint form is ready. Connect your Google Apps Script endpoint to save submissions."
+        );
 
-});
+    }
+);
 
 
-/* =========================================================
+/* =====================================================
    YEAR
-========================================================= */
+===================================================== */
 
-document.getElementById("year").textContent =
-    new Date().getFullYear();
+document.getElementById("year")
+.textContent =
+new Date().getFullYear();
 
 </script>
 
