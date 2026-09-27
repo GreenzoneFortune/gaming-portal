@@ -1125,6 +1125,159 @@ footer p{
     background:#229ed9;
 }
 
+
+/* =========================
+   24/7 SUPPORT & COMMUNICATION
+========================= */
+.support-247{
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(43,220,116,.18);
+    border-radius:26px;
+    padding:30px;
+    background:linear-gradient(135deg,rgba(43,220,116,.07),rgba(122,69,226,.07));
+    box-shadow:0 18px 55px rgba(0,0,0,.22);
+}
+.support-247::before{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    right:-90px;
+    top:-110px;
+    border-radius:50%;
+    background:rgba(43,220,116,.07);
+    pointer-events:none;
+}
+.support-247-head{
+    position:relative;
+    z-index:1;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:22px;
+}
+.support-247-title{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+.support-247-icon{
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:16px;
+    background:rgba(43,220,116,.1);
+    border:1px solid rgba(43,220,116,.2);
+    font-size:25px;
+}
+.support-247 h3{
+    margin:0;
+    font-family:Orbitron,sans-serif;
+    font-size:20px;
+}
+.support-247-head p{
+    margin:5px 0 0;
+    color:#888693;
+    font-size:11px;
+}
+.support-live{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:8px 12px;
+    border-radius:999px;
+    background:rgba(43,220,116,.09);
+    border:1px solid rgba(43,220,116,.18);
+    color:#43e67d;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.8px;
+    white-space:nowrap;
+}
+.support-live::before{
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#43e67d;
+    box-shadow:0 0 12px rgba(67,230,125,.8);
+}
+.support-247-grid{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+.support-247-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:18px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(8,8,13,.58);
+    transition:.25s ease;
+}
+.support-247-card:hover{
+    transform:translateY(-3px);
+    border-color:rgba(43,220,116,.3);
+}
+.support-247-card-left{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+.support-channel-icon{
+    width:45px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:14px;
+    font-size:22px;
+}
+.support-channel-icon.telegram{background:rgba(34,158,217,.14);}
+.support-channel-icon.whatsapp{background:rgba(32,213,107,.12);}
+.support-247-card strong{
+    display:block;
+    font-size:13px;
+    color:#fff;
+}
+.support-247-card span{
+    display:block;
+    margin-top:4px;
+    color:#777580;
+    font-size:9px;
+}
+.support-247-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:10px 13px;
+    border-radius:10px;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.4px;
+    background:#fff;
+    color:#111;
+    white-space:nowrap;
+}
+.support-247-btn.telegram-btn{background:#229ed9;color:#fff;}
+.support-247-btn.whatsapp-btn{background:#20d56b;color:#fff;}
+@media(max-width:650px){
+    .support-247{padding:22px 17px;}
+    .support-247-head{align-items:flex-start;flex-direction:column;}
+    .support-247-grid{grid-template-columns:1fr;}
+    .support-247-card{align-items:flex-start;flex-direction:column;}
+    .support-247-btn{width:100%;}
+}
+
 /* =========================
    MOBILE
 ========================= */
@@ -1262,6 +1415,7 @@ footer p{
             <a href="#events">Free Play</a>
             <a href="#games">Platforms</a>
             <a href="#gateways">Gateways</a>
+            <a href="#support247">24/7 Support</a>
             <a href="#support">Support</a>
         </nav>
 
@@ -2081,6 +2235,53 @@ footer p{
 
 </section>
 
+
+
+<!-- 24/7 SUPPORT & COMMUNICATION -->
+<section id="support247">
+    <div class="section-head">
+        <div class="kicker">Always Connected</div>
+        <h2>📲 24/7 Support &amp; Communication</h2>
+        <p>Need help or have a platform question? Contact GreenZone instantly through Telegram or WhatsApp.</p>
+    </div>
+
+    <div class="support-247">
+        <div class="support-247-head">
+            <div class="support-247-title">
+                <div class="support-247-icon">💬</div>
+                <div>
+                    <h3>GreenZone Support</h3>
+                    <p>Fast communication channels available around the clock.</p>
+                </div>
+            </div>
+            <div class="support-live">24/7 SUPPORT</div>
+        </div>
+
+        <div class="support-247-grid">
+            <a class="support-247-card" href="https://t.me/ptgreenbot" target="_blank" rel="noopener noreferrer">
+                <div class="support-247-card-left">
+                    <div class="support-channel-icon telegram">✈️</div>
+                    <div>
+                        <strong>Telegram Support</strong>
+                        <span>@PTGREENBOT • Instant replies</span>
+                    </div>
+                </div>
+                <span class="support-247-btn telegram-btn">OPEN TELEGRAM →</span>
+            </a>
+
+            <a class="support-247-card" href="https://wa.me/13614198619" target="_blank" rel="noopener noreferrer">
+                <div class="support-247-card-left">
+                    <div class="support-channel-icon whatsapp">💬</div>
+                    <div>
+                        <strong>WhatsApp Support</strong>
+                        <span>GreenZone Support • Direct chat</span>
+                    </div>
+                </div>
+                <span class="support-247-btn whatsapp-btn">OPEN WHATSAPP →</span>
+            </a>
+        </div>
+    </div>
+</section>
 
 <!-- SUPPORT -->
 <section id="support">
