@@ -1489,6 +1489,662 @@ footer p{
         font-size:19px;
     }
 }
+
+/* =========================================================
+   GREENZONE BONUS ROLLER — FIRST PAGE EXPERIENCE
+========================================================= */
+
+.bonus-hero{
+    max-width:1320px;
+    grid-template-columns:.82fr 1.18fr;
+    gap:38px;
+    padding-top:52px;
+    padding-bottom:52px;
+    align-items:center;
+}
+
+.bonus-hero .hero-copy{
+    position:relative;
+    z-index:2;
+}
+
+.bonus-hero .hero-copy p{
+    max-width:610px;
+}
+
+.roller-trust-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:25px;
+}
+
+.roller-trust{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 13px;
+    border:1px solid rgba(57,255,136,.12);
+    background:rgba(57,255,136,.035);
+    border-radius:13px;
+}
+
+.roller-trust>span{
+    width:22px;
+    height:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:rgba(57,255,136,.12);
+    color:var(--green);
+    font-size:11px;
+    font-weight:900;
+}
+
+.roller-trust strong{
+    display:block;
+    color:#f7f7fa;
+    font-size:10px;
+}
+
+.roller-trust small{
+    display:block;
+    margin-top:2px;
+    color:#6f6d79;
+    font-size:8px;
+}
+
+.hero-roller{
+    position:relative;
+    min-width:0;
+}
+
+.roller-shell{
+    position:relative;
+    overflow:hidden;
+    border-radius:30px;
+    border:1px solid rgba(57,255,136,.18);
+    background:
+        radial-gradient(circle at 50% 25%,rgba(57,255,136,.11),transparent 27%),
+        radial-gradient(circle at 80% 80%,rgba(138,44,255,.12),transparent 34%),
+        linear-gradient(145deg,#111018,#0b0b10 70%);
+    padding:25px 25px 20px;
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.38),
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 0 45px rgba(57,255,136,.045);
+}
+
+.roller-shell:before{
+    content:"";
+    position:absolute;
+    width:270px;
+    height:270px;
+    left:50%;
+    top:110px;
+    transform:translateX(-50%);
+    border-radius:50%;
+    border:1px solid rgba(57,255,136,.05);
+    box-shadow:0 0 70px rgba(57,255,136,.05);
+    pointer-events:none;
+}
+
+.roller-topline{
+    position:relative;
+    z-index:3;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+}
+
+.roller-topline h2{
+    margin-top:2px;
+    font-family:Orbitron,sans-serif;
+    font-size:23px;
+    letter-spacing:.2px;
+}
+
+.roller-live{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:7px 10px;
+    border-radius:999px;
+    background:rgba(57,255,136,.07);
+    border:1px solid rgba(57,255,136,.15);
+    color:var(--green);
+    font-size:8px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.roller-live span{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 12px var(--green);
+    animation:pulse 1.5s infinite;
+}
+
+.wheel-stage{
+    position:relative;
+    width:min(100%,560px);
+    aspect-ratio:1;
+    margin:16px auto 17px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.wheel-glow{
+    position:absolute;
+    inset:5%;
+    border-radius:50%;
+    background:rgba(57,255,136,.06);
+    filter:blur(28px);
+    pointer-events:none;
+}
+
+.bonus-wheel{
+    position:relative;
+    width:86%;
+    aspect-ratio:1;
+    border-radius:50%;
+    border:8px solid #111117;
+    background:
+        conic-gradient(
+            from -36deg,
+            #23d96d 0deg 72deg,
+            #ff3ca8 72deg 216deg,
+            #ffd94e 216deg 288deg,
+            #36b8ff 288deg 306deg,
+            #8f63ef 306deg 324deg,
+            #464450 324deg 360deg
+        );
+    box-shadow:
+        0 0 0 2px rgba(255,216,77,.22),
+        0 0 0 7px rgba(255,255,255,.02),
+        0 0 35px rgba(57,255,136,.18),
+        inset 0 0 30px rgba(0,0,0,.22);
+    transition:transform 5.4s cubic-bezier(.12,.78,.14,1);
+    will-change:transform;
+    z-index:2;
+}
+
+.bonus-wheel:before{
+    content:"";
+    position:absolute;
+    inset:5%;
+    border-radius:50%;
+    border:1px dashed rgba(255,255,255,.23);
+    pointer-events:none;
+}
+
+.bonus-wheel:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    background:
+        repeating-conic-gradient(
+            from -36deg,
+            rgba(255,255,255,.18) 0deg 1deg,
+            transparent 1deg 72deg
+        );
+    pointer-events:none;
+}
+
+.wheel-label{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:125px;
+    transform-origin:0 0;
+    color:#fff;
+    text-align:center;
+    font-family:Orbitron,sans-serif;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.15px;
+    text-shadow:0 2px 8px rgba(0,0,0,.55);
+    white-space:nowrap;
+    z-index:3;
+}
+
+.label-5{
+    transform:rotate(0deg) translateX(88px) translateY(-6px);
+}
+.label-10{
+    transform:rotate(72deg) translateX(88px) translateY(-6px);
+}
+.label-20{
+    transform:rotate(144deg) translateX(88px) translateY(-6px);
+}
+.label-3{
+    transform:rotate(198deg) translateX(88px) translateY(-6px);
+}
+.label-5free{
+    transform:rotate(234deg) translateX(88px) translateY(-6px);
+}
+.label-again{
+    transform:rotate(270deg) translateX(88px) translateY(-6px);
+}
+
+.wheel-pointer{
+    position:absolute;
+    top:1%;
+    left:50%;
+    width:0;
+    height:0;
+    transform:translateX(-50%);
+    border-left:17px solid transparent;
+    border-right:17px solid transparent;
+    border-top:35px solid #ffd84d;
+    filter:
+        drop-shadow(0 0 8px rgba(255,216,77,.55))
+        drop-shadow(0 4px 7px rgba(0,0,0,.35));
+    z-index:10;
+}
+
+.wheel-pointer:after{
+    content:"";
+    position:absolute;
+    left:-8px;
+    top:-33px;
+    width:16px;
+    height:4px;
+    border-radius:4px;
+    background:#fff4ad;
+    opacity:.75;
+}
+
+.wheel-center{
+    position:absolute;
+    width:31%;
+    aspect-ratio:1;
+    border-radius:50%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background:#07070b;
+    border:6px solid #ffd84d;
+    box-shadow:
+        0 0 0 5px #101017,
+        0 0 22px rgba(255,216,77,.24),
+        0 10px 25px rgba(0,0,0,.4);
+    z-index:12;
+    overflow:hidden;
+}
+
+.wheel-center-ring{
+    position:absolute;
+    inset:5px;
+    border-radius:50%;
+    border:1px solid rgba(57,255,136,.42);
+    pointer-events:none;
+}
+
+.wheel-logo-wrap{
+    position:relative;
+    z-index:2;
+    width:68%;
+    aspect-ratio:1;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    border:2px solid rgba(255,255,255,.75);
+    box-shadow:0 2px 10px rgba(0,0,0,.45);
+}
+
+.wheel-logo-wrap img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.wheel-center>span{
+    position:absolute;
+    bottom:7%;
+    z-index:3;
+    font-family:Orbitron,sans-serif;
+    font-size:5px;
+    line-height:1.05;
+    text-align:center;
+    color:#fff;
+    letter-spacing:.6px;
+    text-shadow:0 1px 4px #000;
+    opacity:.92;
+}
+
+.roller-spin-btn{
+    position:relative;
+    z-index:3;
+    width:100%;
+    border:none;
+    cursor:pointer;
+    padding:15px 18px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#39ff88,#00c965);
+    color:#041108;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.5px;
+    box-shadow:
+        0 12px 28px rgba(57,255,136,.18),
+        inset 0 1px 0 rgba(255,255,255,.28);
+    transition:.25s;
+}
+
+.roller-spin-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 16px 35px rgba(57,255,136,.3);
+}
+
+.roller-spin-btn:disabled{
+    cursor:not-allowed;
+    opacity:.65;
+    transform:none;
+}
+
+.roller-spin-btn span{
+    margin-right:5px;
+}
+
+.roller-foot{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px 18px;
+    margin-top:12px;
+    color:#666472;
+    font-size:8px;
+    text-align:center;
+}
+
+.roller-foot span:first-child{
+    color:#898693;
+}
+
+/* RESULT MODAL */
+
+.bonus-result-modal{
+    position:fixed;
+    inset:0;
+    z-index:3000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+}
+
+.bonus-result-modal.show{
+    display:flex;
+}
+
+.bonus-result-backdrop{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(10px);
+}
+
+.bonus-result-card{
+    position:relative;
+    width:min(440px,100%);
+    overflow:hidden;
+    padding:34px 28px 24px;
+    border-radius:28px;
+    border:1px solid rgba(57,255,136,.26);
+    background:
+        radial-gradient(circle at 50% -5%,rgba(57,255,136,.17),transparent 35%),
+        linear-gradient(145deg,#15131e,#0a0a0f);
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.7),
+        0 0 45px rgba(57,255,136,.09);
+    text-align:center;
+    animation:bonusPop .32s ease-out;
+    z-index:1;
+}
+
+@keyframes bonusPop{
+    from{opacity:0;transform:translateY(15px) scale(.96)}
+    to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+.bonus-result-close{
+    position:absolute;
+    top:10px;
+    right:13px;
+    width:32px;
+    height:32px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.06);
+    color:#aaa;
+    font-size:23px;
+    cursor:pointer;
+}
+
+.result-confetti{
+    color:var(--gold);
+    font-size:30px;
+    line-height:1;
+    margin-bottom:8px;
+    text-shadow:0 0 20px rgba(255,216,77,.55);
+}
+
+.result-kicker{
+    color:var(--green);
+    font-size:8px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.bonus-result-card h3{
+    margin-top:7px;
+    font-family:Orbitron,sans-serif;
+    font-size:19px;
+}
+
+.result-prize{
+    margin:18px auto 14px;
+    width:100%;
+    padding:18px 12px;
+    border-radius:17px;
+    background:linear-gradient(135deg,rgba(57,255,136,.12),rgba(138,44,255,.10));
+    border:1px solid rgba(57,255,136,.17);
+    color:#fff;
+    font-family:Orbitron,sans-serif;
+    font-size:23px;
+    font-weight:900;
+    text-shadow:0 0 20px rgba(57,255,136,.18);
+}
+
+.result-divider{
+    height:1px;
+    background:rgba(255,255,255,.07);
+    margin:12px 0 14px;
+}
+
+.spin-id-box{
+    padding:13px;
+    border-radius:14px;
+    background:#08080c;
+    border:1px dashed rgba(255,255,255,.13);
+}
+
+.spin-id-box span,
+.result-meta span{
+    display:block;
+    color:#666472;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:1.3px;
+}
+
+.spin-id-box strong{
+    display:block;
+    margin-top:5px;
+    color:#fff;
+    font-family:Orbitron,sans-serif;
+    font-size:13px;
+    letter-spacing:.7px;
+    word-break:break-all;
+}
+
+.result-meta{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:10px;
+}
+
+.result-meta>div{
+    padding:11px;
+    border-radius:12px;
+    background:rgba(255,255,255,.025);
+    border:1px solid rgba(255,255,255,.055);
+}
+
+.result-meta strong{
+    display:block;
+    margin-top:4px;
+    color:var(--green);
+    font-size:10px;
+}
+
+.result-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+    margin-top:14px;
+}
+
+.result-copy-btn,
+.result-close-btn{
+    min-height:43px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.09);
+    cursor:pointer;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.3px;
+}
+
+.result-copy-btn{
+    background:var(--green);
+    color:#041108;
+}
+
+.result-close-btn{
+    background:rgba(255,255,255,.05);
+    color:#fff;
+}
+
+.result-note{
+    margin-top:12px;
+    color:#666472;
+    font-size:8px;
+    line-height:1.55;
+}
+
+@media(max-width:950px){
+    .bonus-hero{
+        grid-template-columns:1fr;
+    }
+
+    .bonus-hero .hero-copy{
+        text-align:center;
+    }
+
+    .bonus-hero .hero-copy p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons,
+    .roller-trust-row{
+        justify-content:center;
+    }
+
+    .hero-roller{
+        max-width:720px;
+        width:100%;
+        margin:auto;
+    }
+}
+
+@media(max-width:650px){
+    .bonus-hero{
+        padding-top:35px;
+    }
+
+    .roller-shell{
+        padding:18px 13px 16px;
+        border-radius:23px;
+    }
+
+    .roller-topline h2{
+        font-size:18px;
+    }
+
+    .roller-live{
+        font-size:7px;
+        padding:6px 8px;
+    }
+
+    .wheel-stage{
+        margin-top:10px;
+    }
+
+    .bonus-wheel{
+        width:91%;
+        border-width:6px;
+    }
+
+    .wheel-label{
+        width:98px;
+        font-size:7px;
+    }
+
+    .label-5,.label-10,.label-20,.label-3,.label-5free,.label-again{
+        transform-origin:0 0;
+    }
+
+    .label-5{transform:rotate(0deg) translateX(69px) translateY(-5px)}
+    .label-10{transform:rotate(72deg) translateX(69px) translateY(-5px)}
+    .label-20{transform:rotate(144deg) translateX(69px) translateY(-5px)}
+    .label-3{transform:rotate(198deg) translateX(69px) translateY(-5px)}
+    .label-5free{transform:rotate(234deg) translateX(69px) translateY(-5px)}
+    .label-again{transform:rotate(270deg) translateX(69px) translateY(-5px)}
+
+    .wheel-pointer{
+        border-left-width:13px;
+        border-right-width:13px;
+        border-top-width:28px;
+    }
+
+    .roller-spin-btn{
+        padding:13px 12px;
+        font-size:10px;
+    }
+
+    .roller-foot{
+        font-size:7px;
+    }
+
+    .result-prize{
+        font-size:19px;
+    }
+}
+
 </style>
 </head>
 
@@ -1527,66 +2183,137 @@ footer p{
 </header>
 
 
-<!-- HERO -->
+<!-- HERO + BONUS ROLLER -->
 <main id="home">
 
-<section class="hero">
+<section class="hero bonus-hero">
 
-    <div>
-
+    <div class="hero-copy">
         <div class="hero-tag">
             <span class="live-dot"></span>
-            GreenZone Player Hub
+            GreenZone Bonus Roller
         </div>
 
         <h1>
-            STAY INFORMED.<br>
-            PLAY <span class="green">SMART.</span><br>
-            WIN THE <span class="pink">EXCITEMENT.</span>
+            SPIN.<br>
+            <span class="green">REVEAL.</span><br>
+            ENJOY THE <span class="pink">SURPRISE.</span>
         </h1>
 
         <p>
-            Welcome to the official GreenZone Gaming information and support hub.
-            This website is designed to keep players updated about available
-            gaming platforms, bonuses, Free Play announcements, daily updates,
-            platform issues and the best ways to communicate with GreenZone.
+            Welcome to the GreenZone Bonus Roller. Take your spin and receive
+            a unique Spin ID. Your result is returned by the GreenZone
+            verification system and can be used to confirm the spin record.
         </p>
 
         <div class="hero-buttons">
-            <a href="#games" class="btn btn-green">
-                🎮 EXPLORE PLATFORMS
-            </a>
-
-            <a href="#events" class="btn btn-outline">
-                🔥 VIEW UPCOMING EVENTS
-            </a>
+            <a href="#bonus-roller" class="btn btn-green">🎰 SPIN NOW</a>
+            <a href="#games" class="btn btn-outline">🎮 EXPLORE PLATFORMS</a>
         </div>
 
+        <div class="roller-trust-row">
+            <div class="roller-trust">
+                <span>✓</span>
+                <div><strong>Unique Spin ID</strong><small>Every completed spin</small></div>
+            </div>
+            <div class="roller-trust">
+                <span>✓</span>
+                <div><strong>Instant Result</strong><small>Shown after the wheel stops</small></div>
+            </div>
+        </div>
     </div>
 
+    <div class="hero-roller" id="bonus-roller">
 
-    <div class="hero-display">
-
-        <div class="jackpot">
-
-            <div class="emoji">🎰</div>
-
-            <h2>GREENZONE</h2>
-
-            <p>
-                INFORMATION • UPDATES • SUPPORT
-            </p>
-
-            <div style="margin-top:18px;color:#777;font-size:10px;">
-                ✦ CHECK THE HUB REGULARLY ✦
+        <div class="roller-shell">
+            <div class="roller-topline">
+                <div>
+                    <div class="kicker">GreenZone Exclusive</div>
+                    <h2>🎰 Bonus Roller</h2>
+                </div>
+                <div class="roller-live">
+                    <span></span> READY
+                </div>
             </div>
 
+            <div class="wheel-stage" id="wheelStage">
+                <div class="wheel-glow"></div>
+                <div class="wheel-pointer" aria-hidden="true"></div>
+
+                <div class="bonus-wheel" id="bonusWheel" aria-label="GreenZone Bonus Roller">
+                    <div class="wheel-label label-5">5% BONUS</div>
+                    <div class="wheel-label label-10">10% BONUS</div>
+                    <div class="wheel-label label-20">20% BONUS</div>
+                    <div class="wheel-label label-3">$3 FREE PLAY</div>
+                    <div class="wheel-label label-5free">$5 FREE PLAY</div>
+                    <div class="wheel-label label-again">TRY AGAIN</div>
+                </div>
+
+                <div class="wheel-center">
+                    <div class="wheel-center-ring"></div>
+                    <div class="wheel-logo-wrap">
+                        <img src="image/greenzone-logo.jpg" alt="GreenZone Online Casino">
+                    </div>
+                    <span>SPIN<br>TO WIN</span>
+                </div>
+            </div>
+
+            <button class="roller-spin-btn" id="bonusSpinBtn" type="button">
+                <span>🎯</span> SPIN BONUS ROLLER
+            </button>
+
+            <div class="roller-foot">
+                <span>🔒 Spin results are recorded by the GreenZone backend.</span>
+                <span>Keep your Spin ID for verification.</span>
+            </div>
         </div>
 
     </div>
 
 </section>
 
+<!-- RESULT POPUP -->
+<div class="bonus-result-modal" id="bonusResultModal" aria-hidden="true">
+    <div class="bonus-result-backdrop" id="bonusResultBackdrop"></div>
+
+    <div class="bonus-result-card" role="dialog" aria-modal="true" aria-labelledby="bonusResultTitle">
+        <button class="bonus-result-close" id="bonusResultClose" type="button" aria-label="Close result">×</button>
+
+        <div class="result-confetti" aria-hidden="true">✦</div>
+
+        <div class="result-kicker">GREENZONE BONUS ROLLER</div>
+        <h3 id="bonusResultTitle">🎉 YOU GOT IT!</h3>
+
+        <div class="result-prize" id="bonusWin">—</div>
+
+        <div class="result-divider"></div>
+
+        <div class="spin-id-box">
+            <span>YOUR SPIN ID</span>
+            <strong id="bonusSpinId">—</strong>
+        </div>
+
+        <div class="result-meta">
+            <div>
+                <span>Status</span>
+                <strong id="bonusStatusResult">Valid</strong>
+            </div>
+            <div>
+                <span>Record</span>
+                <strong id="bonusRecordResult">Recorded</strong>
+            </div>
+        </div>
+
+        <div class="result-actions">
+            <button class="result-copy-btn" id="bonusCopyBtn" type="button">📋 COPY SPIN ID</button>
+            <button class="result-close-btn" id="bonusResultDone" type="button">DONE</button>
+        </div>
+
+        <p class="result-note">
+            Keep this Spin ID if you need GreenZone Support to verify your result.
+        </p>
+    </div>
+</div>
 
 <!-- PLATFORM PROBLEM ALERT -->
 <div class="notice-alert">
@@ -2993,6 +3720,212 @@ searchInput.addEventListener("input",function(){
     });
 
 });
+
+
+/* =========================================================
+   GREENZONE BONUS ROLLER — SERVER RECORDED SPINS
+========================================================= */
+(function(){
+    const BONUS_API =
+        "https://script.google.com/macros/s/AKfycbzHkKX14IQdW7WViNLOvzalBDWHsS6dyvobMZ96I-LNPhV4ErP4vb_CQWHv8gcL_Amiyw/exec";
+
+    const wheel = document.getElementById("bonusWheel");
+    const spinBtn = document.getElementById("bonusSpinBtn");
+    const modal = document.getElementById("bonusResultModal");
+    const backdrop = document.getElementById("bonusResultBackdrop");
+    const closeBtn = document.getElementById("bonusResultClose");
+    const doneBtn = document.getElementById("bonusResultDone");
+    const copyBtn = document.getElementById("bonusCopyBtn");
+    const winText = document.getElementById("bonusWin");
+    const spinIdText = document.getElementById("bonusSpinId");
+    const statusText = document.getElementById("bonusStatusResult");
+    const recordText = document.getElementById("bonusRecordResult");
+
+    if(!wheel || !spinBtn || !modal) return;
+
+    let rotation = 0;
+    let currentSpin = null;
+
+    /*
+      These names are only a display fallback for older backend records.
+      The backend remains authoritative: the browser never chooses a result.
+    */
+    const displayMap = {
+        "Demo Reward A": "10% Bonus",
+        "Demo Reward B": "5% Bonus",
+        "Demo Reward C": "20% Bonus",
+        "Demo Reward D": "$3 Free Play",
+        "Demo Reward E": "$5 Free Play",
+        "Try Again": "Try Again"
+    };
+
+    /*
+      Visual centers correspond to the six wheel sectors.
+      The wheel itself shows no probabilities.
+    */
+    const targetAngles = {
+        "10% Bonus": 144,
+        "5% Bonus": 36,
+        "20% Bonus": 252,
+        "$3 Free Play": 297,
+        "$5 Free Play": 315,
+        "Try Again": 342
+    };
+
+    function normalizeResult(raw){
+        const result = String(
+            raw && (raw.result || raw.reward || raw.name || raw.prize)
+                ? (raw.result || raw.reward || raw.name || raw.prize)
+                : "Try Again"
+        ).trim();
+
+        if(displayMap[result]) return displayMap[result];
+
+        if(/5% bonus/i.test(result)) return "5% Bonus";
+        if(/10% bonus/i.test(result)) return "10% Bonus";
+        if(/20% bonus/i.test(result)) return "20% Bonus";
+        if(/\$3.*free/i.test(result)) return "$3 Free Play";
+        if(/\$5.*free/i.test(result)) return "$5 Free Play";
+        if(/try again/i.test(result)) return "Try Again";
+
+        return result;
+    }
+
+    function getTargetAngle(result){
+        return targetAngles[result] ?? targetAngles["Try Again"];
+    }
+
+    function animateToResult(result){
+        const center = getTargetAngle(result);
+        const target = (360 - center) % 360;
+        const current = ((rotation % 360) + 360) % 360;
+        const adjustment = (target - current + 360) % 360;
+
+        rotation += (360 * 7) + adjustment;
+        wheel.style.transform = "rotate(" + rotation + "deg)";
+    }
+
+    async function requestServerSpin(){
+        const response = await fetch(BONUS_API, {
+            method: "POST",
+            headers: {
+                "Content-Type":"text/plain;charset=utf-8"
+            },
+            body: JSON.stringify({
+                action:"spin",
+                source:"greenzone-website",
+                page:window.location.href,
+                timestamp:new Date().toISOString()
+            })
+        });
+
+        if(!response.ok){
+            throw new Error("Spin service returned HTTP " + response.status);
+        }
+
+        const data = await response.json();
+
+        if(!data.success || !data.spin){
+            throw new Error(data.error || "No verified spin was returned.");
+        }
+
+        return data.spin;
+    }
+
+    function openResult(spin){
+        currentSpin = spin;
+
+        const result = normalizeResult(spin);
+
+        winText.textContent = result;
+        spinIdText.textContent = spin.spinId || spin.id || "Unavailable";
+        statusText.textContent = spin.status || "Valid";
+        recordText.textContent = "Recorded";
+
+        modal.classList.add("show");
+        modal.setAttribute("aria-hidden","false");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeResult(){
+        modal.classList.remove("show");
+        modal.setAttribute("aria-hidden","true");
+        document.body.style.overflow = "";
+    }
+
+    spinBtn.addEventListener("click", async function(){
+        if(spinBtn.disabled) return;
+
+        spinBtn.disabled = true;
+        spinBtn.innerHTML = "<span>🎰</span> CONNECTING...";
+
+        try{
+            /*
+              The server chooses the result and creates the Spin ID first.
+              Only then does the visual wheel animate to the returned result.
+            */
+            const spin = await requestServerSpin();
+            const result = normalizeResult(spin);
+
+            spinBtn.innerHTML = "<span>🎰</span> SPINNING...";
+            animateToResult(result);
+
+            window.setTimeout(function(){
+                openResult(spin);
+                spinBtn.disabled = false;
+                spinBtn.innerHTML = "<span>🎯</span> SPIN AGAIN";
+            },5450);
+
+        }catch(error){
+            console.error("GreenZone Bonus Roller:",error);
+
+            spinBtn.disabled = false;
+            spinBtn.innerHTML = "<span>⚠️</span> TRY AGAIN";
+
+            alert(
+                "The Bonus Roller could not connect to the verification server.\\n\\n" +
+                "Please try again in a moment."
+            );
+        }
+    });
+
+    copyBtn.addEventListener("click", async function(){
+        const id = spinIdText.textContent;
+
+        if(!id || id === "Unavailable") return;
+
+        try{
+            await navigator.clipboard.writeText(id);
+            copyBtn.textContent = "✓ COPIED";
+            window.setTimeout(function(){
+                copyBtn.textContent = "📋 COPY SPIN ID";
+            },1500);
+        }catch(error){
+            const temp = document.createElement("textarea");
+            temp.value = id;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand("copy");
+            temp.remove();
+
+            copyBtn.textContent = "✓ COPIED";
+            window.setTimeout(function(){
+                copyBtn.textContent = "📋 COPY SPIN ID";
+            },1500);
+        }
+    });
+
+    closeBtn.addEventListener("click",closeResult);
+    doneBtn.addEventListener("click",closeResult);
+    backdrop.addEventListener("click",closeResult);
+
+    document.addEventListener("keydown",function(e){
+        if(e.key === "Escape" && modal.classList.contains("show")){
+            closeResult();
+        }
+    });
+})();
+
 
 </script>
 
