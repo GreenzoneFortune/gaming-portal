@@ -1857,6 +1857,30 @@ footer p{
     margin-right:5px;
 }
 
+
+.roller-cooldown{
+    min-height:30px;
+    margin-top:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    color:#8e8a96;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.2px;
+    text-align:center;
+}
+.roller-cooldown.active{
+    color:#ffd34d;
+}
+.roller-cooldown.ready{
+    color:#39ff88;
+}
+.cooldown-icon{
+    font-size:13px;
+}
+
 .roller-foot{
     display:flex;
     justify-content:center;
@@ -2261,6 +2285,11 @@ footer p{
             <button class="roller-spin-btn" id="bonusSpinBtn" type="button">
                 <span>🎯</span> SPIN BONUS ROLLER
             </button>
+
+            <div class="roller-cooldown" id="bonusCooldown" aria-live="polite">
+                <span class="cooldown-icon">⏱</span>
+                <span id="bonusCooldownText">Ready for your spin</span>
+            </div>
 
             <div class="roller-foot">
                 <span>🔒 Spin results are recorded by the GreenZone backend.</span>
@@ -3723,14 +3752,18 @@ searchInput.addEventListener("input",function(){
 
 
 /* =========================================================
-   GREENZONE BONUS ROLLER — SERVER RECORDED SPINS
+   GREENZONE BONUS ROLLER — SERVER RECORDED SPINS + 5 MIN COOLDOWN
 ========================================================= */
 (function(){
     const BONUS_API =
         "https://script.google.com/macros/s/AKfycbzHkKX14IQdW7WViNLOvzalBDWHsS6dyvobMZ96I-LNPhV4ErP4vb_CQWHv8gcL_Amiyw/exec";
 
+    const COOLDOWN_MS = 5 * 60 * 1000;
+
     const wheel = document.getElementById("bonusWheel");
     const spinBtn = document.getElementById("bonusSpinBtn");
+    const cooldownBox = document.getElementById("bonusCooldown");
+    const cooldownText = document.getElementById("bonusCooldownText");
     const modal = document.getElementById("bonusResultModal");
     const backdrop = document.getElementById("bonusResultBackdrop");
     const closeBtn = document.getElementById("bonusResultClose");
@@ -3744,7 +3777,76 @@ searchInput.addEventListener("input",function(){
     if(!wheel || !spinBtn || !modal) return;
 
     let rotation = 0;
-    let currentSpin = null;
+    let cooldownTimer = null;
+
+    /*
+      A stable browser ID is sent to Apps Script so the backend can enforce
+      one spin per 5 minutes for this browser/player session.
+    */
+    function getPlayerId(){
+        const key = "greenzone_bonus_player_id";
+        let id = localStorage.getItem(key);
+
+        if(!id){
+            const bytes = new Uint8Array(12);
+            crypto.getRandomValues(bytes);
+            id = "GZP-" + Array.from(bytes)
+                .map(b => b.toString(16).padStart(2,"0"))
+                .join("")
+                .toUpperCase();
+            localStorage.setItem(key,id);
+        }
+
+        return id;
+    }
+
+    function formatRemaining(ms){
+        const totalSeconds = Math.max(0,Math.ceil(ms / 1000));
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        return String(minutes).padStart(2,"0") + ":" +
+               String(seconds).padStart(2,"0");
+    }
+
+    function setCooldown(untilMs){
+        clearInterval(cooldownTimer);
+
+        if(!untilMs || untilMs <= Date.now()){
+            cooldownBox.classList.remove("active");
+            cooldownBox.classList.add("ready");
+            cooldownText.textContent = "Ready for your spin";
+            spinBtn.disabled = false;
+            spinBtn.innerHTML = "<span>🎯</span> SPIN BONUS ROLLER";
+            return;
+        }
+
+        cooldownBox.classList.add("active");
+        cooldownBox.classList.remove("ready");
+        spinBtn.disabled = true;
+
+        function tick(){
+            const remaining = untilMs - Date.now();
+
+            if(remaining <= 0){
+                clearInterval(cooldownTimer);
+                cooldownBox.classList.remove("active");
+                cooldownBox.classList.add("ready");
+                cooldownText.textContent = "Ready for your spin";
+                spinBtn.disabled = false;
+                spinBtn.innerHTML = "<span>🎯</span> SPIN BONUS ROLLER";
+                return;
+            }
+
+            cooldownText.textContent =
+                "Next spin available in " + formatRemaining(remaining);
+
+            spinBtn.innerHTML =
+                "<span>⏱</span> NEXT SPIN IN " + formatRemaining(remaining);
+        }
+
+        tick();
+        cooldownTimer = setInterval(tick,1000);
+    }
 
     /*
       These names are only a display fallback for older backend records.
@@ -3759,10 +3861,6 @@ searchInput.addEventListener("input",function(){
         "Try Again": "Try Again"
     };
 
-    /*
-      Visual centers correspond to the six wheel sectors.
-      The wheel itself shows no probabilities.
-    */
     const targetAngles = {
         "10% Bonus": 144,
         "5% Bonus": 36,
@@ -3805,14 +3903,26 @@ searchInput.addEventListener("input",function(){
         wheel.style.transform = "rotate(" + rotation + "deg)";
     }
 
+    async function apiGetCooldown(){
+        const playerId = encodeURIComponent(getPlayerId());
+        const response = await fetch(
+            BONUS_API + "?action=cooldown&playerId=" + playerId,
+            {method:"GET"}
+        );
+
+        if(!response.ok) throw new Error("Cooldown check failed.");
+        return await response.json();
+    }
+
     async function requestServerSpin(){
-        const response = await fetch(BONUS_API, {
-            method: "POST",
-            headers: {
+        const response = await fetch(BONUS_API,{
+            method:"POST",
+            headers:{
                 "Content-Type":"text/plain;charset=utf-8"
             },
-            body: JSON.stringify({
+            body:JSON.stringify({
                 action:"spin",
+                playerId:getPlayerId(),
                 source:"greenzone-website",
                 page:window.location.href,
                 timestamp:new Date().toISOString()
@@ -3825,16 +3935,20 @@ searchInput.addEventListener("input",function(){
 
         const data = await response.json();
 
-        if(!data.success || !data.spin){
-            throw new Error(data.error || "No verified spin was returned.");
+        if(!data.success){
+            const error = new Error(data.error || "Spin was not accepted.");
+            error.apiData = data;
+            throw error;
+        }
+
+        if(!data.spin){
+            throw new Error("No verified spin was returned.");
         }
 
         return data.spin;
     }
 
     function openResult(spin){
-        currentSpin = spin;
-
         const result = normalizeResult(spin);
 
         winText.textContent = result;
@@ -3853,45 +3967,71 @@ searchInput.addEventListener("input",function(){
         document.body.style.overflow = "";
     }
 
-    spinBtn.addEventListener("click", async function(){
+    async function syncCooldown(){
+        try{
+            const data = await apiGetCooldown();
+
+            if(data && data.cooldownUntil){
+                setCooldown(Number(data.cooldownUntil));
+            }else{
+                setCooldown(0);
+            }
+        }catch(error){
+            /*
+              Do not block a first visit if the endpoint does not yet expose
+              cooldown checking. The POST endpoint remains authoritative.
+            */
+            setCooldown(0);
+        }
+    }
+
+    spinBtn.addEventListener("click",async function(){
         if(spinBtn.disabled) return;
 
         spinBtn.disabled = true;
-        spinBtn.innerHTML = "<span>🎰</span> CONNECTING...";
+        spinBtn.innerHTML = "<span>🎰</span> CHECKING...";
 
         try{
-            /*
-              The server chooses the result and creates the Spin ID first.
-              Only then does the visual wheel animate to the returned result.
-            */
             const spin = await requestServerSpin();
             const result = normalizeResult(spin);
 
             spinBtn.innerHTML = "<span>🎰</span> SPINNING...";
             animateToResult(result);
 
+            const cooldownUntil =
+                Number(spin.cooldownUntil || (Date.now() + COOLDOWN_MS));
+
+            setCooldown(cooldownUntil);
+
             window.setTimeout(function(){
                 openResult(spin);
-                spinBtn.disabled = false;
-                spinBtn.innerHTML = "<span>🎯</span> SPIN AGAIN";
             },5450);
 
         }catch(error){
             console.error("GreenZone Bonus Roller:",error);
 
+            /*
+              If the backend rejects a second spin, it should return
+              cooldownUntil. The user sees the remaining countdown instead
+              of an error alert.
+            */
+            if(error.apiData && error.apiData.cooldownUntil){
+                setCooldown(Number(error.apiData.cooldownUntil));
+                return;
+            }
+
             spinBtn.disabled = false;
             spinBtn.innerHTML = "<span>⚠️</span> TRY AGAIN";
 
             alert(
-                "The Bonus Roller could not connect to the verification server.\\n\\n" +
-                "Please try again in a moment."
+                "The Bonus Roller could not complete the spin.\n\n" +
+                (error.message || "Please try again in a moment.")
             );
         }
     });
 
-    copyBtn.addEventListener("click", async function(){
+    copyBtn.addEventListener("click",async function(){
         const id = spinIdText.textContent;
-
         if(!id || id === "Unavailable") return;
 
         try{
@@ -3907,7 +4047,6 @@ searchInput.addEventListener("input",function(){
             temp.select();
             document.execCommand("copy");
             temp.remove();
-
             copyBtn.textContent = "✓ COPIED";
             window.setTimeout(function(){
                 copyBtn.textContent = "📋 COPY SPIN ID";
@@ -3924,8 +4063,9 @@ searchInput.addEventListener("input",function(){
             closeResult();
         }
     });
-})();
 
+    syncCooldown();
+})();
 
 </script>
 
