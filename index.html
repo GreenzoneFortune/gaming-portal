@@ -1092,6 +1092,89 @@ footer p{
 }
 
 /* =========================
+   24/7 TELEGRAM BOT
+========================= */
+
+.telegram-bot-float{
+    position:fixed;
+    right:18px;
+    bottom:145px;
+    z-index:1001;
+    display:flex;
+    align-items:center;
+    gap:11px;
+    min-width:62px;
+    height:62px;
+    padding:0 17px 0 10px;
+    border-radius:34px;
+    background:linear-gradient(135deg,#229ED9,#168AC0);
+    color:#fff;
+    text-decoration:none;
+    box-shadow:0 10px 30px rgba(34,158,217,.35),0 0 0 1px rgba(255,255,255,.12);
+    overflow:visible;
+    transition:transform .25s ease,box-shadow .25s ease,width .25s ease;
+}
+
+.telegram-bot-float:hover{
+    transform:translateY(-3px) scale(1.02);
+    box-shadow:0 14px 35px rgba(34,158,217,.48),0 0 0 1px rgba(255,255,255,.18);
+}
+
+.telegram-bot-icon{
+    width:42px;
+    height:42px;
+    flex:0 0 42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#fff;
+    color:#229ED9;
+    font-size:23px;
+    font-weight:900;
+    transform:rotate(-8deg);
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+.telegram-bot-label{
+    display:flex;
+    flex-direction:column;
+    line-height:1.2;
+    white-space:nowrap;
+}
+
+.telegram-bot-label strong{
+    font-family:Orbitron,sans-serif;
+    font-size:9px;
+    letter-spacing:.5px;
+}
+
+.telegram-bot-label small{
+    margin-top:3px;
+    font-size:9px;
+    color:rgba(255,255,255,.82);
+}
+
+.telegram-bot-pulse{
+    position:absolute;
+    top:-3px;
+    left:-3px;
+    width:13px;
+    height:13px;
+    border-radius:50%;
+    background:#35e58a;
+    border:2px solid #08080c;
+    box-shadow:0 0 0 0 rgba(53,229,138,.65);
+    animation:telegramPulse 2s infinite;
+}
+
+@keyframes telegramPulse{
+    0%{box-shadow:0 0 0 0 rgba(53,229,138,.65)}
+    70%{box-shadow:0 0 0 8px rgba(53,229,138,0)}
+    100%{box-shadow:0 0 0 0 rgba(53,229,138,0)}
+}
+
+/* =========================
    FLOATING BUTTONS
 ========================= */
 
@@ -1314,6 +1397,27 @@ footer p{
 }
 
 @media(max-width:650px){
+
+    .telegram-bot-float{
+        right:14px;
+        bottom:135px;
+        width:56px;
+        min-width:56px;
+        height:56px;
+        padding:0;
+        justify-content:center;
+        border-radius:50%;
+    }
+
+    .telegram-bot-icon{
+        width:40px;
+        height:40px;
+        flex-basis:40px;
+    }
+
+    .telegram-bot-label{
+        display:none;
+    }
 
     .nav{
         min-height:auto;
@@ -2589,6 +2693,21 @@ footer p{
 
 </footer>
 
+
+<!-- 24/7 TELEGRAM BOT FLOATING BUTTON -->
+<a class="telegram-bot-float"
+   href="https://t.me/ptgreenbot"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Open GreenZone 24/7 Telegram Bot"
+   title="GreenZone 24/7 Instant Replies">
+    <span class="telegram-bot-pulse"></span>
+    <span class="telegram-bot-icon">✈</span>
+    <span class="telegram-bot-label">
+        <strong>24/7 INSTANT REPLIES</strong>
+        <small>Chat with GreenZone Bot</small>
+    </span>
+</a>
 
 <!-- FLOATING CONTACT -->
 <div class="float-buttons">
